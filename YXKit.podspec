@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YXKit'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = '常用类.'
   s.homepage         = 'https://github.com/GImperialSeal/YXKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
