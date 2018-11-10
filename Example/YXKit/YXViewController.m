@@ -7,7 +7,6 @@
 //
 
 #import "YXViewController.h"
-
 @interface YXViewController ()
 
 @end

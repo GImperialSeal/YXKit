@@ -7,7 +7,8 @@
 //
 
 #import "SGQRCodeTool.h"
-
+@import CoreImage;
+@import AVFoundation;
 @implementation SGQRCodeTool
 
 /**

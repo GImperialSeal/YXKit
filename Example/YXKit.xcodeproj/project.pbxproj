@@ -24,6 +24,17 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C790DEAA110C447C12AF5647 /* Pods_YXKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F31102F80578C1B2E98BE9C /* Pods_YXKit_Example.framework */; };
 		D336444FF659E93EBE199D66 /* Pods_YXKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76837264D581CB09C535C426 /* Pods_YXKit_Tests.framework */; };
+		EED2D06B2196733B00EFE020 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EED2D04E2196733B00EFE020 /* .gitkeep */; };
+		EED2D06C2196733B00EFE020 /* YXPrefixConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0522196733B00EFE020 /* YXPrefixConfig.m */; };
+		EED2D06D2196733B00EFE020 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EED2D0542196733B00EFE020 /* .gitkeep */; };
+		EED2D06E2196733B00EFE020 /* SGQRCodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0562196733B00EFE020 /* SGQRCodeTool.m */; };
+		EED2D06F2196733B00EFE020 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0572196733B00EFE020 /* QRCodeViewController.m */; };
+		EED2D0702196733B00EFE020 /* UIButton+layout.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D05F2196733B00EFE020 /* UIButton+layout.m */; };
+		EED2D0712196733B00EFE020 /* NSObject+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0632196733B00EFE020 /* NSObject+Crash.m */; };
+		EED2D0732196733B00EFE020 /* MGMCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0652196733B00EFE020 /* MGMCTableView.m */; };
+		EED2D0742196733B00EFE020 /* UITextField+Limit.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0662196733B00EFE020 /* UITextField+Limit.m */; };
+		EED2D0762196733B00EFE020 /* MGMCActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0682196733B00EFE020 /* MGMCActionView.m */; };
+		EED2D0772196733B00EFE020 /* MGMCRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0692196733B00EFE020 /* MGMCRotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +78,26 @@
 		9F31102F80578C1B2E98BE9C /* Pods_YXKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YXKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA62B7CD12735403A792DAA0 /* Pods-YXKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Tests/Pods-YXKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC73A375BE7B3FF43CFB0DBE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		EED2D04E2196733B00EFE020 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		EED2D0512196733B00EFE020 /* YXPrefixConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPrefixConfig.h; sourceTree = "<group>"; };
+		EED2D0522196733B00EFE020 /* YXPrefixConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPrefixConfig.m; sourceTree = "<group>"; };
+		EED2D0542196733B00EFE020 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		EED2D0562196733B00EFE020 /* SGQRCodeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeTool.m; sourceTree = "<group>"; };
+		EED2D0572196733B00EFE020 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		EED2D0582196733B00EFE020 /* SGQRCodeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeTool.h; sourceTree = "<group>"; };
+		EED2D0592196733B00EFE020 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
+		EED2D05C2196733B00EFE020 /* NSObject+Crash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Crash.h"; sourceTree = "<group>"; };
+		EED2D05D2196733B00EFE020 /* UITextField+Limit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Limit.h"; sourceTree = "<group>"; };
+		EED2D05E2196733B00EFE020 /* MGMCTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMCTableView.h; sourceTree = "<group>"; };
+		EED2D05F2196733B00EFE020 /* UIButton+layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+layout.m"; sourceTree = "<group>"; };
+		EED2D0602196733B00EFE020 /* MGMCRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMCRotation.h; sourceTree = "<group>"; };
+		EED2D0612196733B00EFE020 /* MGMCActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMCActionView.h; sourceTree = "<group>"; };
+		EED2D0632196733B00EFE020 /* NSObject+Crash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Crash.m"; sourceTree = "<group>"; };
+		EED2D0652196733B00EFE020 /* MGMCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMCTableView.m; sourceTree = "<group>"; };
+		EED2D0662196733B00EFE020 /* UITextField+Limit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Limit.m"; sourceTree = "<group>"; };
+		EED2D0682196733B00EFE020 /* MGMCActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMCActionView.m; sourceTree = "<group>"; };
+		EED2D0692196733B00EFE020 /* MGMCRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMCRotation.m; sourceTree = "<group>"; };
+		EED2D06A2196733B00EFE020 /* UIButton+layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+layout.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +174,8 @@
 		6003F593195388D20070C39A /* Example for YXKit */ = {
 			isa = PBXGroup;
 			children = (
+				EED2D04D2196733B00EFE020 /* Assets */,
+				EED2D04F2196733B00EFE020 /* Classes */,
 				6003F59C195388D20070C39A /* YXAppDelegate.h */,
 				6003F59D195388D20070C39A /* YXAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -196,6 +229,74 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		EED2D04D2196733B00EFE020 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EED2D04E2196733B00EFE020 /* .gitkeep */,
+			);
+			name = Assets;
+			path = ../../YXKit/Assets;
+			sourceTree = "<group>";
+		};
+		EED2D04F2196733B00EFE020 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EED2D0502196733B00EFE020 /* Config */,
+				EED2D0532196733B00EFE020 /* Until */,
+				EED2D0542196733B00EFE020 /* .gitkeep */,
+				EED2D0552196733B00EFE020 /* QRCode */,
+				EED2D05A2196733B00EFE020 /* View */,
+			);
+			name = Classes;
+			path = ../../YXKit/Classes;
+			sourceTree = "<group>";
+		};
+		EED2D0502196733B00EFE020 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				EED2D0512196733B00EFE020 /* YXPrefixConfig.h */,
+				EED2D0522196733B00EFE020 /* YXPrefixConfig.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		EED2D0532196733B00EFE020 /* Until */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Until;
+			sourceTree = "<group>";
+		};
+		EED2D0552196733B00EFE020 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				EED2D0562196733B00EFE020 /* SGQRCodeTool.m */,
+				EED2D0572196733B00EFE020 /* QRCodeViewController.m */,
+				EED2D0582196733B00EFE020 /* SGQRCodeTool.h */,
+				EED2D0592196733B00EFE020 /* QRCodeViewController.h */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		EED2D05A2196733B00EFE020 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EED2D0612196733B00EFE020 /* MGMCActionView.h */,
+				EED2D0682196733B00EFE020 /* MGMCActionView.m */,
+				EED2D0602196733B00EFE020 /* MGMCRotation.h */,
+				EED2D0692196733B00EFE020 /* MGMCRotation.m */,
+				EED2D05E2196733B00EFE020 /* MGMCTableView.h */,
+				EED2D0652196733B00EFE020 /* MGMCTableView.m */,
+				EED2D05C2196733B00EFE020 /* NSObject+Crash.h */,
+				EED2D0632196733B00EFE020 /* NSObject+Crash.m */,
+				EED2D06A2196733B00EFE020 /* UIButton+layout.h */,
+				EED2D05F2196733B00EFE020 /* UIButton+layout.m */,
+				EED2D05D2196733B00EFE020 /* UITextField+Limit.h */,
+				EED2D0662196733B00EFE020 /* UITextField+Limit.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,7 +308,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				46EA109CF9F4FBB1BF006CED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,7 +326,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				F4042E7E8C5BD20913E73773 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,7 +344,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = YX;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "18637780521@163.com";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -279,6 +378,8 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				EED2D06B2196733B00EFE020 /* .gitkeep in Resources */,
+				EED2D06D2196733B00EFE020 /* .gitkeep in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -313,24 +414,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		46EA109CF9F4FBB1BF006CED /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/YXKit/YXKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YXKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		725972A6DEF11EAECC5C1475 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -349,30 +432,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F4042E7E8C5BD20913E73773 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YXKit_Tests/Pods-YXKit_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
-				"${BUILT_PRODUCTS_DIR}/Expecta+Snapshots/Expecta_Snapshots.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
-				"${BUILT_PRODUCTS_DIR}/Specta/Specta.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta_Snapshots.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Specta.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YXKit_Tests/Pods-YXKit_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -380,9 +439,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EED2D0742196733B00EFE020 /* UITextField+Limit.m in Sources */,
+				EED2D06C2196733B00EFE020 /* YXPrefixConfig.m in Sources */,
+				EED2D06E2196733B00EFE020 /* SGQRCodeTool.m in Sources */,
+				EED2D06F2196733B00EFE020 /* QRCodeViewController.m in Sources */,
 				6003F59E195388D20070C39A /* YXAppDelegate.m in Sources */,
+				EED2D0732196733B00EFE020 /* MGMCTableView.m in Sources */,
 				6003F5A7195388D20070C39A /* YXViewController.m in Sources */,
+				EED2D0762196733B00EFE020 /* MGMCActionView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				EED2D0772196733B00EFE020 /* MGMCRotation.m in Sources */,
+				EED2D0702196733B00EFE020 /* UIButton+layout.m in Sources */,
+				EED2D0712196733B00EFE020 /* NSObject+Crash.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,19 +508,32 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -480,18 +561,31 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

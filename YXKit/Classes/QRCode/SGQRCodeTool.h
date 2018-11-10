@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreImage/CoreImage.h>
-#import <AVFoundation/AVFoundation.h>
+//#import <CoreImage/CoreImage.h>
+//#import <AVFoundation/AVFoundation.h>
 
 @interface SGQRCodeTool : NSObject
 
