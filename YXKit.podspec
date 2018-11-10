@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/GImperialSeal/YXKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
   s.source_files = 'YXKit/Classes/**/*'
-  #s.dependency 'YYKit'
-  #s.dependency 'BFKit'
+  s.dependency 'YYKit'
+  s.dependency 'BFKit'
 
 
   s.subspec 'Config' do |ss|
@@ -20,7 +20,11 @@ Pod::Spec.new do |s|
   
   s.subspec 'QRCode' do |ss|
       ss.source_files = 'YXKit/Classes/QRCode/*'
-      
   end
+
+  s.subspec 'View' do |ss|
+     ss.source_files = 'YXKit/Classes/View/*'
+   end
+
 
 end
