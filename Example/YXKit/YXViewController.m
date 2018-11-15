@@ -7,17 +7,35 @@
 //
 
 #import "YXViewController.h"
+
+#import "YXViewController+review.h"// app评论
+
+#import "YXViewController+reachablity.h"
+
 @interface YXViewController ()
 
 @end
 
 @implementation YXViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
+    
+
+    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0){
+        [self review];
+    }else if (indexPath.row == 1){
+        [self startMonitoring];
+    }
+    
+}
+    
+  
+    
 
 - (void)didReceiveMemoryWarning
 {

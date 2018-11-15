@@ -2,7 +2,9 @@ use_frameworks!
 
 target 'YXKit_Example' do
 #  pod 'YXKit', :path => '../'
-
+pod 'AFNetworking'
+pod 'YYKit'
+pod 'BFKit'
   target 'YXKit_Tests' do
     inherit! :search_paths
 

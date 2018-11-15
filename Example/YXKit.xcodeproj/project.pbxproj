@@ -24,6 +24,9 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C790DEAA110C447C12AF5647 /* Pods_YXKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F31102F80578C1B2E98BE9C /* Pods_YXKit_Example.framework */; };
 		D336444FF659E93EBE199D66 /* Pods_YXKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76837264D581CB09C535C426 /* Pods_YXKit_Tests.framework */; };
+		EEA15B80219D3682007B985A /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B7F219D3682007B985A /* WKWebViewController.m */; };
+		EEA15B84219D46BE007B985A /* WKWebViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B83219D46BE007B985A /* WKWebViewHelper.m */; };
+		EEA15B87219D4AB4007B985A /* ImageCacheHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B86219D4AB4007B985A /* ImageCacheHelper.m */; };
 		EED2D06B2196733B00EFE020 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EED2D04E2196733B00EFE020 /* .gitkeep */; };
 		EED2D06C2196733B00EFE020 /* YXPrefixConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0522196733B00EFE020 /* YXPrefixConfig.m */; };
 		EED2D06D2196733B00EFE020 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EED2D0542196733B00EFE020 /* .gitkeep */; };
@@ -35,6 +38,9 @@
 		EED2D0742196733B00EFE020 /* UITextField+Limit.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0662196733B00EFE020 /* UITextField+Limit.m */; };
 		EED2D0762196733B00EFE020 /* MGMCActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0682196733B00EFE020 /* MGMCActionView.m */; };
 		EED2D0772196733B00EFE020 /* MGMCRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0692196733B00EFE020 /* MGMCRotation.m */; };
+		EED2D085219BC11100EFE020 /* ReviewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D084219BC11100EFE020 /* ReviewHelper.m */; };
+		EED2D088219BF23C00EFE020 /* YXViewController+review.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D087219BF23C00EFE020 /* YXViewController+review.m */; };
+		EED2D08B219BF9C700EFE020 /* YXViewController+reachablity.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D08A219BF9C700EFE020 /* YXViewController+reachablity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +84,12 @@
 		9F31102F80578C1B2E98BE9C /* Pods_YXKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YXKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA62B7CD12735403A792DAA0 /* Pods-YXKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Tests/Pods-YXKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC73A375BE7B3FF43CFB0DBE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		EEA15B7E219D3682007B985A /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		EEA15B7F219D3682007B985A /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
+		EEA15B82219D46BE007B985A /* WKWebViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewHelper.h; sourceTree = "<group>"; };
+		EEA15B83219D46BE007B985A /* WKWebViewHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewHelper.m; sourceTree = "<group>"; };
+		EEA15B85219D4AB4007B985A /* ImageCacheHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCacheHelper.h; sourceTree = "<group>"; };
+		EEA15B86219D4AB4007B985A /* ImageCacheHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCacheHelper.m; sourceTree = "<group>"; };
 		EED2D04E2196733B00EFE020 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		EED2D0512196733B00EFE020 /* YXPrefixConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPrefixConfig.h; sourceTree = "<group>"; };
 		EED2D0522196733B00EFE020 /* YXPrefixConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPrefixConfig.m; sourceTree = "<group>"; };
@@ -98,6 +110,12 @@
 		EED2D0682196733B00EFE020 /* MGMCActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMCActionView.m; sourceTree = "<group>"; };
 		EED2D0692196733B00EFE020 /* MGMCRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMCRotation.m; sourceTree = "<group>"; };
 		EED2D06A2196733B00EFE020 /* UIButton+layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+layout.h"; sourceTree = "<group>"; };
+		EED2D083219BC11100EFE020 /* ReviewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewHelper.h; sourceTree = "<group>"; };
+		EED2D084219BC11100EFE020 /* ReviewHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewHelper.m; sourceTree = "<group>"; };
+		EED2D086219BF23C00EFE020 /* YXViewController+review.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YXViewController+review.h"; sourceTree = "<group>"; };
+		EED2D087219BF23C00EFE020 /* YXViewController+review.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YXViewController+review.m"; sourceTree = "<group>"; };
+		EED2D089219BF9C700EFE020 /* YXViewController+reachablity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YXViewController+reachablity.h"; sourceTree = "<group>"; };
+		EED2D08A219BF9C700EFE020 /* YXViewController+reachablity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YXViewController+reachablity.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +199,10 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* YXViewController.h */,
 				6003F5A6195388D20070C39A /* YXViewController.m */,
+				EED2D086219BF23C00EFE020 /* YXViewController+review.h */,
+				EED2D087219BF23C00EFE020 /* YXViewController+review.m */,
+				EED2D089219BF9C700EFE020 /* YXViewController+reachablity.h */,
+				EED2D08A219BF9C700EFE020 /* YXViewController+reachablity.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -229,6 +251,17 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		EEA15B81219D4671007B985A /* WKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				EEA15B7E219D3682007B985A /* WKWebViewController.h */,
+				EEA15B7F219D3682007B985A /* WKWebViewController.m */,
+				EEA15B82219D46BE007B985A /* WKWebViewHelper.h */,
+				EEA15B83219D46BE007B985A /* WKWebViewHelper.m */,
+			);
+			path = WKWebView;
+			sourceTree = "<group>";
+		};
 		EED2D04D2196733B00EFE020 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +274,7 @@
 		EED2D04F2196733B00EFE020 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EEA15B81219D4671007B985A /* WKWebView */,
 				EED2D0502196733B00EFE020 /* Config */,
 				EED2D0532196733B00EFE020 /* Until */,
 				EED2D0542196733B00EFE020 /* .gitkeep */,
@@ -263,6 +297,10 @@
 		EED2D0532196733B00EFE020 /* Until */ = {
 			isa = PBXGroup;
 			children = (
+				EED2D083219BC11100EFE020 /* ReviewHelper.h */,
+				EED2D084219BC11100EFE020 /* ReviewHelper.m */,
+				EEA15B85219D4AB4007B985A /* ImageCacheHelper.h */,
+				EEA15B86219D4AB4007B985A /* ImageCacheHelper.m */,
 			);
 			path = Until;
 			sourceTree = "<group>";
@@ -308,6 +346,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
+				785A645528CE9BD4C575BAD0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,6 +386,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "18637780521@163.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = Y97985X8XQ;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -432,6 +474,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		785A645528CE9BD4C575BAD0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/BFKit/BFKit.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BFKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -441,16 +505,22 @@
 			files = (
 				EED2D0742196733B00EFE020 /* UITextField+Limit.m in Sources */,
 				EED2D06C2196733B00EFE020 /* YXPrefixConfig.m in Sources */,
+				EEA15B80219D3682007B985A /* WKWebViewController.m in Sources */,
 				EED2D06E2196733B00EFE020 /* SGQRCodeTool.m in Sources */,
+				EED2D088219BF23C00EFE020 /* YXViewController+review.m in Sources */,
+				EED2D08B219BF9C700EFE020 /* YXViewController+reachablity.m in Sources */,
 				EED2D06F2196733B00EFE020 /* QRCodeViewController.m in Sources */,
 				6003F59E195388D20070C39A /* YXAppDelegate.m in Sources */,
 				EED2D0732196733B00EFE020 /* MGMCTableView.m in Sources */,
 				6003F5A7195388D20070C39A /* YXViewController.m in Sources */,
+				EED2D085219BC11100EFE020 /* ReviewHelper.m in Sources */,
 				EED2D0762196733B00EFE020 /* MGMCActionView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				EED2D0772196733B00EFE020 /* MGMCRotation.m in Sources */,
+				EEA15B87219D4AB4007B985A /* ImageCacheHelper.m in Sources */,
 				EED2D0702196733B00EFE020 /* UIButton+layout.m in Sources */,
 				EED2D0712196733B00EFE020 /* NSObject+Crash.m in Sources */,
+				EEA15B84219D46BE007B985A /* WKWebViewHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +674,7 @@
 			baseConfigurationReference = 3ED61F50B5827F59A3661EC9 /* Pods-YXKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y97985X8XQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YXKit/YXKit-Prefix.pch";
 				INFOPLIST_FILE = "YXKit/YXKit-Info.plist";
@@ -619,6 +690,7 @@
 			baseConfigurationReference = 83CBF584EB4D77FAF43F1D1A /* Pods-YXKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y97985X8XQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YXKit/YXKit-Prefix.pch";
 				INFOPLIST_FILE = "YXKit/YXKit-Info.plist";
