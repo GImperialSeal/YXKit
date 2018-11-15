@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YXKit'
-  s.version          = '0.0.46'
+  s.version          = '0.0.47'
   s.summary          = '常用类.'
   s.homepage         = 'https://github.com/GImperialSeal/YXKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -24,6 +24,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Until' do |ss|
   ss.source_files = 'YXKit/Classes/Until/*'
+  ss.dependency 'YXKit/WKWebView'
   end
   
   s.subspec 'QRCode' do |ss|
