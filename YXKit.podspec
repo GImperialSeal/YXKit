@@ -17,6 +17,14 @@ Pod::Spec.new do |s|
       ss.source_files = 'YXKit/Classes/Config/*'
       
   end
+
+  s.subspec 'WKWebView' do |ss|
+  ss.source_files = 'YXKit/Classes/WKWebView/*'
+  end
+
+  s.subspec 'Until' do |ss|
+  ss.source_files = 'YXKit/Classes/Until/*'
+  end
   
   s.subspec 'QRCode' do |ss|
       ss.source_files = 'YXKit/Classes/QRCode/*'
