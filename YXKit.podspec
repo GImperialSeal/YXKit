@@ -33,8 +33,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'UMShare' do |ss|
 #ss.source_files = 'YXKit/Classes/UMShare/*'
-  ss.dependency = 'UMCCommon'
-  ss.dependency = 'UMCSecurityPlugins'
+  ss.dependency  'UMCCommon'
+  ss.dependency  'UMCSecurityPlugins'
   end
 
   s.subspec 'View' do |ss|
