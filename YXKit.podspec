@@ -31,6 +31,12 @@ Pod::Spec.new do |s|
       ss.source_files = 'YXKit/Classes/QRCode/*'
   end
 
+  s.subspec 'UMShare' do |ss|
+#ss.source_files = 'YXKit/Classes/UMShare/*'
+  ss.dependency = 'UMCCommon'
+  ss.dependency = 'UMCSecurityPlugins'
+  end
+
   s.subspec 'View' do |ss|
      ss.source_files = 'YXKit/Classes/View/*'
    end
