@@ -12,6 +12,8 @@
 
 #import "YXViewController+reachablity.h"
 
+#import "YYKit.h"
+
 @interface YXViewController ()
 
 @end
@@ -21,8 +23,20 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
     
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"fd_token_save_time"];
+    
+}
+
+
+- (NSComparisonResult)token{
+    NSDate *token_save_date = [[NSUserDefaults standardUserDefaults] valueForKey:@"fd_token_save_time"];
+    NSDate *current_date = [NSDate date];
+    NSDate *date = [token_save_date dateByAddingSeconds:30];
+    NSComparisonResult result = [current_date compare:date];
+    return result;
+}
+
 
     
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -30,8 +44,10 @@
         [self review];
     }else if (indexPath.row == 1){
         [self startMonitoring];
+    }else if (indexPath.row == 2){
+        
     }
-    
+
 }
     
   

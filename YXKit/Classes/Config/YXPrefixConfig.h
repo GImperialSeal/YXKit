@@ -108,22 +108,6 @@ typedef void (^FinishedLayoutBlock)(UIButton *sender,int i);
 + (CGFloat)systemLayoutSizeFittingSizeWithWidth:(CGFloat)width contentView:(UIView*)contentView;
 
 
-/**
- 根据字符串时间 转换为秒
- format: 只能转换 此格式 00:00:00
- @param text 时间
- @return 秒数
- 
- */
-+ (NSInteger)transformSecoundFrom:(NSString *)text;
-
-/**
- 秒转时间
- @param secound 秒
- @return 时间字符串 format 00:00:00 不超过1小时 00:00
- */
-+ (NSString *)transformTimeFrom:(NSInteger)secound;
-
 + (void)nineBlockBox:(UIView *)sv rect:(CGRect)rect margin:(CGFloat)margin col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished;
 
 + (void)nineBlockBox:(UIView *)sv rect:(CGRect)rect margin_X:(CGFloat)margin_X margin_Y:(CGFloat)margin_Y col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished;
@@ -131,16 +115,6 @@ typedef void (^FinishedLayoutBlock)(UIButton *sender,int i);
 
 // 自动适应间距
 + (void)nineBlockBoxAutoMargin:(UIView *)sv rect:(CGRect)rect col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished;
-
-+ (UIImage *)drawImage:(CGRect)rect context:(void(^)(CGContextRef ctx,CGRect rect))contextBlock;
-
-+ (void)drawRound:(CGContextRef )context rect:(CGRect)rect fill: (BOOL)isFill;
-
-//  画矩形
-+ (void)drawRectangle:(CGContextRef )context rect:(CGRect)rect fill:(BOOL)isFill;
-
-+ (void)drawLinearGradient:(CGContextRef)context rect:(CGRect)rect alpha:(CGFloat)alpha startColor:(UIColor *)startColor endColor:(UIColor *)endColor;
-
 
 
 
