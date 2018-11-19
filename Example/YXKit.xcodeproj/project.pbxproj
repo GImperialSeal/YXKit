@@ -29,6 +29,7 @@
 		EEA15B87219D4AB4007B985A /* ImageCacheHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B86219D4AB4007B985A /* ImageCacheHelper.m */; };
 		EEA15B8D219D82A1007B985A /* NSObject+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B8C219D82A1007B985A /* NSObject+Date.m */; };
 		EEA15B9021A2488F007B985A /* NSObject+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B8F21A2488F007B985A /* NSObject+Draw.m */; };
+		EEA15B9421A25EFD007B985A /* UMShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B9321A25EFD007B985A /* UMShareHelper.m */; };
 		EED2D06B2196733B00EFE020 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EED2D04E2196733B00EFE020 /* .gitkeep */; };
 		EED2D06C2196733B00EFE020 /* YXPrefixConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0522196733B00EFE020 /* YXPrefixConfig.m */; };
 		EED2D06D2196733B00EFE020 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EED2D0542196733B00EFE020 /* .gitkeep */; };
@@ -96,6 +97,8 @@
 		EEA15B8C219D82A1007B985A /* NSObject+Date.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Date.m"; sourceTree = "<group>"; };
 		EEA15B8E21A2488F007B985A /* NSObject+Draw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Draw.h"; sourceTree = "<group>"; };
 		EEA15B8F21A2488F007B985A /* NSObject+Draw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Draw.m"; sourceTree = "<group>"; };
+		EEA15B9221A25EFD007B985A /* UMShareHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMShareHelper.h; sourceTree = "<group>"; };
+		EEA15B9321A25EFD007B985A /* UMShareHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMShareHelper.m; sourceTree = "<group>"; };
 		EED2D04E2196733B00EFE020 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		EED2D0512196733B00EFE020 /* YXPrefixConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPrefixConfig.h; sourceTree = "<group>"; };
 		EED2D0522196733B00EFE020 /* YXPrefixConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPrefixConfig.m; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 		EEA15B9121A24F12007B985A /* UMShare */ = {
 			isa = PBXGroup;
 			children = (
+				EEA15B9221A25EFD007B985A /* UMShareHelper.h */,
+				EEA15B9321A25EFD007B985A /* UMShareHelper.m */,
 			);
 			path = UMShare;
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 				EED2D0702196733B00EFE020 /* UIButton+layout.m in Sources */,
 				EED2D0712196733B00EFE020 /* NSObject+Crash.m in Sources */,
 				EEA15B84219D46BE007B985A /* WKWebViewHelper.m in Sources */,
+				EEA15B9421A25EFD007B985A /* UMShareHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
