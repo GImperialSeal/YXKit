@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YXKit'
-  s.version          = '0.0.49'
+  s.version          = '0.0.491'
   s.summary          = '常用类.'
   s.homepage         = 'https://github.com/GImperialSeal/YXKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -32,10 +32,12 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'UMShare' do |ss|
-#ss.source_files = 'YXKit/Classes/UMShare/*'
+  ss.source_files = 'YXKit/Classes/UMShare/*'
   ss.dependency  'UMCCommon'
-  ss.dependency  'UMCSecurityPlugins'
-  ss.frameworks = 'UMCommon','SecurityEnvSDK','UTDID'
+  ss.dependency     'UMCShare/Social/SMS'
+  ss.dependency     'UMCShare/Social/ReducedWeChat'
+  ss.dependency     'UMCShare/Social/ReducedQQ'
+  ss.dependency     'UMCShare/Social/ReducedSina'
   end
 
   s.subspec 'View' do |ss|
