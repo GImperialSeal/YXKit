@@ -1,7 +1,9 @@
-use_frameworks!
+#use_frameworks!
 
 target 'YXKit_Example' do
 #  pod 'YXKit', :path => '../'
+#pod 'YXKit',:git => 'https://github.com/GImperialSeal/YXKit.git'
+
 pod 'AFNetworking'
 pod 'YYKit'
 pod 'BFKit'

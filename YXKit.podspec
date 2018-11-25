@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   s.subspec 'Until' do |ss|
   ss.source_files = 'YXKit/Classes/Until/*'
   ss.dependency 'YXKit/WKWebView'
+  ss.dependency 'YXKit/Config'
   end
   
   s.subspec 'QRCode' do |ss|

@@ -7,12 +7,20 @@
 //
 
 #import "YXAppDelegate.h"
-
+#import "NSObject+Associated.h"
 @implementation YXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    NSString *testString = @"123";
+    
+    [testString yx_runtime_strongValue:@(1122) key:@"333"];
+    
+    NSLog(@"9999999999: %@",[testString yx_runtime_valueForkey:@"333"]);
+    
+    
     return YES;
 }
 
