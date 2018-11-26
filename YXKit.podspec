@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YXKit'
-  s.version          = '0.0.495'
+  s.version          = '0.0.496'
   s.summary          = '常用类.'
   s.homepage         = 'https://github.com/GImperialSeal/YXKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -43,6 +43,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'View' do |ss|
      ss.source_files = 'YXKit/Classes/View/*'
+     ss.dependency 'YXKit/Until'
      ss.dependency  'Masonry'
    end
 
