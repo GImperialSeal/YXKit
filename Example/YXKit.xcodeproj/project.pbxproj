@@ -42,6 +42,7 @@
 		EE1B87DD21AA9C1700638B93 /* NSInvocation+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87DB21AA9C1600638B93 /* NSInvocation+Block.m */; };
 		EE1B87E021AA9C3600638B93 /* MPVolumeView+VolumeLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87DF21AA9C3600638B93 /* MPVolumeView+VolumeLevel.m */; };
 		EE1B87E321AA9C4D00638B93 /* MethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87E221AA9C4D00638B93 /* MethodSwizzling.m */; };
+		EE1B87EB21B765BF00638B93 /* YXQueueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */; };
 		EEA15B80219D3682007B985A /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B7F219D3682007B985A /* WKWebViewController.m */; };
 		EEA15B84219D46BE007B985A /* WKWebViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B83219D46BE007B985A /* WKWebViewHelper.m */; };
 		EEA15B87219D4AB4007B985A /* ImageCacheHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B86219D4AB4007B985A /* ImageCacheHelper.m */; };
@@ -142,6 +143,9 @@
 		EE1B87E121AA9C4C00638B93 /* MethodSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodSwizzling.h; sourceTree = "<group>"; };
 		EE1B87E221AA9C4D00638B93 /* MethodSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodSwizzling.m; sourceTree = "<group>"; };
 		EE1B87E421AB869D00638B93 /* Until.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Until.h; sourceTree = "<group>"; };
+		EE1B87E521ACEE3100638B93 /* YXKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXKit.h; sourceTree = "<group>"; };
+		EE1B87E921B765BF00638B93 /* YXQueueViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXQueueViewController.h; sourceTree = "<group>"; };
+		EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXQueueViewController.m; sourceTree = "<group>"; };
 		EEA15B7E219D3682007B985A /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		EEA15B7F219D3682007B985A /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		EEA15B82219D46BE007B985A /* WKWebViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewHelper.h; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* YXViewController.h */,
 				6003F5A6195388D20070C39A /* YXViewController.m */,
+				EE1B87E921B765BF00638B93 /* YXQueueViewController.h */,
+				EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */,
 				EED2D086219BF23C00EFE020 /* YXViewController+review.h */,
 				EED2D087219BF23C00EFE020 /* YXViewController+review.m */,
 				EED2D089219BF9C700EFE020 /* YXViewController+reachablity.h */,
@@ -368,6 +374,7 @@
 				EED2D0512196733B00EFE020 /* YXPrefixConfig.h */,
 				EED2D0522196733B00EFE020 /* YXPrefixConfig.m */,
 				EE1B87C521AA959100638B93 /* YXMacro.h */,
+				EE1B87E521ACEE3100638B93 /* YXKit.h */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -659,6 +666,7 @@
 				EED2D0762196733B00EFE020 /* MGMCActionView.m in Sources */,
 				EE1B87CE21AA9A7800638B93 /* NSObject+Associated.m in Sources */,
 				EE1B87E021AA9C3600638B93 /* MPVolumeView+VolumeLevel.m in Sources */,
+				EE1B87EB21B765BF00638B93 /* YXQueueViewController.m in Sources */,
 				EE1B87B521AA91EA00638B93 /* NSObject+DeviceInfo.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				EE1B87E321AA9C4D00638B93 /* MethodSwizzling.m in Sources */,

@@ -8,18 +8,50 @@
 
 #import "YXAppDelegate.h"
 #import "NSObject+Associated.h"
+
+//#import "YXKit.h"
+#import "BFKit.h"
 @implementation YXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     
-    NSString *testString = @"123";
-    
-    [testString yx_runtime_strongValue:@(1122) key:@"333"];
-    
-    NSLog(@"9999999999: %@",[testString yx_runtime_valueForkey:@"333"]);
-    
+
+    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+    [queue addOperationWithBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"task 1 done");
+        });
+    }];
+    [queue addOperationWithBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"task 2 done");
+        });
+        
+    }];
+    [queue addOperationWithBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"task 3 done");
+        });
+        
+    }];
+    [queue addOperationWithBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"task 4 done");
+        });
+        
+    }];
+    [queue addOperationWithBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"task 5 done");
+        });
+        
+    }];
+    NSLog(@"task add done");
+
+    [queue waitUntilAllOperationsAreFinished];
+    NSLog(@"3325");
     
     return YES;
 }
