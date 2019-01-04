@@ -14,7 +14,12 @@
 
 #import "YYKit.h"
 
+#import "NetworkManager.h"
+
+#import "YXMacro.h"
+
 @interface YXViewController ()
+
 
 @end
 
@@ -22,11 +27,16 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    NSLog(@"NORMAL_STATUS_AND_NAV_BAR_HEIGHT: %f", STATUS_AND_NAV_BAR_HEIGHT);
+
 	// Do any additional setup after loading the view, typically from a nib.
     
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"fd_token_save_time"];
     
+    NetworkManager<NSString *> *manager = [[NetworkManager alloc]init];
 }
+
 
 
 - (NSComparisonResult)token{
@@ -46,12 +56,16 @@
         [self startMonitoring];
     }else if (indexPath.row == 2){
 
-
+        
+    }else{
+        
+        
         
     }
 
 }
-    
+
+
 
 
 

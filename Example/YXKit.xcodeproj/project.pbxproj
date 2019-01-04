@@ -43,12 +43,17 @@
 		EE1B87E021AA9C3600638B93 /* MPVolumeView+VolumeLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87DF21AA9C3600638B93 /* MPVolumeView+VolumeLevel.m */; };
 		EE1B87E321AA9C4D00638B93 /* MethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87E221AA9C4D00638B93 /* MethodSwizzling.m */; };
 		EE1B87EB21B765BF00638B93 /* YXQueueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */; };
+		EE9BBA2721DC936A00B9ACFC /* NSObject+YXKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */; };
+		EE9BBA2A21DEF4D700B9ACFC /* UITableView+DefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2921DEF4D700B9ACFC /* UITableView+DefaultView.m */; };
+		EE9BBA2D21DEF99A00B9ACFC /* YXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2C21DEF99A00B9ACFC /* YXTableViewController.m */; };
 		EEA15B80219D3682007B985A /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B7F219D3682007B985A /* WKWebViewController.m */; };
 		EEA15B84219D46BE007B985A /* WKWebViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B83219D46BE007B985A /* WKWebViewHelper.m */; };
 		EEA15B87219D4AB4007B985A /* ImageCacheHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B86219D4AB4007B985A /* ImageCacheHelper.m */; };
 		EEA15B8D219D82A1007B985A /* NSObject+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B8C219D82A1007B985A /* NSObject+Date.m */; };
 		EEA15B9021A2488F007B985A /* NSObject+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B8F21A2488F007B985A /* NSObject+Draw.m */; };
 		EEA15B9421A25EFD007B985A /* UMShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B9321A25EFD007B985A /* UMShareHelper.m */; };
+		EEB8538C21C0EF51007A0B90 /* YXRACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB8538B21C0EF51007A0B90 /* YXRACViewController.m */; };
+		EEB8539221C22131007A0B90 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB8539121C22131007A0B90 /* NetworkManager.m */; };
 		EED2D06B2196733B00EFE020 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EED2D04E2196733B00EFE020 /* .gitkeep */; };
 		EED2D06C2196733B00EFE020 /* YXPrefixConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0522196733B00EFE020 /* YXPrefixConfig.m */; };
 		EED2D06D2196733B00EFE020 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EED2D0542196733B00EFE020 /* .gitkeep */; };
@@ -63,6 +68,7 @@
 		EED2D085219BC11100EFE020 /* ReviewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D084219BC11100EFE020 /* ReviewHelper.m */; };
 		EED2D088219BF23C00EFE020 /* YXViewController+review.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D087219BF23C00EFE020 /* YXViewController+review.m */; };
 		EED2D08B219BF9C700EFE020 /* YXViewController+reachablity.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D08A219BF9C700EFE020 /* YXViewController+reachablity.m */; };
+		EEF7C04421D4A7B7005A2244 /* YXLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF7C04321D4A7B7005A2244 /* YXLocationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +152,12 @@
 		EE1B87E521ACEE3100638B93 /* YXKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXKit.h; sourceTree = "<group>"; };
 		EE1B87E921B765BF00638B93 /* YXQueueViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXQueueViewController.h; sourceTree = "<group>"; };
 		EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXQueueViewController.m; sourceTree = "<group>"; };
+		EE9BBA2521DC936A00B9ACFC /* NSObject+YXKVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+YXKVO.h"; sourceTree = "<group>"; };
+		EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YXKVO.m"; sourceTree = "<group>"; };
+		EE9BBA2821DEF4D700B9ACFC /* UITableView+DefaultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+DefaultView.h"; sourceTree = "<group>"; };
+		EE9BBA2921DEF4D700B9ACFC /* UITableView+DefaultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DefaultView.m"; sourceTree = "<group>"; };
+		EE9BBA2B21DEF99A00B9ACFC /* YXTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXTableViewController.h; sourceTree = "<group>"; };
+		EE9BBA2C21DEF99A00B9ACFC /* YXTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXTableViewController.m; sourceTree = "<group>"; };
 		EEA15B7E219D3682007B985A /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		EEA15B7F219D3682007B985A /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		EEA15B82219D46BE007B985A /* WKWebViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewHelper.h; sourceTree = "<group>"; };
@@ -158,6 +170,10 @@
 		EEA15B8F21A2488F007B985A /* NSObject+Draw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Draw.m"; sourceTree = "<group>"; };
 		EEA15B9221A25EFD007B985A /* UMShareHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMShareHelper.h; sourceTree = "<group>"; };
 		EEA15B9321A25EFD007B985A /* UMShareHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMShareHelper.m; sourceTree = "<group>"; };
+		EEB8538A21C0EF51007A0B90 /* YXRACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXRACViewController.h; sourceTree = "<group>"; };
+		EEB8538B21C0EF51007A0B90 /* YXRACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXRACViewController.m; sourceTree = "<group>"; };
+		EEB8539021C22131007A0B90 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		EEB8539121C22131007A0B90 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		EED2D04E2196733B00EFE020 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		EED2D0512196733B00EFE020 /* YXPrefixConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPrefixConfig.h; sourceTree = "<group>"; };
 		EED2D0522196733B00EFE020 /* YXPrefixConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPrefixConfig.m; sourceTree = "<group>"; };
@@ -184,6 +200,8 @@
 		EED2D087219BF23C00EFE020 /* YXViewController+review.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YXViewController+review.m"; sourceTree = "<group>"; };
 		EED2D089219BF9C700EFE020 /* YXViewController+reachablity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YXViewController+reachablity.h"; sourceTree = "<group>"; };
 		EED2D08A219BF9C700EFE020 /* YXViewController+reachablity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YXViewController+reachablity.m"; sourceTree = "<group>"; };
+		EEF7C04221D4A7B7005A2244 /* YXLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXLocationManager.h; sourceTree = "<group>"; };
+		EEF7C04321D4A7B7005A2244 /* YXLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXLocationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,11 +282,19 @@
 				EED2D04F2196733B00EFE020 /* Classes */,
 				6003F59C195388D20070C39A /* YXAppDelegate.h */,
 				6003F59D195388D20070C39A /* YXAppDelegate.m */,
+				EE9BBA2521DC936A00B9ACFC /* NSObject+YXKVO.h */,
+				EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */,
 				EE0F5D3321A65382000F979F /* YXGIFViewController.h */,
 				EE0F5D3421A65382000F979F /* YXGIFViewController.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* YXViewController.h */,
 				6003F5A6195388D20070C39A /* YXViewController.m */,
+				EEB8539021C22131007A0B90 /* NetworkManager.h */,
+				EEB8539121C22131007A0B90 /* NetworkManager.m */,
+				EEB8538A21C0EF51007A0B90 /* YXRACViewController.h */,
+				EEB8538B21C0EF51007A0B90 /* YXRACViewController.m */,
+				EE9BBA2B21DEF99A00B9ACFC /* YXTableViewController.h */,
+				EE9BBA2C21DEF99A00B9ACFC /* YXTableViewController.m */,
 				EE1B87E921B765BF00638B93 /* YXQueueViewController.h */,
 				EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */,
 				EED2D086219BF23C00EFE020 /* YXViewController+review.h */,
@@ -356,6 +382,7 @@
 		EED2D04F2196733B00EFE020 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EEF7C04121D4A794005A2244 /* Location */,
 				EEA15B9121A24F12007B985A /* UMShare */,
 				EEA15B81219D4671007B985A /* WKWebView */,
 				EED2D0502196733B00EFE020 /* Config */,
@@ -453,8 +480,19 @@
 				EED2D05F2196733B00EFE020 /* UIButton+layout.m */,
 				EED2D05D2196733B00EFE020 /* UITextField+Limit.h */,
 				EED2D0662196733B00EFE020 /* UITextField+Limit.m */,
+				EE9BBA2821DEF4D700B9ACFC /* UITableView+DefaultView.h */,
+				EE9BBA2921DEF4D700B9ACFC /* UITableView+DefaultView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EEF7C04121D4A794005A2244 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				EEF7C04221D4A7B7005A2244 /* YXLocationManager.h */,
+				EEF7C04321D4A7B7005A2244 /* YXLocationManager.m */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -643,17 +681,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1B87BB21AA927800638B93 /* UIDevice+RotateRrientation.m in Sources */,
+				EEB8539221C22131007A0B90 /* NetworkManager.m in Sources */,
 				EE1B87DA21AA9C0E00638B93 /* UIView+Addition.m in Sources */,
 				EED2D0742196733B00EFE020 /* UITextField+Limit.m in Sources */,
+				EE9BBA2A21DEF4D700B9ACFC /* UITableView+DefaultView.m in Sources */,
 				EE1B87C421AA936F00638B93 /* UIViewController+MGNavBar.m in Sources */,
 				EE1B87D421AA9BDE00638B93 /* UIButton+TitleImage.m in Sources */,
 				EE1B87D721AA9C0800638B93 /* UIButton+AZBadge.m in Sources */,
 				EED2D06C2196733B00EFE020 /* YXPrefixConfig.m in Sources */,
 				EEA15B80219D3682007B985A /* WKWebViewController.m in Sources */,
 				EEA15B8D219D82A1007B985A /* NSObject+Date.m in Sources */,
+				EE9BBA2721DC936A00B9ACFC /* NSObject+YXKVO.m in Sources */,
+				EEB8538C21C0EF51007A0B90 /* YXRACViewController.m in Sources */,
 				EED2D06E2196733B00EFE020 /* SGQRCodeTool.m in Sources */,
 				EED2D088219BF23C00EFE020 /* YXViewController+review.m in Sources */,
 				EED2D08B219BF9C700EFE020 /* YXViewController+reachablity.m in Sources */,
+				EE9BBA2D21DEF99A00B9ACFC /* YXTableViewController.m in Sources */,
 				EE1B87BE21AA928D00638B93 /* UIResponder+Event.m in Sources */,
 				EED2D06F2196733B00EFE020 /* QRCodeViewController.m in Sources */,
 				EE1B87B821AA922800638B93 /* NSObject+ObjDic.m in Sources */,
@@ -677,6 +720,7 @@
 				EED2D0712196733B00EFE020 /* NSObject+Crash.m in Sources */,
 				EEA15B84219D46BE007B985A /* WKWebViewHelper.m in Sources */,
 				EE1B87C821AA965600638B93 /* NSMutableAttributedString+Chain.m in Sources */,
+				EEF7C04421D4A7B7005A2244 /* YXLocationManager.m in Sources */,
 				EE1B87DD21AA9C1700638B93 /* NSInvocation+Block.m in Sources */,
 				EEA15B9421A25EFD007B985A /* UMShareHelper.m in Sources */,
 				EE1B87C121AA92B100638B93 /* UIResponder+ReverseEvent.m in Sources */,

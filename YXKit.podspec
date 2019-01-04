@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source_files = 'YXKit/Classes/**/*'
   s.dependency 'YYKit'
   s.dependency 'BFKit'
-
+  s.dependency 'ReactiveObjC'
 
   s.subspec 'Config' do |ss|
       ss.source_files = 'YXKit/Classes/Config/*'

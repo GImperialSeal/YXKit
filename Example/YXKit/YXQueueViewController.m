@@ -9,6 +9,7 @@
 #import "YXQueueViewController.h"
 
 @interface YXQueueViewController ()
+@property (atomic, strong)NSMutableArray *array;
 
 @end
 
@@ -45,40 +46,82 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.array = [NSMutableArray array];
 }
 
 - (void)testgroup:(dispatch_block_t)block{
+    
     dispatch_group_t group = dispatch_group_create();
     
     dispatch_group_enter(group);
     dispatch_group_enter(group);
     dispatch_group_enter(group);
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"task0 start");
-        sleep(1);
-        NSLog(@"task0 done");
-        dispatch_group_leave(group);
-    });
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+  
+    NSMutableArray *temp = [NSMutableArray array];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
         NSLog(@"task1 start");
-        sleep(2);
-        NSLog(@"task1 done");
+
+        [temp addObject:@"obj1"];
         dispatch_group_leave(group);
+        
     });
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
         NSLog(@"task2 start");
-        sleep(3);
-        NSLog(@"task2 done");
+        [temp addObject:@"obj2"];
+        dispatch_group_leave(group);
+       
+    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"task3 start");
+        [temp addObject:@"obj3"];
         dispatch_group_leave(group);
     });
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"all task done");
+        self.array = temp;
+        NSLog(@"array: %@",self.array);
         block();
     });
+    
+   
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+////        NSLog(@"task0 start");
+//        @synchronized (temp) {
+//            sleep(1);
+//            NSLog(@"task0 done");
+//
+//            [temp addObject:@"1"];
+//        }
+//        dispatch_group_leave(group);
+//
+//    });
+//
+//
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        @synchronized (temp) {
+//            sleep(2);
+//            NSLog(@"task2 done");
+//
+//            [temp addObject:@"2"];
+//        }
+//        dispatch_group_leave(group);
+//
+//    });
+//
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        @synchronized (temp) {
+//            sleep(3);
+//            NSLog(@"task3 done");
+//
+//            [temp addObject:@"3"];
+//        }
+//        dispatch_group_leave(group);
+//
+//    });
+    
+  
 }
 
 static NSOperationQueue *queue = nil;
@@ -86,13 +129,14 @@ static NSOperationQueue *queue = nil;
 - (void)test:(dispatch_block_t)block{
     if (!queue) {
         queue = [[NSOperationQueue alloc]init];
-        queue.maxConcurrentOperationCount = 3;
+        queue.maxConcurrentOperationCount = 2;
     }
     
+    [queue cancelAllOperations];
     
     [queue addOperationWithBlock:^{
         NSLog(@"task0 start");
-        sleep(3);
+        sleep(5);
         NSLog(@"task0 done");
         
     }];
@@ -104,47 +148,7 @@ static NSOperationQueue *queue = nil;
         
     }];
     
-    [queue addOperationWithBlock:^{
-        NSLog(@"task2 start");
-        sleep(3);
-        NSLog(@"task2 done");
-        
-    }];
-    
-    [queue addOperationWithBlock:^{
-        NSLog(@"task3 start");
-        sleep(3);
-        NSLog(@"task3 done");
-        
-    }];
-    
-    [queue addOperationWithBlock:^{
-        NSLog(@"task4 start");
-        sleep(3);
-        NSLog(@"task4 done");
-        
-    }];
-    
-    [queue addOperationWithBlock:^{
-        NSLog(@"task5 start");
-        sleep(3);
-        NSLog(@"task5 done");
-        
-    }];
-    
-    [queue addOperationWithBlock:^{
-        NSLog(@"task6 start");
-        sleep(3);
-        NSLog(@"task6 done");
-        
-    }];
-    
-    [queue addOperationWithBlock:^{
-        NSLog(@"task7 start");
-        sleep(3);
-        NSLog(@"task7 done");
-        
-    }];
+   
     
 }
 

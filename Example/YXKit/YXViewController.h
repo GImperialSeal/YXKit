@@ -9,5 +9,6 @@
 @import UIKit;
 
 @interface YXViewController : UITableViewController
+@property (nonatomic, strong)NSString *name;
 
 @end
