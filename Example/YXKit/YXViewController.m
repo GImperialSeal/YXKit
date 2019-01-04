@@ -18,6 +18,8 @@
 
 #import "YXMacro.h"
 
+#import "NSObject+runtime.h"
+
 @interface YXViewController ()
 
 
@@ -35,6 +37,9 @@
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"fd_token_save_time"];
     
     NetworkManager<NSString *> *manager = [[NetworkManager alloc]init];
+    
+    
+    [manager runtime_propertieNameList];
 }
 
 

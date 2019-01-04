@@ -7,7 +7,6 @@
 //
 
 #import "YXAppDelegate.h"
-#import "NSObject+Associated.h"
 @implementation YXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
