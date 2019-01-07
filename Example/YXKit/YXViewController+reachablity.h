@@ -9,6 +9,7 @@
 #import "YXViewController.h"
 
 @interface YXViewController (reachablity)
+
 - (void)startMonitoring;
 
 @end

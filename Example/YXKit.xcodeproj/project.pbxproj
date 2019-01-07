@@ -45,6 +45,7 @@
 		EE9BBA2721DC936A00B9ACFC /* NSObject+YXKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */; };
 		EE9BBA2A21DEF4D700B9ACFC /* UITableView+DefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2921DEF4D700B9ACFC /* UITableView+DefaultView.m */; };
 		EE9BBA2D21DEF99A00B9ACFC /* YXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2C21DEF99A00B9ACFC /* YXTableViewController.m */; };
+		EE9BBA3021E2EB0B00B9ACFC /* YXViewController+Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2F21E2EB0B00B9ACFC /* YXViewController+Socket.m */; };
 		EEA15B80219D3682007B985A /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B7F219D3682007B985A /* WKWebViewController.m */; };
 		EEA15B84219D46BE007B985A /* WKWebViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B83219D46BE007B985A /* WKWebViewHelper.m */; };
 		EEA15B87219D4AB4007B985A /* ImageCacheHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA15B86219D4AB4007B985A /* ImageCacheHelper.m */; };
@@ -155,6 +156,8 @@
 		EE9BBA2921DEF4D700B9ACFC /* UITableView+DefaultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DefaultView.m"; sourceTree = "<group>"; };
 		EE9BBA2B21DEF99A00B9ACFC /* YXTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXTableViewController.h; sourceTree = "<group>"; };
 		EE9BBA2C21DEF99A00B9ACFC /* YXTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXTableViewController.m; sourceTree = "<group>"; };
+		EE9BBA2E21E2EB0B00B9ACFC /* YXViewController+Socket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YXViewController+Socket.h"; sourceTree = "<group>"; };
+		EE9BBA2F21E2EB0B00B9ACFC /* YXViewController+Socket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YXViewController+Socket.m"; sourceTree = "<group>"; };
 		EEA15B7E219D3682007B985A /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		EEA15B7F219D3682007B985A /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		EEA15B82219D46BE007B985A /* WKWebViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewHelper.h; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 				EED2D087219BF23C00EFE020 /* YXViewController+review.m */,
 				EED2D089219BF9C700EFE020 /* YXViewController+reachablity.h */,
 				EED2D08A219BF9C700EFE020 /* YXViewController+reachablity.m */,
+				EE9BBA2E21E2EB0B00B9ACFC /* YXViewController+Socket.h */,
+				EE9BBA2F21E2EB0B00B9ACFC /* YXViewController+Socket.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -679,6 +684,7 @@
 				EEB8539221C22131007A0B90 /* NetworkManager.m in Sources */,
 				EE1B87DA21AA9C0E00638B93 /* UIView+Addition.m in Sources */,
 				EED2D0742196733B00EFE020 /* UITextField+Limit.m in Sources */,
+				EE9BBA3021E2EB0B00B9ACFC /* YXViewController+Socket.m in Sources */,
 				EE9BBA2A21DEF4D700B9ACFC /* UITableView+DefaultView.m in Sources */,
 				EE1B87C421AA936F00638B93 /* UIViewController+MGNavBar.m in Sources */,
 				EE1B87D421AA9BDE00638B93 /* UIButton+TitleImage.m in Sources */,
