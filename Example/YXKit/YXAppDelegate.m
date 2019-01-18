@@ -7,10 +7,12 @@
 //
 
 #import "YXAppDelegate.h"
+#import <malloc/malloc.h>
+#import "Test.h"
 @implementation YXAppDelegate
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-    
     return YES;
 }
 

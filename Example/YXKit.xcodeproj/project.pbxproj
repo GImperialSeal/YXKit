@@ -24,11 +24,11 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		EE07AE2F21F04FE000E0BF5D /* NSObject+runloop.m in Sources */ = {isa = PBXBuildFile; fileRef = EE07AE2E21F04FE000E0BF5D /* NSObject+runloop.m */; };
 		EE0F5D3221A652DE000F979F /* YXBindle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE0F5D3121A652DE000F979F /* YXBindle.bundle */; };
 		EE0F5D3521A65382000F979F /* YXGIFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0F5D3421A65382000F979F /* YXGIFViewController.m */; };
 		EE1B87B221AA91BE00638B93 /* NSObject+CurrentNav.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87B121AA91BD00638B93 /* NSObject+CurrentNav.m */; };
 		EE1B87B521AA91EA00638B93 /* NSObject+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87B421AA91EA00638B93 /* NSObject+DeviceInfo.m */; };
-		EE1B87B821AA922800638B93 /* NSObject+ObjDic.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87B621AA922800638B93 /* NSObject+ObjDic.m */; };
 		EE1B87BB21AA927800638B93 /* UIDevice+RotateRrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87B921AA927800638B93 /* UIDevice+RotateRrientation.m */; };
 		EE1B87BE21AA928D00638B93 /* UIResponder+Event.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87BC21AA928C00638B93 /* UIResponder+Event.m */; };
 		EE1B87C121AA92B100638B93 /* UIResponder+ReverseEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87BF21AA92B100638B93 /* UIResponder+ReverseEvent.m */; };
@@ -42,6 +42,9 @@
 		EE1B87DD21AA9C1700638B93 /* NSInvocation+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87DB21AA9C1600638B93 /* NSInvocation+Block.m */; };
 		EE1B87E021AA9C3600638B93 /* MPVolumeView+VolumeLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87DF21AA9C3600638B93 /* MPVolumeView+VolumeLevel.m */; };
 		EE1B87EB21B765BF00638B93 /* YXQueueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */; };
+		EE61742D21E5E4CC00296CBF /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = EE61742C21E5E4CC00296CBF /* Test.m */; };
+		EE61743021E6DF4600296CBF /* 音视频开发.m in Sources */ = {isa = PBXBuildFile; fileRef = EE61742F21E6DF4600296CBF /* 音视频开发.m */; };
+		EE648FD121ECC2DE00A1D983 /* YXTestLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = EE648FD021ECC2DE00A1D983 /* YXTestLeak.m */; };
 		EE9BBA2721DC936A00B9ACFC /* NSObject+YXKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */; };
 		EE9BBA2A21DEF4D700B9ACFC /* UITableView+DefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2921DEF4D700B9ACFC /* UITableView+DefaultView.m */; };
 		EE9BBA2D21DEF99A00B9ACFC /* YXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2C21DEF99A00B9ACFC /* YXTableViewController.m */; };
@@ -60,7 +63,6 @@
 		EED2D06E2196733B00EFE020 /* SGQRCodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0562196733B00EFE020 /* SGQRCodeTool.m */; };
 		EED2D06F2196733B00EFE020 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0572196733B00EFE020 /* QRCodeViewController.m */; };
 		EED2D0702196733B00EFE020 /* UIButton+layout.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D05F2196733B00EFE020 /* UIButton+layout.m */; };
-		EED2D0712196733B00EFE020 /* NSObject+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0632196733B00EFE020 /* NSObject+Crash.m */; };
 		EED2D0732196733B00EFE020 /* MGMCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0652196733B00EFE020 /* MGMCTableView.m */; };
 		EED2D0742196733B00EFE020 /* UITextField+Limit.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0662196733B00EFE020 /* UITextField+Limit.m */; };
 		EED2D0762196733B00EFE020 /* MGMCActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D0682196733B00EFE020 /* MGMCActionView.m */; };
@@ -105,13 +107,14 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
-		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83CBF584EB4D77FAF43F1D1A /* Pods-YXKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9F1E86B91F40D1C1F12215E6 /* libPods-YXKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YXKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA62B7CD12735403A792DAA0 /* Pods-YXKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Tests/Pods-YXKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC73A375BE7B3FF43CFB0DBE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		EE07AE2D21F04FE000E0BF5D /* NSObject+runloop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+runloop.h"; sourceTree = "<group>"; };
+		EE07AE2E21F04FE000E0BF5D /* NSObject+runloop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+runloop.m"; sourceTree = "<group>"; };
 		EE0F5D3121A652DE000F979F /* YXBindle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YXBindle.bundle; sourceTree = "<group>"; };
 		EE0F5D3321A65382000F979F /* YXGIFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXGIFViewController.h; sourceTree = "<group>"; };
 		EE0F5D3421A65382000F979F /* YXGIFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXGIFViewController.m; sourceTree = "<group>"; };
@@ -119,8 +122,6 @@
 		EE1B87B121AA91BD00638B93 /* NSObject+CurrentNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CurrentNav.m"; sourceTree = "<group>"; };
 		EE1B87B321AA91EA00638B93 /* NSObject+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DeviceInfo.h"; sourceTree = "<group>"; };
 		EE1B87B421AA91EA00638B93 /* NSObject+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DeviceInfo.m"; sourceTree = "<group>"; };
-		EE1B87B621AA922800638B93 /* NSObject+ObjDic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ObjDic.m"; sourceTree = "<group>"; };
-		EE1B87B721AA922800638B93 /* NSObject+ObjDic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ObjDic.h"; sourceTree = "<group>"; };
 		EE1B87B921AA927800638B93 /* UIDevice+RotateRrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+RotateRrientation.m"; sourceTree = "<group>"; };
 		EE1B87BA21AA927800638B93 /* UIDevice+RotateRrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+RotateRrientation.h"; sourceTree = "<group>"; };
 		EE1B87BC21AA928C00638B93 /* UIResponder+Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Event.m"; sourceTree = "<group>"; };
@@ -150,6 +151,12 @@
 		EE1B87E521ACEE3100638B93 /* YXKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXKit.h; sourceTree = "<group>"; };
 		EE1B87E921B765BF00638B93 /* YXQueueViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXQueueViewController.h; sourceTree = "<group>"; };
 		EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXQueueViewController.m; sourceTree = "<group>"; };
+		EE61742B21E5E4CC00296CBF /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		EE61742C21E5E4CC00296CBF /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		EE61742E21E6DF4600296CBF /* 音视频开发.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "音视频开发.h"; sourceTree = "<group>"; };
+		EE61742F21E6DF4600296CBF /* 音视频开发.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "音视频开发.m"; sourceTree = "<group>"; };
+		EE648FCF21ECC2DE00A1D983 /* YXTestLeak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXTestLeak.h; sourceTree = "<group>"; };
+		EE648FD021ECC2DE00A1D983 /* YXTestLeak.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXTestLeak.m; sourceTree = "<group>"; };
 		EE9BBA2521DC936A00B9ACFC /* NSObject+YXKVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+YXKVO.h"; sourceTree = "<group>"; };
 		EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YXKVO.m"; sourceTree = "<group>"; };
 		EE9BBA2821DEF4D700B9ACFC /* UITableView+DefaultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+DefaultView.h"; sourceTree = "<group>"; };
@@ -182,13 +189,11 @@
 		EED2D0572196733B00EFE020 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
 		EED2D0582196733B00EFE020 /* SGQRCodeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeTool.h; sourceTree = "<group>"; };
 		EED2D0592196733B00EFE020 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
-		EED2D05C2196733B00EFE020 /* NSObject+Crash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Crash.h"; sourceTree = "<group>"; };
 		EED2D05D2196733B00EFE020 /* UITextField+Limit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Limit.h"; sourceTree = "<group>"; };
 		EED2D05E2196733B00EFE020 /* MGMCTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMCTableView.h; sourceTree = "<group>"; };
 		EED2D05F2196733B00EFE020 /* UIButton+layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+layout.m"; sourceTree = "<group>"; };
 		EED2D0602196733B00EFE020 /* MGMCRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMCRotation.h; sourceTree = "<group>"; };
 		EED2D0612196733B00EFE020 /* MGMCActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMCActionView.h; sourceTree = "<group>"; };
-		EED2D0632196733B00EFE020 /* NSObject+Crash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Crash.m"; sourceTree = "<group>"; };
 		EED2D0652196733B00EFE020 /* MGMCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMCTableView.m; sourceTree = "<group>"; };
 		EED2D0662196733B00EFE020 /* UITextField+Limit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Limit.m"; sourceTree = "<group>"; };
 		EED2D0682196733B00EFE020 /* MGMCActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMCActionView.m; sourceTree = "<group>"; };
@@ -286,11 +291,15 @@
 				EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */,
 				EE0F5D3321A65382000F979F /* YXGIFViewController.h */,
 				EE0F5D3421A65382000F979F /* YXGIFViewController.m */,
+				EE648FCF21ECC2DE00A1D983 /* YXTestLeak.h */,
+				EE648FD021ECC2DE00A1D983 /* YXTestLeak.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* YXViewController.h */,
 				6003F5A6195388D20070C39A /* YXViewController.m */,
 				EEB8539021C22131007A0B90 /* NetworkManager.h */,
 				EEB8539121C22131007A0B90 /* NetworkManager.m */,
+				EE61742E21E6DF4600296CBF /* 音视频开发.h */,
+				EE61742F21E6DF4600296CBF /* 音视频开发.m */,
 				EEB8538A21C0EF51007A0B90 /* YXRACViewController.h */,
 				EEB8538B21C0EF51007A0B90 /* YXRACViewController.m */,
 				EE9BBA2B21DEF99A00B9ACFC /* YXTableViewController.h */,
@@ -301,6 +310,8 @@
 				EED2D087219BF23C00EFE020 /* YXViewController+review.m */,
 				EED2D089219BF9C700EFE020 /* YXViewController+reachablity.h */,
 				EED2D08A219BF9C700EFE020 /* YXViewController+reachablity.m */,
+				EE61742B21E5E4CC00296CBF /* Test.h */,
+				EE61742C21E5E4CC00296CBF /* Test.m */,
 				EE9BBA2E21E2EB0B00B9ACFC /* YXViewController+Socket.h */,
 				EE9BBA2F21E2EB0B00B9ACFC /* YXViewController+Socket.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
@@ -336,7 +347,6 @@
 			children = (
 				6003F5B7195388D20070C39A /* Tests-Info.plist */,
 				6003F5B8195388D20070C39A /* InfoPlist.strings */,
-				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -419,6 +429,8 @@
 				EE1B87DB21AA9C1600638B93 /* NSInvocation+Block.m */,
 				EE1B87C621AA965500638B93 /* NSMutableAttributedString+Chain.h */,
 				EE1B87C721AA965600638B93 /* NSMutableAttributedString+Chain.m */,
+				EE07AE2D21F04FE000E0BF5D /* NSObject+runloop.h */,
+				EE07AE2E21F04FE000E0BF5D /* NSObject+runloop.m */,
 				EE1B87CC21AA9A7800638B93 /* NSObject+runtime.h */,
 				EE1B87CD21AA9A7800638B93 /* NSObject+runtime.m */,
 				EE1B87B021AA91BD00638B93 /* NSObject+CurrentNav.h */,
@@ -429,8 +441,6 @@
 				EE1B87B421AA91EA00638B93 /* NSObject+DeviceInfo.m */,
 				EEA15B8E21A2488F007B985A /* NSObject+Draw.h */,
 				EEA15B8F21A2488F007B985A /* NSObject+Draw.m */,
-				EE1B87B721AA922800638B93 /* NSObject+ObjDic.h */,
-				EE1B87B621AA922800638B93 /* NSObject+ObjDic.m */,
 				EE1B87CF21AA9B8400638B93 /* NSString+Help.h */,
 				EE1B87D021AA9B8400638B93 /* NSString+Help.m */,
 				EED2D083219BC11100EFE020 /* ReviewHelper.h */,
@@ -452,9 +462,9 @@
 			isa = PBXGroup;
 			children = (
 				EED2D0562196733B00EFE020 /* SGQRCodeTool.m */,
+				EED2D0592196733B00EFE020 /* QRCodeViewController.h */,
 				EED2D0572196733B00EFE020 /* QRCodeViewController.m */,
 				EED2D0582196733B00EFE020 /* SGQRCodeTool.h */,
-				EED2D0592196733B00EFE020 /* QRCodeViewController.h */,
 			);
 			path = QRCode;
 			sourceTree = "<group>";
@@ -474,8 +484,6 @@
 				EED2D0692196733B00EFE020 /* MGMCRotation.m */,
 				EED2D05E2196733B00EFE020 /* MGMCTableView.h */,
 				EED2D0652196733B00EFE020 /* MGMCTableView.m */,
-				EED2D05C2196733B00EFE020 /* NSObject+Crash.h */,
-				EED2D0632196733B00EFE020 /* NSObject+Crash.m */,
 				EED2D06A2196733B00EFE020 /* UIButton+layout.h */,
 				EED2D05F2196733B00EFE020 /* UIButton+layout.m */,
 				EED2D05D2196733B00EFE020 /* UITextField+Limit.h */,
@@ -681,6 +689,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1B87BB21AA927800638B93 /* UIDevice+RotateRrientation.m in Sources */,
+				EE61742D21E5E4CC00296CBF /* Test.m in Sources */,
 				EEB8539221C22131007A0B90 /* NetworkManager.m in Sources */,
 				EE1B87DA21AA9C0E00638B93 /* UIView+Addition.m in Sources */,
 				EED2D0742196733B00EFE020 /* UITextField+Limit.m in Sources */,
@@ -691,6 +700,7 @@
 				EE1B87D721AA9C0800638B93 /* UIButton+AZBadge.m in Sources */,
 				EED2D06C2196733B00EFE020 /* YXPrefixConfig.m in Sources */,
 				EEA15B80219D3682007B985A /* WKWebViewController.m in Sources */,
+				EE61743021E6DF4600296CBF /* 音视频开发.m in Sources */,
 				EEA15B8D219D82A1007B985A /* NSObject+Date.m in Sources */,
 				EE9BBA2721DC936A00B9ACFC /* NSObject+YXKVO.m in Sources */,
 				EEB8538C21C0EF51007A0B90 /* YXRACViewController.m in Sources */,
@@ -700,8 +710,8 @@
 				EE9BBA2D21DEF99A00B9ACFC /* YXTableViewController.m in Sources */,
 				EE1B87BE21AA928D00638B93 /* UIResponder+Event.m in Sources */,
 				EED2D06F2196733B00EFE020 /* QRCodeViewController.m in Sources */,
-				EE1B87B821AA922800638B93 /* NSObject+ObjDic.m in Sources */,
 				6003F59E195388D20070C39A /* YXAppDelegate.m in Sources */,
+				EE648FD121ECC2DE00A1D983 /* YXTestLeak.m in Sources */,
 				EED2D0732196733B00EFE020 /* MGMCTableView.m in Sources */,
 				6003F5A7195388D20070C39A /* YXViewController.m in Sources */,
 				EEA15B9021A2488F007B985A /* NSObject+Draw.m in Sources */,
@@ -710,6 +720,7 @@
 				EED2D0762196733B00EFE020 /* MGMCActionView.m in Sources */,
 				EE1B87CE21AA9A7800638B93 /* NSObject+runtime.m in Sources */,
 				EE1B87E021AA9C3600638B93 /* MPVolumeView+VolumeLevel.m in Sources */,
+				EE07AE2F21F04FE000E0BF5D /* NSObject+runloop.m in Sources */,
 				EE1B87EB21B765BF00638B93 /* YXQueueViewController.m in Sources */,
 				EE1B87B521AA91EA00638B93 /* NSObject+DeviceInfo.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -717,7 +728,6 @@
 				EED2D0772196733B00EFE020 /* MGMCRotation.m in Sources */,
 				EEA15B87219D4AB4007B985A /* ImageCacheHelper.m in Sources */,
 				EED2D0702196733B00EFE020 /* UIButton+layout.m in Sources */,
-				EED2D0712196733B00EFE020 /* NSObject+Crash.m in Sources */,
 				EEA15B84219D46BE007B985A /* WKWebViewHelper.m in Sources */,
 				EE1B87C821AA965600638B93 /* NSMutableAttributedString+Chain.m in Sources */,
 				EEF7C04421D4A7B7005A2244 /* YXLocationManager.m in Sources */,
@@ -878,6 +888,7 @@
 			baseConfigurationReference = 3ED61F50B5827F59A3661EC9 /* Pods-YXKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DEVELOPMENT_TEAM = Y97985X8XQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YXKit/YXKit-Prefix.pch";
@@ -894,6 +905,7 @@
 			baseConfigurationReference = 83CBF584EB4D77FAF43F1D1A /* Pods-YXKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DEVELOPMENT_TEAM = Y97985X8XQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YXKit/YXKit-Prefix.pch";

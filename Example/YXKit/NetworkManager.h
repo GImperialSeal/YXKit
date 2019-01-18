@@ -25,4 +25,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)start:(void(^)(T obj))success failure:(dispatch_block_t)failure;
 @end
 
+@interface NetworkManagerHelper : NSObject
++ (NSString *)wifiName;
++ (BOOL)isNetwork;
++ (BOOL)isWifi;
++ (BOOL)isHotSpot;
+@end
+
+
+@interface AXNetAddress : NSObject
+@property (nonatomic, strong)NSString *name;
+@property (nonatomic, strong)NSString *address;
+@property (nonatomic, strong)NSString *netmask;
+@property (nonatomic, strong)NSString *gateway;
+@end
+
+
 NS_ASSUME_NONNULL_END

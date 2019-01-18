@@ -8,22 +8,43 @@
 
 #import "YXGIFViewController.h"
 #import <YYKit.h>
+#import "YXTestLeak.h"
 @interface YXGIFViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *gif;
+@property (nonatomic, strong)dispatch_block_t block1;
+@property (nonatomic, strong)dispatch_block_t block2;
+@property (nonatomic, strong)YXTestLeak *leak;
+@property (nonatomic, strong)NSString *name;
 
 @end
 
 @implementation YXGIFViewController
 
+- (void)dealloc
+{
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+  
+    YXTestLeak *leak = [[YXTestLeak alloc]init];
+    self.leak = leak;
+    self.name = @"yx";
+    leak.block = ^{
+        NSLog(@"self.name: %@",self.name);
+    };
+
+    leak.block();
     
-    NSString *path = [[NSBundle bundleWithURL:[NSURL fileURLWithPath:@"YXBindle.bundle"]]pathForResource:@"快来添加设备" ofType:@"gif"];
-    self.gif.imageURL = [NSURL fileURLWithPath:path];
+//    NSString *path = [[NSBundle bundleWithURL:[NSURL fileURLWithPath:@"YXBindle.bundle"]]pathForResource:@"快来添加设备" ofType:@"gif"];
+//    self.gif.imageURL = [NSURL fileURLWithPath:path];
 }
 
+- (void)aaaaa{
+    NSLog(@"aaaaaa");
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
