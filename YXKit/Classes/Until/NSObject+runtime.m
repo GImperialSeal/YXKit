@@ -8,6 +8,7 @@
 
 #import "NSObject+runtime.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
 @implementation NSObject (runtime)
 - (void)runtime_setStrongValue:(id)value key:(NSString *)key{
     objc_setAssociatedObject(self, key.UTF8String, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -25,20 +26,8 @@
     return objc_getAssociatedObject(self, key.UTF8String);
 }
 
-- (void)runtime_swizzleMethod:(SEL)originalSelector swizzled:(SEL)swizzledSelector{
-    Method originalMethod = class_getInstanceMethod(self.class, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(self.class, swizzledSelector);
-    
-    BOOL didAddMethod = class_addMethod(self.class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
-    
-    if (didAddMethod) {
-        class_replaceMethod(self.class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
-    } else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    }
-    
-    
-}
+
+
 
 - (NSArray<NSString *> *)runtime_propertieNameList{
     // 方式1:
@@ -67,7 +56,62 @@
         NSLog(@"attributesStr : %@", attributesStr);
         [temp addObject:str];
     }
+    free(properties);
     return temp;
 
+}
+
+
+#pragma mark -方法交换
+// 对象方法替换
+- (void)swizzleMethod_instances:(SEL)originalSelector swizzled:(SEL)swizzledSelector{
+    /**
+     
+     struct objc_method {
+     SEL method_name;        // 方法名称
+     charchar *method_typesE;    // 参数和返回类型的描述字串
+     IMP method_imp;         // 方法的具体的实现的指针，保存了方法地址
+     }
+     
+     */
+    Method originalMethod = class_getInstanceMethod(self.class, originalSelector);
+    Method swizzledMethod = class_getInstanceMethod(self.class, swizzledSelector);
+    
+    // class_addMethod:如果发现方法已经存在，会失败返回，也可以用来做检查用,我们这里是为了避免源方法没有实现的情况;如果方法没有存在,我们则先尝试添加被替换的方法的实现
+    BOOL didAddMethod = class_addMethod(self.class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+    
+    // 原方法未实现，则替换原方法防止crash
+    if (didAddMethod) {
+        class_replaceMethod(self.class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    } else {
+        // 添加失败：说明源方法已经有实现，直接将两个方法的实现交换即
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+//类方法替换
++ (void)swizzleMethod_class:(SEL)originalSelector swizzled:(SEL)replaceSelector {
+    Class class = [self class];
+    
+    // Method中包含IMP函数指针，通过替换IMP，使SEL调用不同函数实现
+    Method origMethod = class_getClassMethod(class, originalSelector);
+    Method replaceMeathod = class_getClassMethod(class, replaceSelector);
+    Class metaKlass = objc_getMetaClass(NSStringFromClass(class).UTF8String);
+    
+    // class_addMethod:如果发现方法已经存在，会失败返回，也可以用来做检查用,我们这里是为了避免源方法没有实现的情况;如果方法没有存在,我们则先尝试添加被替换的方法的实现
+    BOOL didAddMethod = class_addMethod(metaKlass,
+                                        originalSelector,
+                                        method_getImplementation(replaceMeathod),
+                                        method_getTypeEncoding(replaceMeathod));
+    if (didAddMethod) {
+        // 原方法未实现，则替换原方法防止crash
+        class_replaceMethod(metaKlass,
+                            replaceSelector,
+                            method_getImplementation(origMethod),
+                            method_getTypeEncoding(origMethod));
+    }else {
+        // 添加失败：说明源方法已经有实现，直接将两个方法的实现交换即
+        method_exchangeImplementations(origMethod, replaceMeathod);
+    }
 }
 @end

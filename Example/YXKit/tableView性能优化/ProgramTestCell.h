@@ -1,8 +1,8 @@
 //
-//  YXTableViewController.h
+//  ProgramTestCell.h
 //  YXKit_Example
 //
-//  Created by 顾玉玺 on 2019/1/4.
+//  Created by 顾玉玺 on 2019/1/21.
 //  Copyright © 2019年 18637780521@163.com. All rights reserved.
 //
 
@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YXTableViewController : UITableViewController
+@interface ProgramTestCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 
 @end
 

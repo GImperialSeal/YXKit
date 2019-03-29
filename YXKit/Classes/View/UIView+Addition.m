@@ -13,6 +13,8 @@ static float durationOfShake = 0.5f;//震动时间
 static float vigourOfShake = 0.008f;//震动幅度
 
 @implementation UIView (Addition)
+
+
 + (instancetype)lineView{
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 1/[UIScreen mainScreen].scale)];
     view.backgroundColor = [UIColor colorWithRed:218/255.0 green:218/255.0 blue:218/255.0 alpha:1];

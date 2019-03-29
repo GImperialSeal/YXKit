@@ -10,6 +10,7 @@ pod 'BFKit'
 pod 'Masonry'
 pod 'ReactiveObjC'
 pod 'YTKNetwork'
+pod 'MBProgressHUD'
   target 'YXKit_Tests' do
     inherit! :search_paths
 

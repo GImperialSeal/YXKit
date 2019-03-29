@@ -20,6 +20,10 @@
 
 #import "NSObject+runtime.h"
 
+#import "YXTestLeak.h"
+
+#import <MBProgressHUD.h>
+
 @import AVFoundation;
 @import OpenGLES;
 
@@ -85,6 +89,17 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    YXTestLeak *l =[YXTestLeak new];
+    [l eat];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [l eat];
+        
+        YXTestLeak *s =[YXTestLeak new];
+        [s eat];
+
+    });
+    
     NSLog(@"NORMAL_STATUS_AND_NAV_BAR_HEIGHT: %f", STATUS_AND_NAV_BAR_HEIGHT);
 
 	// Do any additional setup after loading the view, typically from a nib.
@@ -107,15 +122,15 @@
 //    [[NSRunLoop currentRunLoop]addTimer:timer1 forMode:NSRunLoopCommonModes];
     
     
-    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-    dispatch_source_set_event_handler(timer, ^{
-        sleep(1);
-        NSLog(@"11111");
-    });
-    dispatch_resume(timer);
-    
-    self.timer = timer;
+//    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+//    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+//    dispatch_source_set_event_handler(timer, ^{
+//        sleep(1);
+//        NSLog(@"11111");
+//    });
+//    dispatch_resume(timer);
+//    
+//    self.timer = timer;
 }
 
 
@@ -140,8 +155,47 @@
 
         
     }else{
+        NSString *tip0 = @"由于版权限制,请切换使用本地设备投屏观看";
+        NSString *tip1 = @"注: 本地设备指名称前有标志的设备";
+        NSString *tip = [NSString stringWithFormat:@"%@\n%@",tip0,tip1];
+        NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:tip];
+        
+        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(tip0.length+1, tip1.length)];
+        [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0092DC"] range:NSMakeRange(tip0.length+1, tip1.length)];
+        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, tip0.length)];
+        [str addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, tip0.length)];
+        
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
+        [style setLineSpacing:4];
+        [style setAlignment:NSTextAlignmentCenter];
+        [str addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, tip.length)];
+        
+        NSTextAttachment *attachment = [[NSTextAttachment alloc]init];
+        [attachment setImage:[UIImage imageNamed:@"RC-盒子-选中"]];
+        attachment.bounds = CGRectMake(0, 0, 15, 12);
+        NSAttributedString *str2 = [NSAttributedString attributedStringWithAttachment:attachment];
+
+      
+        
+        [str insertAttributedString:str2 atIndex:tip.length-5];
+
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.attributedText = str;
+        hud.label.numberOfLines = 0;
+        hud.bezelView.backgroundColor = [UIColor blackColor];
+        [hud hideAnimated:YES afterDelay:3];
         
         
+//        MBProgressHUD *hud2 = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+//        hud2.mode = MBProgressHUDModeCustomView;
+//        hud2.customView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"toast"]];
+//        hud2.margin = 20;
+//
+//        hud2.bezelView.color = [UIColor clearColor];
+////        hud2.backgroundView.color = [UIColor yellowColor];
+//        [hud2 hideAnimated:YES afterDelay:3];
         
     }
 

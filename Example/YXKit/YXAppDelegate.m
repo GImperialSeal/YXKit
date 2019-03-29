@@ -9,10 +9,22 @@
 #import "YXAppDelegate.h"
 #import <malloc/malloc.h>
 #import "Test.h"
+#import "YXAlgorithm.h"
+#import "NSArray+Helper.h"
 @implementation YXAppDelegate
 
-
+- (void)eat{
+    NSLog(@"eateateateateateateat");
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+    
+    // 数组去重
+    NSArray *array = @[@"1",@"2",@"2",@"1",@"0",@"100",@"8",@"4",@"9"];
+    NSLog(@"temp: %@",[array deleteRepeatElement]);
+
+  
+
     return YES;
 }
 

@@ -101,4 +101,35 @@
 
 
 
+#define singleton(className) \
+\
+static className *share = nil; \
+\
++ (instancetype)share \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+share = [[className alloc] init]; \
+}); \
+return share; \
+} \
+\
++ (id)allocWithZone:(NSZone *)zone \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+share = [super allocWithZone:zone]; \
+}); \
+return share; \
+}\
+- (id)copyWithZone:(NSZone *)zone{ \
+return share; \
+} \
+- (id)mutableCopyWithZone:(NSZone *)zone \
+{ \
+return share; \
+}
+
+
+
 #endif /* YXMacro_h */

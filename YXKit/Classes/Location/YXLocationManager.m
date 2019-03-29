@@ -15,6 +15,7 @@
 @end
 @implementation YXLocationManager
 
+// 授权
 - (RACSignal *)auth{
     NSDictionary *info = [NSBundle mainBundle].infoDictionary;
     NSString *always = info[@"NSLocationAlwaysUsageDescription"];
@@ -57,6 +58,7 @@
     }
 }
 
+// 定位
 - (void)location:(void(^)(NSDictionary *place))complete failure:(void(^)(NSError *error))failure{
     RACSignal *signal = [[[[self auth] filter:^BOOL(id  _Nullable value) {
         return [value boolValue];

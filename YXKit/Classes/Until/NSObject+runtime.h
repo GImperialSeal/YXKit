@@ -31,7 +31,20 @@
 - (void)runtime_setCopyValue:(id)value key:(NSString *)key;
 - (id)runtime_getValueForkey:(NSString *)key;
 
-- (void)runtime_swizzleMethod:(SEL)originalSelector swizzled:(SEL)swizzledSelector;
+// 对象方法交换
+- (void)swizzleMethod_instances:(SEL)originalSelector swizzled:(SEL)swizzledSelector;
+
+// 类方法交换
++ (void)swizzleMethod_class:(SEL)originalSelector swizzled:(SEL)replaceSelector;
+
 
 - (NSArray<NSString *> *)runtime_propertieNameList;
+
+
+/** class_addMethod方法
+  v -- void   @ -- an obj  : -- medthod sel
+  v@:@ 返回值void 另外传3个参数
+  objc_msgSend(self,@selector(setName:)); 带俩参数
+   class_addMethod(myClass, @selector(setName:), (IMP)setName, "v@:@");
+*/
 @end

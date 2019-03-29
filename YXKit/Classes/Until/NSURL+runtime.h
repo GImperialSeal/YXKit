@@ -1,8 +1,8 @@
 //
-//  YXTestLeak.h
+//  NSURL+runtime.h
 //  YXKit_Example
 //
-//  Created by 顾玉玺 on 2019/1/14.
+//  Created by 顾玉玺 on 2019/1/23.
 //  Copyright © 2019年 18637780521@163.com. All rights reserved.
 //
 
@@ -10,10 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YXTestLeak : NSObject
-@property (nonatomic, strong)dispatch_block_t block;
+@interface NSURL (runtime)
 
-- (void)eat;
 @end
 
 NS_ASSUME_NONNULL_END
