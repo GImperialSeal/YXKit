@@ -32,8 +32,8 @@ id addMethod(id self, SEL _cmd) {
 + (void)yx_unrecognizedSelectorProtector {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSObject *object = [[NSObject alloc] init];
-        [object swizzleMethod_instances:@selector(forwardingTargetForSelector:) swizzled:@selector(yx_forwardingTargetForSelector:)];
+//        NSObject *object = [[NSObject alloc] init];
+        [self swizzleMethod_instances:@selector(forwardingTargetForSelector:) swizzled:@selector(yx_forwardingTargetForSelector:)];
     });
 }
 

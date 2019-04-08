@@ -32,14 +32,14 @@ Pod::Spec.new do |s|
       ss.source_files = 'YXKit/Classes/QRCode/*'
   end
 
-  s.subspec 'UMShare' do |ss|
-  ss.source_files = 'YXKit/Classes/UMShare/*'
-  ss.dependency  'UMCCommon'
-  ss.dependency     'UMCShare/Social/SMS'
-  ss.dependency     'UMCShare/Social/ReducedWeChat'
-  ss.dependency     'UMCShare/Social/ReducedQQ'
-  ss.dependency     'UMCShare/Social/ReducedSina'
-  end
+#s.subspec 'UMShare' do |ss|
+#ss.source_files = 'YXKit/Classes/UMShare/*'
+#ss.dependency  'UMCCommon'
+#ss.dependency     'UMCShare/Social/SMS'
+#ss.dependency     'UMCShare/Social/ReducedWeChat'
+#ss.dependency     'UMCShare/Social/ReducedQQ'
+#ss.dependency     'UMCShare/Social/ReducedSina'
+#end
 
   s.subspec 'View' do |ss|
      ss.source_files = 'YXKit/Classes/View/*'

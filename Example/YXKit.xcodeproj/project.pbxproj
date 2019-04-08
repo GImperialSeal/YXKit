@@ -45,6 +45,12 @@
 		EE211F08224D213A0017A53E /* YXCrashLog.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F07224D213A0017A53E /* YXCrashLog.m */; };
 		EE211F0C224DC6F50017A53E /* YXAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F0B224DC6F50017A53E /* YXAlgorithm.m */; };
 		EE211F0F224E21380017A53E /* NSArray+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F0E224E21380017A53E /* NSArray+Helper.m */; };
+		EE211F12224E46410017A53E /* NSArray+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F11224E46410017A53E /* NSArray+Crash.m */; };
+		EE211F15224EE4EF0017A53E /* NSMutableArray+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F14224EE4EF0017A53E /* NSMutableArray+Crash.m */; };
+		EE211F18224EE7200017A53E /* NSDictionary+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F17224EE7200017A53E /* NSDictionary+Crash.m */; };
+		EE211F1B224EE8630017A53E /* NSMutableDictionary+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F1A224EE8630017A53E /* NSMutableDictionary+Crash.m */; };
+		EE211F1E224F236A0017A53E /* NetworkManager+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F1D224F236A0017A53E /* NetworkManager+Download.m */; };
+		EE211F21224F25AE0017A53E /* YXDownLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F20224F25AE0017A53E /* YXDownLoad.m */; };
 		EE434C1021F5BC9200744FB1 /* YXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE434C0F21F5BC9200744FB1 /* YXTableViewController.m */; };
 		EE434C1621F5C3C200744FB1 /* ProgramTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE434C1521F5C3C200744FB1 /* ProgramTestCell.m */; };
 		EE434C1821F5C6BC00744FB1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE434C1721F5C6BC00744FB1 /* Images.xcassets */; };
@@ -169,6 +175,18 @@
 		EE211F0B224DC6F50017A53E /* YXAlgorithm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXAlgorithm.m; sourceTree = "<group>"; };
 		EE211F0D224E21380017A53E /* NSArray+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Helper.h"; sourceTree = "<group>"; };
 		EE211F0E224E21380017A53E /* NSArray+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Helper.m"; sourceTree = "<group>"; };
+		EE211F10224E46410017A53E /* NSArray+Crash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Crash.h"; sourceTree = "<group>"; };
+		EE211F11224E46410017A53E /* NSArray+Crash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Crash.m"; sourceTree = "<group>"; };
+		EE211F13224EE4EF0017A53E /* NSMutableArray+Crash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Crash.h"; sourceTree = "<group>"; };
+		EE211F14224EE4EF0017A53E /* NSMutableArray+Crash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Crash.m"; sourceTree = "<group>"; };
+		EE211F16224EE7200017A53E /* NSDictionary+Crash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Crash.h"; sourceTree = "<group>"; };
+		EE211F17224EE7200017A53E /* NSDictionary+Crash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Crash.m"; sourceTree = "<group>"; };
+		EE211F19224EE8630017A53E /* NSMutableDictionary+Crash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Crash.h"; sourceTree = "<group>"; };
+		EE211F1A224EE8630017A53E /* NSMutableDictionary+Crash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Crash.m"; sourceTree = "<group>"; };
+		EE211F1C224F236A0017A53E /* NetworkManager+Download.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetworkManager+Download.h"; sourceTree = "<group>"; };
+		EE211F1D224F236A0017A53E /* NetworkManager+Download.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetworkManager+Download.m"; sourceTree = "<group>"; };
+		EE211F1F224F25AE0017A53E /* YXDownLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXDownLoad.h; sourceTree = "<group>"; };
+		EE211F20224F25AE0017A53E /* YXDownLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXDownLoad.m; sourceTree = "<group>"; };
 		EE434C0E21F5BC9200744FB1 /* YXTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXTableViewController.h; sourceTree = "<group>"; };
 		EE434C0F21F5BC9200744FB1 /* YXTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXTableViewController.m; sourceTree = "<group>"; };
 		EE434C1321F5C0CC00744FB1 /* YXQueueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXQueueViewController.h; sourceTree = "<group>"; };
@@ -330,6 +348,10 @@
 				EE434C0D21F5BC6F00744FB1 /* tableView性能优化 */,
 				EEB8539021C22131007A0B90 /* NetworkManager.h */,
 				EEB8539121C22131007A0B90 /* NetworkManager.m */,
+				EE211F1C224F236A0017A53E /* NetworkManager+Download.h */,
+				EE211F1D224F236A0017A53E /* NetworkManager+Download.m */,
+				EE211F1F224F25AE0017A53E /* YXDownLoad.h */,
+				EE211F20224F25AE0017A53E /* YXDownLoad.m */,
 				EE61742E21E6DF4600296CBF /* 音视频开发.h */,
 				EE61742F21E6DF4600296CBF /* 音视频开发.m */,
 				EEB8538A21C0EF51007A0B90 /* YXRACViewController.h */,
@@ -400,6 +422,14 @@
 			children = (
 				EE211F02224D18A60017A53E /* NSObject+SelectorCrash.h */,
 				EE211F03224D18A60017A53E /* NSObject+SelectorCrash.m */,
+				EE211F10224E46410017A53E /* NSArray+Crash.h */,
+				EE211F11224E46410017A53E /* NSArray+Crash.m */,
+				EE211F13224EE4EF0017A53E /* NSMutableArray+Crash.h */,
+				EE211F14224EE4EF0017A53E /* NSMutableArray+Crash.m */,
+				EE211F16224EE7200017A53E /* NSDictionary+Crash.h */,
+				EE211F17224EE7200017A53E /* NSDictionary+Crash.m */,
+				EE211F19224EE8630017A53E /* NSMutableDictionary+Crash.h */,
+				EE211F1A224EE8630017A53E /* NSMutableDictionary+Crash.m */,
 				EE211F06224D213A0017A53E /* YXCrashLog.h */,
 				EE211F07224D213A0017A53E /* YXCrashLog.m */,
 			);
@@ -770,18 +800,23 @@
 				EE1B87BB21AA927800638B93 /* UIDevice+RotateRrientation.m in Sources */,
 				EE61742D21E5E4CC00296CBF /* Test.m in Sources */,
 				EE211F0F224E21380017A53E /* NSArray+Helper.m in Sources */,
+				EE211F18224EE7200017A53E /* NSDictionary+Crash.m in Sources */,
 				EEB8539221C22131007A0B90 /* NetworkManager.m in Sources */,
 				EE1B87DA21AA9C0E00638B93 /* UIView+Addition.m in Sources */,
 				EED2D0742196733B00EFE020 /* UITextField+Limit.m in Sources */,
 				EE9BBA3021E2EB0B00B9ACFC /* YXViewController+Socket.m in Sources */,
 				EE9BBA2A21DEF4D700B9ACFC /* UITableView+DefaultView.m in Sources */,
 				EE1B87C421AA936F00638B93 /* UIViewController+MGNavBar.m in Sources */,
+				EE211F12224E46410017A53E /* NSArray+Crash.m in Sources */,
 				EE1B87D421AA9BDE00638B93 /* UIButton+TitleImage.m in Sources */,
 				EE1B87D721AA9C0800638B93 /* UIButton+AZBadge.m in Sources */,
 				EE434C1021F5BC9200744FB1 /* YXTableViewController.m in Sources */,
 				EED2D06C2196733B00EFE020 /* YXPrefixConfig.m in Sources */,
 				EEA15B80219D3682007B985A /* WKWebViewController.m in Sources */,
+				EE211F21224F25AE0017A53E /* YXDownLoad.m in Sources */,
+				EE211F15224EE4EF0017A53E /* NSMutableArray+Crash.m in Sources */,
 				EE61743021E6DF4600296CBF /* 音视频开发.m in Sources */,
+				EE211F1E224F236A0017A53E /* NetworkManager+Download.m in Sources */,
 				EE211F04224D18A60017A53E /* NSObject+SelectorCrash.m in Sources */,
 				EEA15B8D219D82A1007B985A /* NSObject+Date.m in Sources */,
 				EE9BBA2721DC936A00B9ACFC /* NSObject+YXKVO.m in Sources */,
@@ -791,6 +826,7 @@
 				EED2D08B219BF9C700EFE020 /* YXViewController+reachablity.m in Sources */,
 				EE1B87BE21AA928D00638B93 /* UIResponder+Event.m in Sources */,
 				EED2D06F2196733B00EFE020 /* QRCodeViewController.m in Sources */,
+				EE211F1B224EE8630017A53E /* NSMutableDictionary+Crash.m in Sources */,
 				6003F59E195388D20070C39A /* YXAppDelegate.m in Sources */,
 				EE648FD121ECC2DE00A1D983 /* YXTestLeak.m in Sources */,
 				EE211F0C224DC6F50017A53E /* YXAlgorithm.m in Sources */,

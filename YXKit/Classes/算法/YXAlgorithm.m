@@ -35,7 +35,7 @@
 // 选择排序
 + (NSMutableArray *)sortBySection:(NSArray *)tempArray isAscending:(BOOL)ascending{
     NSMutableArray *arr = tempArray.mutableCopy;
-    for (int i = 0; i<arr.count; i++) {
+    for (int i = 0; i<arr.count-1; i++) {
         for (int j = i+1; j<tempArray.count; j++) {
             if (ascending) {
                 if ([arr[i] integerValue]>[arr[j] integerValue]) {

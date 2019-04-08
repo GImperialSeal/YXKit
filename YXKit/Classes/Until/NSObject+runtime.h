@@ -31,11 +31,15 @@
 - (void)runtime_setCopyValue:(id)value key:(NSString *)key;
 - (id)runtime_getValueForkey:(NSString *)key;
 
-// 对象方法交换
+// 对象方法替换
 - (void)swizzleMethod_instances:(SEL)originalSelector swizzled:(SEL)swizzledSelector;
 
-// 类方法交换
++ (void)swizzleInstanceMethodWithClass:(Class)klass orginalMethod:(SEL)originalSelector swizzled:(SEL)replaceSelector;
+
+//类方法替换
 + (void)swizzleMethod_class:(SEL)originalSelector swizzled:(SEL)replaceSelector;
+
++ (void)swizzleClassMethodWithClass:(Class)klass orginalMethod:(SEL)originalSelector swizzled:(SEL)replaceSelector;
 
 
 - (NSArray<NSString *> *)runtime_propertieNameList;

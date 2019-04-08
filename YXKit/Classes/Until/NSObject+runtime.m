@@ -63,55 +63,62 @@
 
 
 #pragma mark -方法交换
-// 对象方法替换
-- (void)swizzleMethod_instances:(SEL)originalSelector swizzled:(SEL)swizzledSelector{
+
+- (void)swizzle:(Class)klass originalSelector:(SEL)originalSelector swizzled:(SEL)swizzledSelector originalMethod:(Method)originalMethod swizzledMethod:(Method)swizzledMethod{
     /**
-     
      struct objc_method {
      SEL method_name;        // 方法名称
      charchar *method_typesE;    // 参数和返回类型的描述字串
      IMP method_imp;         // 方法的具体的实现的指针，保存了方法地址
      }
-     
      */
-    Method originalMethod = class_getInstanceMethod(self.class, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(self.class, swizzledSelector);
-    
+
     // class_addMethod:如果发现方法已经存在，会失败返回，也可以用来做检查用,我们这里是为了避免源方法没有实现的情况;如果方法没有存在,我们则先尝试添加被替换的方法的实现
-    BOOL didAddMethod = class_addMethod(self.class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
-    
-    // 原方法未实现，则替换原方法防止crash
+    BOOL didAddMethod =
+    class_addMethod(klass,originalSelector,
+        method_getImplementation(swizzledMethod),
+        method_getTypeEncoding(swizzledMethod));
     if (didAddMethod) {
-        class_replaceMethod(self.class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
-    } else {
+        // 原方法未实现，则替换原方法防止crash
+        class_replaceMethod(klass,swizzledSelector,
+            method_getImplementation(originalMethod),
+            method_getTypeEncoding(originalMethod));
+    }else {
         // 添加失败：说明源方法已经有实现，直接将两个方法的实现交换即
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
 }
+// 对象方法替换
+- (void)swizzleMethod_instances:(SEL)originalSelector swizzled:(SEL)swizzledSelector{
+    Method originalMethod = class_getInstanceMethod(self.class, originalSelector);
+    Method swizzledMethod = class_getInstanceMethod(self.class, swizzledSelector);
+    [self swizzle:self.class originalSelector:originalSelector swizzled:swizzledSelector originalMethod:originalMethod swizzledMethod:swizzledMethod];
+}
+
++ (void)swizzleInstanceMethodWithClass:(Class)klass orginalMethod:(SEL)originalSelector swizzled:(SEL)replaceSelector {
+    Method origMethod = class_getInstanceMethod(klass, originalSelector);
+    Method replaceMeathod = class_getInstanceMethod(klass, replaceSelector);
+    [self swizzle:klass originalSelector:originalSelector swizzled:replaceSelector originalMethod:origMethod swizzledMethod:replaceMeathod];
+    
+}
 
 //类方法替换
 + (void)swizzleMethod_class:(SEL)originalSelector swizzled:(SEL)replaceSelector {
-    Class class = [self class];
-    
-    // Method中包含IMP函数指针，通过替换IMP，使SEL调用不同函数实现
-    Method origMethod = class_getClassMethod(class, originalSelector);
-    Method replaceMeathod = class_getClassMethod(class, replaceSelector);
-    Class metaKlass = objc_getMetaClass(NSStringFromClass(class).UTF8String);
-    
-    // class_addMethod:如果发现方法已经存在，会失败返回，也可以用来做检查用,我们这里是为了避免源方法没有实现的情况;如果方法没有存在,我们则先尝试添加被替换的方法的实现
-    BOOL didAddMethod = class_addMethod(metaKlass,
-                                        originalSelector,
-                                        method_getImplementation(replaceMeathod),
-                                        method_getTypeEncoding(replaceMeathod));
-    if (didAddMethod) {
-        // 原方法未实现，则替换原方法防止crash
-        class_replaceMethod(metaKlass,
-                            replaceSelector,
-                            method_getImplementation(origMethod),
-                            method_getTypeEncoding(origMethod));
-    }else {
-        // 添加失败：说明源方法已经有实现，直接将两个方法的实现交换即
-        method_exchangeImplementations(origMethod, replaceMeathod);
-    }
+    [self swizzleClassMethodWithClass:[self class] orginalMethod:originalSelector swizzled:replaceSelector];
 }
+
++ (void)swizzleClassMethodWithClass:(Class)klass orginalMethod:(SEL)originalSelector swizzled:(SEL)replaceSelector {
+    // Method中包含IMP函数指针，通过替换IMP，使SEL调用不同函数实现
+    Method origMethod = class_getClassMethod(klass, originalSelector);
+    Method replaceMeathod = class_getClassMethod(klass, replaceSelector);
+    Class metaKlass = objc_getMetaClass(NSStringFromClass(klass).UTF8String);
+    [self swizzle:metaKlass originalSelector:originalSelector swizzled:replaceSelector originalMethod:origMethod swizzledMethod:replaceMeathod];
+}
+
+
+
+
+
+
+
 @end

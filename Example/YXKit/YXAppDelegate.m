@@ -23,6 +23,8 @@
     NSArray *array = @[@"1",@"2",@"2",@"1",@"0",@"100",@"8",@"4",@"9"];
     NSLog(@"temp: %@",[array deleteRepeatElement]);
 
+    
+    NSLog(@"index: %@",[array objectAtIndex:20]);
   
 
     return YES;
