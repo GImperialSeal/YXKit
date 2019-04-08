@@ -32,6 +32,11 @@ Pod::Spec.new do |s|
       ss.source_files = 'YXKit/Classes/QRCode/*'
   end
 
+  s.subspec 'Network' do |ss|
+  ss.source_files = 'YXKit/Classes/Network/*'
+  ss.dependency 'YTKNetwork'
+  end
+
 #s.subspec 'UMShare' do |ss|
 #ss.source_files = 'YXKit/Classes/UMShare/*'
 #ss.dependency  'UMCCommon'

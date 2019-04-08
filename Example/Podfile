@@ -1,15 +1,15 @@
 #use_frameworks!
 
 target 'YXKit_Example' do
-#  pod 'YXKit', :path => '../'
+  pod 'YXKit', :path => '../'
 #pod 'YXKit',:git => 'https://github.com/GImperialSeal/YXKit.git'
 
-pod 'AFNetworking'
-pod 'YYKit'
-pod 'BFKit'
-pod 'Masonry'
-pod 'ReactiveObjC'
-pod 'YTKNetwork'
+#pod 'AFNetworking'
+#pod 'YYKit'
+#pod 'BFKit'
+#pod 'Masonry'
+#pod 'ReactiveObjC'
+#pod 'YTKNetwork'
 pod 'MBProgressHUD'
   target 'YXKit_Tests' do
     inherit! :search_paths
