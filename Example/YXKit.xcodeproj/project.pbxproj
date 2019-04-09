@@ -83,6 +83,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83CBF584EB4D77FAF43F1D1A /* Pods-YXKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88FC65A5225C9A08003A9E57 /* CSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPrefixHeader.pch; sourceTree = "<group>"; };
 		9F1E86B91F40D1C1F12215E6 /* libPods-YXKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YXKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA62B7CD12735403A792DAA0 /* Pods-YXKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Tests/Pods-YXKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC73A375BE7B3FF43CFB0DBE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -266,6 +267,7 @@
 			children = (
 				6003F5B7195388D20070C39A /* Tests-Info.plist */,
 				6003F5B8195388D20070C39A /* InfoPlist.strings */,
+				88FC65A5225C9A08003A9E57 /* CSPrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
