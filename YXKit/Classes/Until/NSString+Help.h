@@ -22,9 +22,19 @@
 - (BOOL)isLegalName;
 
 - (BOOL)isLegalPrice;
+//车牌
+- (BOOL)isCarNumber;
 
 //  身份证号验证
-+ (BOOL) validateIdentityCard: (NSString *)input;
+- (BOOL)validateIdentityCard;
+//精确的身份证号码有效性检测
++ (BOOL)accurateVerifyIDCardNumber:(NSString *)value;
+
+/** 银行卡的有效性 */
+- (BOOL)bankCardluhmCheck;
+
+/** 清除html标签 */
+- (NSString *)stringByStrippingHTML;
 
 /**
  判断字符串是否符合手机号格式。
@@ -57,6 +67,4 @@
 //是否是浮点数
 - (BOOL)isPureFloat;
 
-// 去掉html标签 留下原本的字符串
-+ (NSString *)filterHTML:(NSString *)html;
 @end

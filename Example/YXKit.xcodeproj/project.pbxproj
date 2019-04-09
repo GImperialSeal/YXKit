@@ -58,7 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		174D127E713E34CE6F55991E /* YXKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YXKit.podspec; path = ../YXKit.podspec; sourceTree = "<group>"; };
+		174D127E713E34CE6F55991E /* YXKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YXKit.podspec; path = ../YXKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1BE38010F359F400555C8532 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		29CBAE017BCC0CA7BDD260AE /* Pods-YXKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Tests/Pods-YXKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3ED61F50B5827F59A3661EC9 /* Pods-YXKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
