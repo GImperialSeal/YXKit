@@ -15,7 +15,11 @@ Pod::Spec.new do |s|
 
   s.subspec 'Config' do |ss|
       ss.source_files = 'YXKit/Classes/Config/*'
-      
+  end
+  
+  s.subspec 'AppDelegateManager' do |ss|
+      ss.source_files = 'YXKit/Classes/AppDelegateManager/*'
+      ss.dependency 'YXKit/Config'
   end
 
   s.subspec 'WKWebView' do |ss|

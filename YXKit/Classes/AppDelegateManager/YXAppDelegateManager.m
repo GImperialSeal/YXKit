@@ -5,7 +5,7 @@
 //  Created by 顾玉玺 on 2019/4/10.
 //
 
-#import "YXAppDelegate.h"
+#import "YXAppDelegateManager.h"
 #import <objc/runtime.h>
 #import "YXMacro.h"
 #import "NSObject+PerformSelector.h"
@@ -14,7 +14,7 @@
 - (void)_migu_##methodName:(UIApplication *)application { \
 NSMutableDictionary *parmas = [NSMutableDictionary dictionary]; \
 parmas[@0] = application; \
-[YXAppDelegate appdelegatePerformSelector:@selector(methodName:) params:parmas]; \
+[YXAppDelegateManager appdelegatePerformSelector:@selector(methodName:) params:parmas]; \
 [self _migu_##methodName:application]; \
 }
 
@@ -23,7 +23,7 @@ parmas[@0] = application; \
 NSMutableDictionary *parmas = [NSMutableDictionary dictionary];\
 parmas[@0] = application;\
 parmas[@1] = value2;\
-[YXAppDelegate appdelegatePerformSelector:@selector(methodName1:methodName2:) params:parmas];\
+[YXAppDelegateManager appdelegatePerformSelector:@selector(methodName1:methodName2:) params:parmas];\
 [self _migu_##methodName1:application methodName2:value2];\
 }
 
@@ -32,7 +32,7 @@ parmas[@1] = value2;\
 NSMutableDictionary *parmas = [NSMutableDictionary dictionary];\
 parmas[@0] = application;\
 parmas[@1] = value2;\
-[YXAppDelegate appdelegatePerformSelector:@selector(methodName1:methodName2:) params:parmas];\
+[YXAppDelegateManager appdelegatePerformSelector:@selector(methodName1:methodName2:) params:parmas];\
 return [self _migu_##methodName1:application methodName2:value2];\
 }
 
@@ -41,7 +41,7 @@ return [self _migu_##methodName1:application methodName2:value2];\
 NSMutableDictionary *parmas = [NSMutableDictionary dictionary];\
 parmas[@0] = application;\
 parmas[@1] = value2;\
-[YXAppDelegate appdelegatePerformSelector:@selector(methodName1:methodName2:) params:parmas];\
+[YXAppDelegateManager appdelegatePerformSelector:@selector(methodName1:methodName2:) params:parmas];\
 return [self _migu_##methodName1:application methodName2:value2];\
 }
 
@@ -52,7 +52,7 @@ NSMutableDictionary *parmas = [NSMutableDictionary dictionary];\
 parmas[@0] = application;\
 parmas[@1] = value2;\
 parmas[@2] = value3;\
-[YXAppDelegate appdelegatePerformSelector:@selector(methodName1:methodName2:methodName3:) params:parmas];\
+[YXAppDelegateManager appdelegatePerformSelector:@selector(methodName1:methodName2:methodName3:) params:parmas];\
 [self _migu_##methodName1:application methodName2:value2 methodName3:value3];\
 }
 
@@ -62,14 +62,14 @@ NSMutableDictionary *parmas = [NSMutableDictionary dictionary];\
 parmas[@0] = application;\
 parmas[@1] = value2;\
 parmas[@2] = value3;\
-[YXAppDelegate appdelegatePerformSelector:@selector(methodName1:methodName2:methodName3:) params:parmas];\
+[YXAppDelegateManager appdelegatePerformSelector:@selector(methodName1:methodName2:methodName3:) params:parmas];\
 return [self _migu_##methodName1:application methodName2:value2 methodName3:value3];\
 }
 
 #define YXSEL(name) NSStringFromSelector(@selector(name))
 #define MainAppDelegate @"AppDelegate"
 
-@interface YXAppDelegate()
+@interface YXAppDelegateManager()
 
 @property (nonatomic, strong) NSMutableArray<Class> *classArr;
 
@@ -82,9 +82,9 @@ return [self _migu_##methodName1:application methodName2:value2 methodName3:valu
 
 @end
 
-@implementation YXAppDelegate
+@implementation YXAppDelegateManager
 
-singleton(YXAppDelegate)
+singleton(YXAppDelegateManager)
 
 - (instancetype)init
 {
@@ -103,8 +103,8 @@ singleton(YXAppDelegate)
                     YXSEL(application:handleOpenURL:),
                     YXSEL(application:didReceiveRemoteNotification:),
                     YXSEL(application:didReceiveLocalNotification:),
-                    YXSEL(application:didRegisterUserNotificationSettings:),
                     YXSEL(application:openURL:options:),
+                    YXSEL(application:didRegisterUserNotificationSettings:),
                     YXSEL(application:openURL:sourceApplication:annotation:),
                     YXSEL(application:supportedInterfaceOrientationsForWindow:),
                     YXSEL(application:continueUserActivity:restorationHandler:),
@@ -116,6 +116,9 @@ singleton(YXAppDelegate)
                     YXSEL(application:handleActionWithIdentifier:forLocalNotification:withResponseInfo:completionHandler:),
                     YXSEL(application:handleActionWithIdentifier:forRemoteNotification:withResponseInfo:completionHandler:)
                     ];
+        
+        [self addMethod];
+        [self replaceMethod];
     }
     return self;
 }
@@ -140,13 +143,13 @@ singleton(YXAppDelegate)
     for (NSString *sel in _selArr) {
         NSString *new = [NSString stringWithFormat:@"_migu_%@", sel];
         addMethod(NSSelectorFromString(sel),DefaultAppDelegate.class);
-        addMethod(NSSelectorFromString(new),YXAppDelegate.class);
+        addMethod(NSSelectorFromString(new),YXAppDelegateManager.class);
     }
 }
 
 + (void)registerDelegate:(Class)className {
-    if (className && ![YXAppDelegate.share.classArr containsObject:className]) {
-        [YXAppDelegate.share.classArr addObject:className];
+    if (className && ![YXAppDelegateManager.share.classArr containsObject:className]) {
+        [YXAppDelegateManager.share.classArr addObject:className];
     }
 }
 
@@ -188,7 +191,7 @@ singleton(YXAppDelegate)
 #if DEBUG
     BOOL test = [NSStringFromSelector(sel) containsString:@"didFinishLaunchingWithOptions"];
 #endif
-    for (Class aclass in YXAppDelegate.share.classArr) {
+    for (Class aclass in YXAppDelegateManager.share.classArr) {
 #if DEBUG
         CFAbsoluteTime t =  CFAbsoluteTimeGetCurrent() * 1000;
 #endif
@@ -227,7 +230,7 @@ NormalMethod3Void(application, didReceiveRemoteNotification, fetchCompletionHand
     NSMutableDictionary *parmas = [NSMutableDictionary dictionary];
     parmas[@0] = application;
     parmas[@1] = value2;
-    [YXAppDelegate appdelegatePerformSelector:@selector(application:supportedInterfaceOrientationsForWindow:) params:parmas];
+    [YXAppDelegateManager appdelegatePerformSelector:@selector(application:supportedInterfaceOrientationsForWindow:) params:parmas];
     return [self _migu_application:application supportedInterfaceOrientationsForWindow:value2];
 }
 - (BOOL)_migu_application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation {
@@ -236,7 +239,7 @@ NormalMethod3Void(application, didReceiveRemoteNotification, fetchCompletionHand
     parmas[@1] = url;
     parmas[@2] = sourceApplication;
     parmas[@3] = annotation;
-    [YXAppDelegate appdelegatePerformSelector:@selector(application:openURL:sourceApplication:annotation:) params:parmas];
+    [YXAppDelegateManager appdelegatePerformSelector:@selector(application:openURL:sourceApplication:annotation:) params:parmas];
     return [self _migu_application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
@@ -246,7 +249,7 @@ NormalMethod3Void(application, didReceiveRemoteNotification, fetchCompletionHand
     parmas[@1] = identifier;
     parmas[@2] = notification;
     parmas[@3] = completionHandler;
-    [YXAppDelegate appdelegatePerformSelector:@selector(application:handleActionWithIdentifier:forLocalNotification:completionHandler:) params:parmas];
+    [YXAppDelegateManager appdelegatePerformSelector:@selector(application:handleActionWithIdentifier:forLocalNotification:completionHandler:) params:parmas];
     [self _migu_application:application handleActionWithIdentifier:identifier forLocalNotification:notification completionHandler:completionHandler];
 }
 
@@ -256,7 +259,7 @@ NormalMethod3Void(application, didReceiveRemoteNotification, fetchCompletionHand
     parmas[@1] = identifier;
     parmas[@2] = userInfo;
     parmas[@3] = completionHandler;
-    [YXAppDelegate appdelegatePerformSelector:@selector(application:handleActionWithIdentifier:forRemoteNotification:completionHandler:) params:parmas];
+    [YXAppDelegateManager appdelegatePerformSelector:@selector(application:handleActionWithIdentifier:forRemoteNotification:completionHandler:) params:parmas];
     [self _migu_application:application handleActionWithIdentifier:identifier forRemoteNotification:userInfo completionHandler:completionHandler];
 }
 
@@ -267,7 +270,7 @@ NormalMethod3Void(application, didReceiveRemoteNotification, fetchCompletionHand
     parmas[@1] = identifier;
     parmas[@3] = responseInfo;
     parmas[@4] = completionHandler;
-    [YXAppDelegate appdelegatePerformSelector:@selector(application:handleActionWithIdentifier:forRemoteNotification:withResponseInfo:completionHandler:) params:parmas];
+    [YXAppDelegateManager appdelegatePerformSelector:@selector(application:handleActionWithIdentifier:forRemoteNotification:withResponseInfo:completionHandler:) params:parmas];
     [self _migu_application:application handleActionWithIdentifier:identifier forRemoteNotification:userInfo withResponseInfo:responseInfo completionHandler:completionHandler];
 }
 
@@ -278,7 +281,7 @@ NormalMethod3Void(application, didReceiveRemoteNotification, fetchCompletionHand
     parmas[@2] = notification;
     parmas[@3] = responseInfo;
     parmas[@4] = completionHandler;
-    [YXAppDelegate appdelegatePerformSelector:@selector(application:handleActionWithIdentifier:forLocalNotification:withResponseInfo:completionHandler:) params:parmas];
+    [YXAppDelegateManager appdelegatePerformSelector:@selector(application:handleActionWithIdentifier:forLocalNotification:withResponseInfo:completionHandler:) params:parmas];
     [self _migu_application:application handleActionWithIdentifier:identifier forLocalNotification:notification withResponseInfo:responseInfo completionHandler:completionHandler];
 }
 

@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface YXAppDelegate : NSObject
+@interface YXAppDelegateManager : NSObject
 
 + (void)registerDelegate:(Class)className;
 + (void)registerDelegates:(NSArray<NSString *> *)classNameArr;
