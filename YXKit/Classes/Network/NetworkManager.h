@@ -10,7 +10,7 @@
 #import <YTKNetwork.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@interface NetworkManager<T> : YTKRequest
+@interface NetworkManager: YTKRequest
 
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSDictionary *param;
@@ -20,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSInteger cacheTime;//
 @property (nonatomic) BOOL useCache;
 @property (nonatomic) YTKRequestMethod method;
-@property (nonatomic) YTKRequestSerializerType serializerType;
+@property (nonatomic) YTKRequestSerializerType  requestType;
+@property (nonatomic) YTKResponseSerializerType responseType;
 
-- (void)start:(void(^)(T obj))success failure:(dispatch_block_t)failure;
 @end
 
 @interface NetworkManagerHelper : NSObject

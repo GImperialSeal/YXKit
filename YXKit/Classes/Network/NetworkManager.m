@@ -17,29 +17,32 @@
 @implementation NetworkManager
 
 - (void)configContentTypes{
+    
     YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
     NSSet *acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", @"text/html", @"text/css", nil];
     NSString *keypath = @"jsonResponseSerializer.acceptableContentTypes";
     [agent setValue:acceptableContentTypes forKeyPath:keypath];
+    
 }
 
 - (instancetype)init{
     self = [super init];
     if (self) {
         [self configContentTypes];
+        self.cacheTime = 60*3;
+        self.method = YTKRequestMethodGET;
+//        self.serializerType = YTKRequestSerializerTypeJSON;
+//        self.header = @{@"Content-Type":@"application/X-WWW-FORM-URLENCODED"};
     }
     return self;
 }
 
-- (void)start:(void (^)(id _Nonnull))success failure:(dispatch_block_t)failure{
-    [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        success(request.responseString);
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        
-    }];
+- (YTKResponseSerializerType)responseSerializerType{
+    return self.responseType;
 }
-
-
+- (YTKRequestSerializerType)requestSerializerType{
+    return self.requestType;
+}
 - (YTKRequestMethod)requestMethod{
     return self.method;
 }
