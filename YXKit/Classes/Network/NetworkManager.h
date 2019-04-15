@@ -10,6 +10,9 @@
 #import <YTKNetwork.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void(^ResponseFailBlock)(NSString *msg);
+
 @interface NetworkManager: YTKRequest
 
 @property (nonatomic, strong) NSString *url;

@@ -12,10 +12,10 @@
 #import <objc/runtime.h>
 @implementation NSMutableArray (Crash)
 + (void)load{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self swizzleInstanceMethodWithClass:objc_getClass("__NSArrayM") orginalMethod:@selector(removeObjectAtIndex:) swizzled:@selector(yx_removeObjectAtIndex:)];
-    });
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [self swizzleInstanceMethodWithClass:objc_getClass("__NSArrayM") orginalMethod:@selector(removeObjectAtIndex:) swizzled:@selector(yx_removeObjectAtIndex:)];
+//    });
 }
 
 - (void)yx_removeObjectAtIndex:(NSUInteger)index{

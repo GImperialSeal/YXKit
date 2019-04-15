@@ -18,10 +18,10 @@
  *
  */
 + (void)load{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self swizzleMethod_class:@selector(dictionaryWithObjects:forKeys:count:) swizzled:@selector(yx_dictionaryWithObjects:forKeys:count:)];
-    });
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [self swizzleMethod_class:@selector(dictionaryWithObjects:forKeys:count:) swizzled:@selector(yx_dictionaryWithObjects:forKeys:count:)];
+//    });
 }
 
 + (instancetype)yx_dictionaryWithObjects:(id  _Nonnull const [])objects forKeys:(id<NSCopying>  _Nonnull const [])keys count:(NSUInteger)cnt{

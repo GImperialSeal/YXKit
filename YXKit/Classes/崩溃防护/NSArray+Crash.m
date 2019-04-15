@@ -29,15 +29,15 @@
  */
 
 + (void)load{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        
-        [self swizzleInstanceMethodWithClass:objc_getClass("__NSArrayI") orginalMethod:@selector(objectAtIndex:) swizzled:@selector(yx_objectAtIndex:)];
-        
-        [self swizzleInstanceMethodWithClass:objc_getClass("NSArray") orginalMethod:@selector(objectsAtIndexes:) swizzled:@selector(yx_objectsAtIndexes:)];
-
-    });
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        
+//        
+//        [self swizzleInstanceMethodWithClass:objc_getClass("__NSArrayI") orginalMethod:@selector(objectAtIndex:) swizzled:@selector(yx_objectAtIndex:)];
+//        
+//        [self swizzleInstanceMethodWithClass:objc_getClass("NSArray") orginalMethod:@selector(objectsAtIndexes:) swizzled:@selector(yx_objectsAtIndexes:)];
+//
+//    });
 }
 - (id)yx_objectAtIndex:(NSUInteger)index {
     id obj = nil;
