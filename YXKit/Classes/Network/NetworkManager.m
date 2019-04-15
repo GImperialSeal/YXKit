@@ -29,7 +29,7 @@
     self = [super init];
     if (self) {
         [self configContentTypes];
-        self.cacheTime = 60*3;
+        self.cacheTime = 0;
         self.method = YTKRequestMethodGET;
 //        self.serializerType = YTKRequestSerializerTypeJSON;
 //        self.header = @{@"Content-Type":@"application/X-WWW-FORM-URLENCODED"};

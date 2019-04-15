@@ -1,5 +1,5 @@
 //
-//  MGMCTableViewList.h
+//  MGTableViewList.h
 //  MiGuQRCode
 //
 //  Created by 顾玉玺 on 2018/3/27.
@@ -12,6 +12,7 @@ typedef NS_OPTIONS(NSInteger, ActionViewDirection){
     ActionSheetDirectionBottom,
     ActionSheetDirectionLeft,
     ActionSheetDirectionRight,
+    ActionSheetDirectionCenter,
 };
 
 
@@ -37,6 +38,7 @@ typedef NS_OPTIONS(NSInteger, ActionViewDirection){
 + (void)showActionView:(UIView *)contentView
               dirction:(ActionViewDirection)dirction
               animated:(BOOL)animated;
+
 
 + (void)dismissActionView:(BOOL)animated delay:(NSTimeInterval)delay completion:(dispatch_block_t)complete;
 @end

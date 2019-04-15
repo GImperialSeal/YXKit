@@ -1,5 +1,5 @@
 //
-//  MGMCTableViewList.m
+//  MGTableViewList.m
 //  MiGuQRCode
 //
 //  Created by 顾玉玺 on 2018/3/27.
@@ -12,6 +12,7 @@
 #define KSpece 12
 @interface MGMCActionView()
 @property (nonatomic) CGFloat viewH;
+@property (nonatomic) BOOL isAnimating;
 @end
 @implementation MGMCActionView
 
@@ -39,31 +40,35 @@
 
 
 - (void)animated:(BOOL)animated delay:(NSTimeInterval)delay show:(BOOL)isShow completion:(dispatch_block_t)complete{
+    self.isAnimating = YES;
     if (isShow) {// 显示
         if (!animated) {
             self.maskView.alpha = 0.5;
+            self.isAnimating = NO;
             return;
         }
         [self setTableViewTransform];
-        [UIView animateWithDuration:_duration delay:_delay options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:_duration delay:_delay options:UIViewAnimationOptionCurveLinear animations:^{
             self.contentView.transform = CGAffineTransformIdentity;
-            [self setMaskViewTransform];
             self.maskView.alpha = 0.5;
         } completion:^(BOOL finished) {
+            self.isAnimating = NO;
             if (complete) {complete();}
         }];
     }else{// 隐藏
         if (!animated) {
             [self setTableViewTransform];
+            self.maskView.alpha = 0;
             [self removeFromSuperview];
             if (complete) {complete();}
+            self.isAnimating = NO;
         }else{
-            [UIView animateWithDuration:_duration delay:_delay options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [UIView animateWithDuration:_duration delay:_delay options:UIViewAnimationOptionCurveLinear animations:^{
                 [self setTableViewTransform];
-                self.maskView.transform = CGAffineTransformIdentity;
-                self.maskView.alpha = 0.5;
+                self.maskView.alpha = 0;
             } completion:^(BOOL finished) {
                 [self removeFromSuperview];
+                self.isAnimating = NO;
                 if (complete) {complete();}
             }];
         }
@@ -91,7 +96,6 @@
 
         [self addSubview:self.maskView];
         [self addSubview:self.contentView];
-
     }
     return self;
 }
@@ -99,7 +103,9 @@
 
 // dismiss
 - (void)enventForDismiss{
-    [self animated:YES delay:0 show:NO completion:nil];
+    if (!self.isAnimating) {
+        [self animated:YES delay:0 show:NO completion:nil];
+    }
 }
 
 - (void)setTableViewTransform{
@@ -111,32 +117,13 @@
             self.contentView.transform = CGAffineTransformMakeTranslation(0, _viewH);
             break;
         case ActionSheetDirectionRight:
-            self.contentView.transform = CGAffineTransformMakeTranslation(_viewH, 0);
+            self.contentView.transform = CGAffineTransformMakeTranslation(200, 0);
             break;
         default:
-            self.contentView.transform = CGAffineTransformMakeTranslation(-_viewH, 0);
+            self.contentView.transform = CGAffineTransformMakeScale(0.3, 0.3);
             break;
     }
 }
-- (void)setMaskViewTransform{
-    switch (_direction) {
-        case ActionSheetDirectionTop:
-            self.maskView.transform = CGAffineTransformMakeTranslation(0, _viewH);
-            break;
-        case ActionSheetDirectionBottom:
-            self.maskView.transform = CGAffineTransformMakeTranslation(0, -_viewH);
-            break;
-        case ActionSheetDirectionRight:
-            self.maskView.transform = CGAffineTransformMakeTranslation(-_viewH, 0);
-            break;
-        default:
-            self.maskView.transform = CGAffineTransformMakeTranslation(_viewH, 0);
-            break;
-    }
-}
-
-
-
 
 
 - (UIView *)maskView{

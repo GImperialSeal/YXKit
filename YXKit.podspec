@@ -16,6 +16,10 @@ Pod::Spec.new do |s|
   s.subspec 'Config' do |ss|
       ss.source_files = 'YXKit/Classes/Config/*'
   end
+  s.subspec 'Setting' do |ss|
+      ss.source_files = 'YXKit/Classes/Setting/*'
+      ss.dependency 'YXKit/Until'
+  end
   
   s.subspec 'AppDelegateManager' do |ss|
       ss.source_files = 'YXKit/Classes/AppDelegateManager/*'
