@@ -10,7 +10,7 @@
 #import "YXSettingItem.h"
 @interface YXTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel *signoutLabel;
-@property (nonatomic, strong) YXSettingItem *item;
+@property (nonatomic, strong)UIView *line;
+@property (nonatomic, strong)UIView *zwView;
 
 @end

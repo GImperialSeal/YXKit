@@ -12,13 +12,10 @@
 @class YXSettingItem;
 
 typedef enum : NSInteger{
-    GSettingItemTypeDefault,      // 什么也没有
-    GSettingItemTypeSwitch,    // 开关
-    GSettingItemTypeSignout,   // 退出
-    GSettingItemTypeValue1, // 头像
+    GSettingItemTypeDefault,   // 什么也没有
+    GSettingItemTypeValue1, // value1
     GSettingItemTypeTextField,    // 输入
     GSettingItemTypeCustom,     // 自定义
-
 } GSettingItemType;
 
 typedef void(^CellBlock)(YXSettingItem *item);
@@ -29,48 +26,42 @@ typedef void(^AccessoryViewBlock)(UIButton *sender);
 @interface YXSettingItem : NSObject
 
 // default
-@property (nonatomic, copy) NSString *icon;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subtitle;
-
-@property (nonatomic, strong) UIColor *subTitleColor;
-@property (nonatomic, strong) UIColor *titleColor;
-
-@property (nonatomic, strong) UIFont *titleFont;
-@property (nonatomic, strong) UIFont *subtitleFont;
+@property (nonatomic, strong) NSString *icon;
+@property (nonatomic, strong) NSAttributedString *title;
+@property (nonatomic, strong) NSAttributedString *subtitle;
 
 // textfield
-@property (nonatomic, copy) NSString *placeholder;
+@property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic) UIKeyboardType keyType;
 @property (nonatomic) NSInteger limitEditLength;
 
-// signout
-@property (nonatomic, strong) UIColor *signoutBGColor;
-@property (nonatomic, strong) UIColor *signoutButtonTitleColor;
-
-// switch
-@property (nonatomic) BOOL switchDefaultState;
 
 // cell
-@property (nonatomic, strong) UIColor *backCellViewColor;
-@property (nonatomic) BOOL showDisclosureIndicator;
 @property (nonatomic) CGFloat rowHeight;
+@property (nonatomic) BOOL hideSeparatorLine;
 
-@property (nonatomic, assign) GSettingItemType type;// Cell的样式
+@property (nonatomic) GSettingItemType type;// Cell的样式
 
 // accessoryview
-@property (nonatomic, strong) NSString *accessoryNormalIcon ;// Cell的样式
-@property (nonatomic, strong) NSString *accessorySelectedIcon ;// Cell的样式
-@property (nonatomic) NSInteger selectedRow ;// Cell的样式
+@property (nonatomic, strong) UIView *accessoryview;// Cell的样式
+@property (nonatomic) UITableViewCellAccessoryType accessoryType;
+
 
 // op
-@property (nonatomic, copy) CellBlock cellBlock ; // 点击cell后要执行的操作
-@property (nonatomic, copy) SwitchBlock switchBlock;/** cell上开关的操作事件 */
-@property (nonatomic, copy) EditBlock editBlock;/** cell上开关的操作事件 */
+@property (nonatomic, strong) CellBlock cellBlock ; // 点击cell后要执行的操作
+@property (nonatomic, strong) SwitchBlock switchBlock;/** cell上开关的操作事件 */
+@property (nonatomic, strong) EditBlock editBlock;/** 编辑事件 */
 
+@property (nonatomic, strong) AccessoryViewBlock accessoryBlock;/** AccessoryView事件 */
 
-+ (instancetype)itemTypeDefault:(NSString *)icon title:(NSString *)title subtitle:(NSString *)subtitle cellBlock:(CellBlock)block;
-+ (instancetype)itemTypeValue1:(NSString *)title subtitle:(NSString *)subtitle cellBlock:(CellBlock)block;
-+ (instancetype)itemTypeTextField:(NSString *)title placeholder:(NSString *)placeholder editBlock:(EditBlock)block;
-+ (instancetype)itemTypeSignout:(NSString *)title cellBlock:(CellBlock)block;
++ (NSAttributedString *)attribute:(NSString *)text fontSize:(CGFloat)fontSize color:(UIColor *)color;
++ (NSAttributedString *)attributeDefaultTitle:(NSString *)text;
++ (NSAttributedString *)attributeDefaultSubtitle:(NSString *)text;
+
++ (instancetype)itemTypeDefault:(NSString *)icon;
+
++ (instancetype)itemTypeValue1;
+
++ (instancetype)itemTypeCustom;
+
 @end

@@ -56,7 +56,7 @@ typedef void (^FinishedLayoutBlock)(UIButton *sender,int i);
 
 
 // 自动适应间距
-+ (void)nineBlockBoxAutoMargin:(UIView *)sv rect:(CGRect)rect col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished;
++ (void)nineBlockBoxAutoMargin:(UIView *)sv width:(CGFloat)width rect:(CGRect)rect col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished;
 
 
 

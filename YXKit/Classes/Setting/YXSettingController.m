@@ -7,16 +7,12 @@
 //
 
 #import "YXSettingController.h"
-#import <objc/runtime.h>
 #import "YXTableViewCell.h"
 #import "YXTextFieldCell.h"
-
 @interface YXSettingController (){
     UISwitch *_s;
 }
 @property (copy, nonatomic) void(^switchChangeBlock)(BOOL on);
-
-@property (strong, nonatomic) UITableViewCell *maskcell;
 
 @end
 
@@ -26,10 +22,8 @@
 - (UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        _tableView.sectionFooterHeight = 0;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-//        _tableView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin;
     }
     return _tableView;
 }
@@ -44,10 +38,28 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
-    
-    
 }
 
+- (NSString *)reuserIndentifier:(GSettingItemType)type{
+    switch (type) {
+        case GSettingItemTypeTextField:
+            return @"TextField";
+        case GSettingItemTypeValue1:
+            return @"Value1";
+        default:
+            return @"Default";
+    }
+}
+- (UITableViewCellStyle)cellStyle:(GSettingItemType)type{
+    switch (type) {
+        case GSettingItemTypeDefault:
+            return UITableViewCellStyleDefault;
+        case GSettingItemTypeValue1:
+            return UITableViewCellStyleValue1;
+        default:
+            return UITableViewCellStyleDefault;
+    }
+}
 #pragma mark - delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return _allGroups.count;
@@ -58,86 +70,33 @@
     return group.items.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
-
-    if (item.type == GSettingItemTypeSignout) {
-        YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"signout"];
-        if (!cell) {
-            cell = [[YXTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"signout"];
-        }
-        cell.item = item;
-        return cell;
-    } else if (item.type == GSettingItemTypeValue1){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"value1"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"value1"];
-        }
-        cell.textLabel.text = item.title;
-        cell.detailTextLabel.text = item.subtitle;
-        if (item.subTitleColor)cell.detailTextLabel.textColor = item.subTitleColor;
-        if (item.titleColor)cell.textLabel.textColor = item.titleColor;
-        if (item.titleFont)cell.textLabel.font = item.titleFont;
-        if (item.subtitleFont)cell.textLabel.font = item.subtitleFont;
-        return cell;
-    }else if (item.type == GSettingItemTypeTextField){
-        YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"textField"];
-        if (!cell) {
-            cell = [[YXTextFieldCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"textField"];
-        }
-        return cell;
-    }else{
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"default"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"default"];
-            if (item.showDisclosureIndicator) {
-                cell.accessoryView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:item.accessoryNormalIcon]];
-            }
-        }
-        cell.textLabel.text = item.title;
-        cell.detailTextLabel.text = item.subtitle;
-        if (item.subTitleColor)cell.detailTextLabel.textColor = item.subTitleColor;
-        if (item.titleColor)cell.textLabel.textColor = item.titleColor;
-        if (item.titleFont)cell.textLabel.font = item.titleFont;
-        if (item.subtitleFont)cell.textLabel.font = item.subtitleFont;
-        if (item.icon)cell.imageView.image = [UIImage imageNamed:item.icon];
-        if (item.showDisclosureIndicator){
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }else{
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        if (indexPath.row == item.selectedRow && item.showDisclosureIndicator) {
-            [cell.accessoryView setValue:[UIImage imageNamed:item.accessorySelectedIcon] forKey:@"image"];
-            self.maskcell = cell;
-        }
-        return cell;
+    NSString *identifier = [self reuserIndentifier:item.type];
+    YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[YXTableViewCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
     }
+    cell.textLabel.attributedText = item.title;
+    cell.detailTextLabel.attributedText = item.subtitle;
+    cell.imageView.image = [UIImage imageNamed:item.icon];
+    cell.accessoryType = item.accessoryType;
+    cell.accessoryView = item.accessoryview;
+    cell.line.hidden = item.hideSeparatorLine;
+    return cell;
+   
 }
+
 
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
-    if (item.accessorySelectedIcon) {
-        if (![cell isEqual:self.maskcell] && item.showDisclosureIndicator) {
-            [cell.accessoryView setValue:[UIImage imageNamed:item.accessorySelectedIcon] forKey:@"image"];
-            [self.maskcell.accessoryView setValue:[UIImage imageNamed:item.accessoryNormalIcon] forKey:@"image"];
-            self.maskcell = cell;
-        }
-    }
     // 1.取出这行对应模型中的block代码
-    if (item.cellBlock) {
-        // 执行block
-        item.cellBlock(item);
-    }
+    !item.cellBlock?:item.cellBlock(item);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -174,9 +133,5 @@
 }
 
 
-#pragma mark - setter
-- (void)setMaskcell:(UITableViewCell *)maskcell{
-    _maskcell = maskcell;
-    self.selectedIndexPath = [self.tableView indexPathForCell:maskcell];
-}
+
 @end

@@ -18,16 +18,16 @@
  *
  */
 + (void)load{
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        [self swizzleMethod_class:@selector(dictionaryWithObjects:forKeys:count:) swizzled:@selector(yx_dictionaryWithObjects:forKeys:count:)];
-//    });
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self swizzleMethod_instances:@selector(initWithObjects:forKeys:count:) swizzled:@selector(yx_initWithObjects:forKeys:count:)];
+    });
 }
 
-+ (instancetype)yx_dictionaryWithObjects:(id  _Nonnull const [])objects forKeys:(id<NSCopying>  _Nonnull const [])keys count:(NSUInteger)cnt{
+- (instancetype)yx_initWithObjects:(id  _Nonnull const [])objects forKeys:(id<NSCopying>  _Nonnull const [])keys count:(NSUInteger)cnt{
     id instance = nil;
     @try {
-        instance = [self yx_dictionaryWithObjects:objects forKeys:keys count:cnt];
+        instance = [self yx_initWithObjects:objects forKeys:keys count:cnt];
     }
     @catch (NSException *exception) {
         
@@ -46,7 +46,7 @@
                 index++;
             }
         }
-        instance = [self yx_dictionaryWithObjects:newObjects forKeys:newkeys count:index];
+        instance = [self yx_initWithObjects:newObjects forKeys:newkeys count:index];
     }
     @finally {
         return instance;

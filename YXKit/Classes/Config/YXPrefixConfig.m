@@ -29,8 +29,8 @@
 
 
 
-+ (void)nineBlockBoxAutoMargin:(UIView *)sv rect:(CGRect)rect col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished{
-    CGFloat x = ([UIScreen.mainScreen bounds].size.width-rect.size.width*col)/(col+1);
++ (void)nineBlockBoxAutoMargin:(UIView *)sv width:(CGFloat)width rect:(CGRect)rect col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished{
+    CGFloat x = (width-rect.size.width*col)/(col+1);
     CGRect r = rect;
     r.origin.x = x;
     rect = r;

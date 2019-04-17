@@ -7,54 +7,45 @@
 //
 
 #import "YXTableViewCell.h"
+#import <Masonry.h>
 @import Foundation;
+
+
 @implementation YXTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.backgroundColor = [UIColor clearColor];
+        [self.contentView addSubview:self.line];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-
-        [self.contentView addSubview:self.signoutLabel];
+        [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(0.5);
+            make.left.offset(15);
+            make.bottom.offset(0);
+            make.right.inset(15);
+        }];
     }
     return self;
 }
 
-- (UILabel *)signoutLabel{
-    if (!_signoutLabel) {
-        
-        _signoutLabel = [[UILabel alloc]initWithFrame:CGRectInset(self.bounds, 40, 0)];
-        _signoutLabel.layer.cornerRadius = 4;
-        _signoutLabel.textAlignment = NSTextAlignmentCenter;
 
+
+
+- (UIView *)line{
+    if (!_line) {
+        _line = [[UIView alloc]initWithFrame:CGRectMake(15, self.bounds.size.height-0.5, self.bounds.size.width-30, 0.5)];
+        _line.backgroundColor = [UIColor groupTableViewBackgroundColor];
     }
-    return _signoutLabel;
+    return _line;
 }
-
-- (void)setItem:(YXSettingItem *)item{
-    _item = item;
-    if (item.signoutBGColor)self.signoutLabel.backgroundColor = item.signoutBGColor;
-    self.signoutLabel.text = item.title;
-}
-
-
 
 -(void)addSubview:(UIView *)view{
-    
     NSString* className = NSStringFromClass([view class]);
-    
     if (![className isEqualToString:@"UIButton"]&&
         ![className isEqualToString:@"UITableViewCellContentView"]){
         return;
     }
-    
     [super addSubview:view];
-    
 }
 
 @end

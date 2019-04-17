@@ -15,55 +15,43 @@
 
 @implementation YXSettingItem
 
-+ (instancetype)itemTypeDefault:(NSString *)icon title:(NSString *)title subtitle:(NSString *)subtitle cellBlock:(CellBlock)block{
++ (NSAttributedString *)attribute:(NSString *)text fontSize:(CGFloat)fontSize color:(UIColor *)color{
+    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize],NSForegroundColorAttributeName:color}];
+}
+
++ (NSAttributedString *)attributeDefaultTitle:(NSString *)text{
+    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor blackColor]}];
+}
++ (NSAttributedString *)attributeDefaultSubtitle:(NSString *)text{
+    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithRed:136/255.0 green:136/255.0 blue:136/255.0 alpha:1]}];
+}
+
++ (instancetype)itemTypeDefault:(NSString *)icon{
     YXSettingItem *item = [[self alloc] init];
     item.icon = icon;
-    item.title = title;
-    item.subtitle = subtitle;
     item.type = GSettingItemTypeDefault;
-    item.showDisclosureIndicator = YES;
-    item.cellBlock = block;
     return item;
 }
 
-+ (instancetype)itemTypeValue1:(NSString *)title subtitle:(NSString *)subtitle cellBlock:(CellBlock)block{
++ (instancetype)itemTypeValue1{
     YXSettingItem *item = [[self alloc] init];
-    item.title = title;
     item.type = GSettingItemTypeValue1;
-    item.subtitle = subtitle;
-    item.showDisclosureIndicator = YES;
-    item.cellBlock = block;
     return item;
 }
 
-+ (instancetype)itemTypeTextField:(NSString *)title placeholder:(NSString *)placeholder editBlock:(EditBlock)block{
++ (instancetype)itemTypeCustom{
     YXSettingItem *item = [[self alloc] init];
-    item.title = title;
-    item.placeholder = placeholder;
-    item.limitEditLength = INT_MAX;
-    item.type = GSettingItemTypeTextField;
-    item.editBlock = block;
+    item.type = GSettingItemTypeCustom;
     return item;
 }
-
-
-+ (instancetype)itemTypeSignout:(NSString *)title cellBlock:(CellBlock)block{
-    YXSettingItem *item = [[self alloc] init];
-    item.title = title;
-    item.type = GSettingItemTypeSignout;
-    item.cellBlock = block;
-    return item;
-}
-
-
 
 - (instancetype)init{
     if ([super init]) {
-      
         self.rowHeight = 44;
-        self.backCellViewColor = [UIColor redColor];
+        self.accessoryview = nil;
+        self.accessoryType = UITableViewCellAccessoryNone;
+        self.hideSeparatorLine = YES;
     }
-    
     return self;
 }
 @end

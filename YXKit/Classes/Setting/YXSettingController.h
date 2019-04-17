@@ -20,4 +20,5 @@
 @property (nonatomic, strong) NSMutableArray *allGroups;
 
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+
 @end
