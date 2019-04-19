@@ -84,6 +84,7 @@
     cell.accessoryType = item.accessoryType;
     cell.accessoryView = item.accessoryview;
     cell.line.hidden = item.hideSeparatorLine;
+    cell.textLabel.numberOfLines = 2;
     return cell;
    
 }
@@ -96,7 +97,7 @@
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
     // 1.取出这行对应模型中的block代码
-    !item.cellBlock?:item.cellBlock(item);
+    !item.cellBlock?:item.cellBlock(group,item,indexPath);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{

@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 @class YXSettingItem;
-
+@class YXSettingGroup;
 typedef enum : NSInteger{
     GSettingItemTypeDefault,   // 什么也没有
     GSettingItemTypeValue1, // value1
@@ -18,7 +18,7 @@ typedef enum : NSInteger{
     GSettingItemTypeCustom,     // 自定义
 } GSettingItemType;
 
-typedef void(^CellBlock)(YXSettingItem *item);
+typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *indexPath);
 typedef void(^SwitchBlock)(BOOL on);
 typedef void(^EditBlock)(NSString *text);
 typedef void(^AccessoryViewBlock)(UIButton *sender);

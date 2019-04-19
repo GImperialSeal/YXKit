@@ -19,6 +19,7 @@
 @property (nonatomic) CGFloat heightForRow;
 
 @property (nonatomic) BOOL showArrow;
+@property (nonatomic) BOOL limit;
 
 @property (nonatomic, strong) NSArray *items; // 中间的条目
 
