@@ -31,7 +31,7 @@
         [self configContentTypes];
         self.cacheTime = 0;
         self.method = YTKRequestMethodGET;
-//        self.serializerType = YTKRequestSerializerTypeJSON;
+        self.responseType = YTKResponseSerializerTypeJSON;
 //        self.header = @{@"Content-Type":@"application/X-WWW-FORM-URLENCODED"};
     }
     return self;
