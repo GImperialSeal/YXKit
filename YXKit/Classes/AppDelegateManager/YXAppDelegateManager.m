@@ -84,7 +84,7 @@ return [self _migu_##methodName1:application methodName2:value2 methodName3:valu
 
 @implementation YXAppDelegateManager
 
-singleton(YXAppDelegateManager)
+singleton(YXAppDelegateManager,share)
 
 - (instancetype)init
 {

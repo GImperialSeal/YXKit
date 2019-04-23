@@ -101,11 +101,11 @@
 
 
 
-#define singleton(className) \
+#define singleton(className,methodName) \
 \
 static className *share = nil; \
 \
-+ (instancetype)share \
++ (instancetype)methodName \
 { \
 static dispatch_once_t onceToken; \
 dispatch_once(&onceToken, ^{ \
