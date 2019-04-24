@@ -18,6 +18,7 @@ typedef enum : NSInteger{
     GSettingItemTypeNineBox,     // 九宫格
     GSettingItemTypeInput,   // 正方形输入框
     GSettingItemTypeSlider,  // 拖动进度
+    GSettingItemTypePicker,     // 选择照片
     GSettingItemTypeCustom,     // 自定义
 } GSettingItemType;
 
@@ -35,6 +36,7 @@ typedef void(^AccessoryViewBlock)(UIButton *sender);
 
 // textfield
 @property (nonatomic, strong) NSString *placeholder;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic) UIKeyboardType keyType;
 @property (nonatomic) NSInteger limitEditLength;
 
@@ -57,9 +59,6 @@ typedef void(^AccessoryViewBlock)(UIButton *sender);
 
 @property (nonatomic, strong) AccessoryViewBlock accessoryBlock;/** AccessoryView事件 */
 
-+ (NSAttributedString *)attribute:(NSString *)text fontSize:(CGFloat)fontSize color:(UIColor *)color;
-+ (NSAttributedString *)attributeDefaultTitle:(NSString *)text;
-+ (NSAttributedString *)attributeDefaultSubtitle:(NSString *)text;
 
 + (instancetype)itemTypeDefault:(NSString *)icon;
 
@@ -72,5 +71,9 @@ typedef void(^AccessoryViewBlock)(UIButton *sender);
 + (instancetype)itemTypeInput;
 
 + (instancetype)itemTypeSlider;
+
++ (instancetype)itemTypePicker;
+
++ (instancetype)itemTypeTextField;
 
 @end

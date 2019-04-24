@@ -15,16 +15,6 @@
 
 @implementation YXSettingItem
 
-+ (NSAttributedString *)attribute:(NSString *)text fontSize:(CGFloat)fontSize color:(UIColor *)color{
-    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize],NSForegroundColorAttributeName:color}];
-}
-
-+ (NSAttributedString *)attributeDefaultTitle:(NSString *)text{
-    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor blackColor]}];
-}
-+ (NSAttributedString *)attributeDefaultSubtitle:(NSString *)text{
-    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithRed:136/255.0 green:136/255.0 blue:136/255.0 alpha:1]}];
-}
 
 + (instancetype)itemTypeDefault:(NSString *)icon{
     YXSettingItem *item = [[self alloc] init];
@@ -56,6 +46,17 @@
     item.type = GSettingItemTypeNineBox;
     return item;
 }
++ (instancetype)itemTypePicker{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypePicker;
+    return item;
+}
+
++ (instancetype)itemTypeTextField{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeTextField;
+    return item;
+}
 
 + (instancetype)itemTypeCustom{
     YXSettingItem *item = [[self alloc] init];
@@ -66,6 +67,7 @@
 - (instancetype)init{
     if ([super init]) {
         self.rowHeight = 44;
+        self.limitEditLength = 500;
         self.accessoryview = nil;
         self.accessoryType = UITableViewCellAccessoryNone;
         self.hideSeparatorLine = YES;

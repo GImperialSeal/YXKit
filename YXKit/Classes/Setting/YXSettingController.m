@@ -86,6 +86,7 @@
     cell.accessoryView = item.accessoryview;
     cell.line.hidden = item.hideSeparatorLine;
     cell.textLabel.numberOfLines = 2;
+    
     return cell;
    
 }
