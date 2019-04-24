@@ -29,8 +29,6 @@
 }
 
 
-
-
 - (UIView *)line{
     if (!_line) {
         _line = [[UIView alloc]initWithFrame:CGRectMake(15, self.bounds.size.height-0.5, self.bounds.size.width-30, 0.5)];
@@ -39,13 +37,13 @@
     return _line;
 }
 
--(void)addSubview:(UIView *)view{
-    NSString* className = NSStringFromClass([view class]);
-    if (![className isEqualToString:@"UIButton"]&&
-        ![className isEqualToString:@"UITableViewCellContentView"]){
-        return;
-    }
-    [super addSubview:view];
-}
+//-(void)addSubview:(UIView *)view{
+//    NSString* className = NSStringFromClass([view class]);
+//    if (![className isEqualToString:@"UIButton"]&&
+//        ![className isEqualToString:@"UITableViewCellContentView"]){
+//        return;
+//    }
+//    [super addSubview:view];
+//}
 
 @end

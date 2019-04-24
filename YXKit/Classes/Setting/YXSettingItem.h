@@ -15,6 +15,9 @@ typedef enum : NSInteger{
     GSettingItemTypeDefault,   // 什么也没有
     GSettingItemTypeValue1, // value1
     GSettingItemTypeTextField,    // 输入
+    GSettingItemTypeNineBox,     // 九宫格
+    GSettingItemTypeInput,   // 正方形输入框
+    GSettingItemTypeSlider,  // 拖动进度
     GSettingItemTypeCustom,     // 自定义
 } GSettingItemType;
 
@@ -63,5 +66,11 @@ typedef void(^AccessoryViewBlock)(UIButton *sender);
 + (instancetype)itemTypeValue1;
 
 + (instancetype)itemTypeCustom;
+
++ (instancetype)itemTypeNineBox;
+
++ (instancetype)itemTypeInput;
+
++ (instancetype)itemTypeSlider;
 
 @end

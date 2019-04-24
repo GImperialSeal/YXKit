@@ -39,6 +39,24 @@
     return item;
 }
 
++ (instancetype)itemTypeSlider{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeSlider;
+    return item;
+}
+
++ (instancetype)itemTypeInput{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeInput;
+    return item;
+}
+
++ (instancetype)itemTypeNineBox{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeNineBox;
+    return item;
+}
+
 + (instancetype)itemTypeCustom{
     YXSettingItem *item = [[self alloc] init];
     item.type = GSettingItemTypeCustom;
