@@ -9,6 +9,7 @@
 #import "YXSettingController.h"
 #import "YXTableViewCell.h"
 #import "YXTextFieldCell.h"
+
 @interface YXSettingController (){
     UISwitch *_s;
 }
@@ -17,6 +18,29 @@
 @end
 
 @implementation YXSettingController
+
+
+- (void)alertSheet:(NSString *)title mssage:(NSString *)msg sheet:(NSArray<YXAlertProtocol> *)titles completion:(YXAlertBlock)block{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle: UIAlertControllerStyleActionSheet];
+    for (id<YXAlertProtocol> obj in titles) {
+        UIAlertAction *alert = [UIAlertAction actionWithTitle:obj.alertTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if (block) {block(obj);}
+        }];
+        [alertController addAction:alert];
+    }
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)alertStringSheet:(NSString *)title mssage:(NSString *)msg sheet:(NSArray<NSString *> *)titles completion:(YXAlertBlock)block{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle: UIAlertControllerStyleActionSheet];
+    for (NSString* title in titles) {
+        UIAlertAction *alert = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if (block) {block(title);}
+        }];
+        [alertController addAction:alert];
+    }
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 
 - (UITableView *)tableView{
@@ -101,6 +125,8 @@
     // 1.取出这行对应模型中的block代码
     !item.cellBlock?:item.cellBlock(group,item,indexPath);
 }
+
+
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return nil;
