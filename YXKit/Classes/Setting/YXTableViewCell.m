@@ -24,6 +24,10 @@
             make.bottom.offset(0);
             make.right.inset(15);
         }];
+        
+        if (self.delegate&&self.delegate.accessoryBtnView) {
+            self.accessoryView = self.delegate.accessoryBtnView;
+        }
     }
     return self;
 }

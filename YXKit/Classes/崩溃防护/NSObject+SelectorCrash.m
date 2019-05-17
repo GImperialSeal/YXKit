@@ -27,7 +27,7 @@ id addMethod(id self, SEL _cmd) {
 @implementation NSObject (SelectorCrash)
 
 +(void)load{
-    [self yx_unrecognizedSelectorProtector];
+//    [self yx_unrecognizedSelectorProtector];
 }
 + (void)yx_unrecognizedSelectorProtector {
     static dispatch_once_t onceToken;

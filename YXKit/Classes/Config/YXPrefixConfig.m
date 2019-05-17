@@ -7,6 +7,7 @@
 //
 
 #import "YXPrefixConfig.h"
+#import <NSObject+runtime.h>
 @import UIKit;
 @implementation YXPrefixConfig
 
@@ -47,25 +48,35 @@
 ///   - count: 数量
 ///   - forView:  i && count
 + (void)nineBlockBox:(UIView *)sv rect:(CGRect)rect margin:(CGFloat)margin col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished{
-    NSInteger currentSubviewsCount = sv.subviews.count;
+    NSMutableArray *subviews = [NSMutableArray array];
+    for (UIView *v in sv.subviews) {
+        BOOL notSystemView = [[v runtime_getValueForkey:@"notSystemView"] boolValue];
+        if (notSystemView) {
+            [subviews addObject:v];
+        }
+    }
+    NSInteger currentSubviewsCount = subviews.count;
+    
+    
     UIButton * sender;
     for (int i = 0; i< count; i++) {
         if (count > currentSubviewsCount){// 添加
             if ((i > currentSubviewsCount-1) || (currentSubviewsCount == 0)){
                 sender = [UIButton buttonWithType:UIButtonTypeCustom];
                 sender.tag = i ;
+                [sender runtime_setAssignValue:@(YES) key:@"notSystemView"];
                 [sv addSubview:sender];
             }else{
-                sender = sv.subviews[i];
+                sender = subviews[i];
             }
         }else if (currentSubviewsCount == count){
-            sender = sv.subviews[i];
+            sender = subviews[i];
         }else{//移除
-            sender = sv.subviews[i];
+            sender = subviews[i];
             for (int i = 0; i< currentSubviewsCount - count; i++) {
-                [sv.subviews.lastObject removeFromSuperview];
+                [subviews.lastObject removeFromSuperview];
             }
-            currentSubviewsCount = sv.subviews.count;
+            currentSubviewsCount = subviews.count;
         }
         sender.frame = CGRectMake(CGRectGetMinX(rect)+i%col*(rect.size.width+margin), CGRectGetMinY(rect)+(i/col)*(rect.size.height+margin), rect.size.width, rect.size.height);
         if (finished) {
@@ -82,33 +93,33 @@
 ///   - col: 列数
 ///   - count: 数量
 ///   - forView:  i && count
-+ (void)nineBlockBox:(UIView *)sv rect:(CGRect)rect margin_X:(CGFloat)margin_X margin_Y:(CGFloat)margin_Y col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished{
-    NSInteger currentSubviewsCount = sv.subviews.count;
-    UIButton * sender;
-    for (int i = 0; i< count; i++) {
-        if (count > currentSubviewsCount){// 添加
-            if ((i > currentSubviewsCount-1) || (currentSubviewsCount == 0)){
-                sender = [UIButton buttonWithType:UIButtonTypeCustom];
-                sender.tag = i ;
-                [sv addSubview:sender];
-            }else{
-                sender = sv.subviews[i];
-            }
-        }else if (currentSubviewsCount == count){
-            sender = sv.subviews[i];
-        }else{//移除
-            sender = sv.subviews[i];
-            for (int i = 0; i< currentSubviewsCount - count; i++) {
-                [sv.subviews.lastObject removeFromSuperview];
-            }
-            currentSubviewsCount = sv.subviews.count;
-        }
-        sender.frame = CGRectMake(CGRectGetMinX(rect)+i%col*(rect.size.width+margin_X), CGRectGetMinY(rect)+(i/col)*(rect.size.height+margin_Y), rect.size.width, rect.size.height);
-        if (finished) {
-            finished(sender,i);
-        }
-    }
-}
+//+ (void)nineBlockBox:(UIView *)sv rect:(CGRect)rect margin_X:(CGFloat)margin_X margin_Y:(CGFloat)margin_Y col:(NSInteger)col count:(NSInteger)count finishedLayout:(FinishedLayoutBlock)finished{
+//    NSInteger currentSubviewsCount = sv.subviews.count;
+//    UIButton * sender;
+//    for (int i = 0; i< count; i++) {
+//        if (count > currentSubviewsCount){// 添加
+//            if ((i > currentSubviewsCount-1) || (currentSubviewsCount == 0)){
+//                sender = [UIButton buttonWithType:UIButtonTypeCustom];
+//                sender.tag = i ;
+//                [sv addSubview:sender];
+//            }else{
+//                sender = sv.subviews[i];
+//            }
+//        }else if (currentSubviewsCount == count){
+//            sender = sv.subviews[i];
+//        }else{//移除
+//            sender = sv.subviews[i];
+//            for (int i = 0; i< currentSubviewsCount - count; i++) {
+//                [sv.subviews.lastObject removeFromSuperview];
+//            }
+//            currentSubviewsCount = sv.subviews.count;
+//        }
+//        sender.frame = CGRectMake(CGRectGetMinX(rect)+i%col*(rect.size.width+margin_X), CGRectGetMinY(rect)+(i/col)*(rect.size.height+margin_Y), rect.size.width, rect.size.height);
+//        if (finished) {
+//            finished(sender,i);
+//        }
+//    }
+//}
 
 
 
