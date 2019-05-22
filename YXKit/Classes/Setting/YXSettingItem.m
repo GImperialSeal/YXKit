@@ -29,6 +29,12 @@
     return item;
 }
 
++ (instancetype)itemTypeValue3{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeValue3;
+    return item;
+}
+
 + (instancetype)itemTypeSlider{
     YXSettingItem *item = [[self alloc] init];
     item.type = GSettingItemTypeSlider;

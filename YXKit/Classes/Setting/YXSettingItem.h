@@ -14,7 +14,7 @@
 typedef enum : NSInteger{
     GSettingItemTypeDefault,   // 什么也没有
     GSettingItemTypeValue1, // value1
-    GSettingItemTypeValue1ActionSheet, // value1
+    GSettingItemTypeValue3, // value3 主标题和副标题紧挨着
     GSettingItemTypeTextField,    // 输入
     GSettingItemTypeNineBox,     // 九宫格
     GSettingItemTypeInput,   // 正方形输入框
@@ -36,6 +36,9 @@ typedef void(^PickerImagesBlock)(NSArray *filesIDArray);
 @property (nonatomic, strong) NSAttributedString *title;
 @property (nonatomic, strong) NSAttributedString *subtitle;
 
+@property (nonatomic, strong) NSString *titleText;
+@property (nonatomic, strong) NSString *subtitleText;
+
 // textfield
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic, strong) NSString *text;
@@ -51,6 +54,10 @@ typedef void(^PickerImagesBlock)(NSArray *filesIDArray);
 
 // cell
 @property (nonatomic) CGFloat rowHeight;
+
+@property (nonatomic) BOOL isObserveTitle;
+@property (nonatomic) BOOL isObserveSubtitle;
+
 @property (nonatomic) BOOL hideSeparatorLine;
 
 @property (nonatomic) GSettingItemType type;// Cell的样式
@@ -70,6 +77,8 @@ typedef void(^PickerImagesBlock)(NSArray *filesIDArray);
 + (instancetype)itemTypeDefault:(NSString *)icon;
 
 + (instancetype)itemTypeValue1;
+
++ (instancetype)itemTypeValue3;
 
 + (instancetype)itemTypeCustom;
 

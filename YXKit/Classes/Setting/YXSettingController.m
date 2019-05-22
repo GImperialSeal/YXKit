@@ -9,6 +9,7 @@
 #import "YXSettingController.h"
 #import "YXTableViewCell.h"
 #import "YXTextFieldCell.h"
+#import <ReactiveObjC.h>
 
 @interface YXSettingController (){
     UISwitch *_s;
@@ -20,27 +21,7 @@
 @implementation YXSettingController
 
 
-- (void)alertSheet:(NSString *)title mssage:(NSString *)msg sheet:(NSArray<YXAlertProtocol> *)titles completion:(YXAlertBlock)block{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle: UIAlertControllerStyleActionSheet];
-    for (id<YXAlertProtocol> obj in titles) {
-        UIAlertAction *alert = [UIAlertAction actionWithTitle:obj.alertTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            if (block) {block(obj);}
-        }];
-        [alertController addAction:alert];
-    }
-    [self presentViewController:alertController animated:YES completion:nil];
-}
 
-- (void)alertStringSheet:(NSString *)title mssage:(NSString *)msg sheet:(NSArray<NSString *> *)titles completion:(YXAlertBlock)block{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle: UIAlertControllerStyleActionSheet];
-    for (NSString* title in titles) {
-        UIAlertAction *alert = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            if (block) {block(title);}
-        }];
-        [alertController addAction:alert];
-    }
-    [self presentViewController:alertController animated:YES completion:nil];
-}
 
 
 - (UITableView *)tableView{
@@ -71,6 +52,8 @@
             return @"TextField";
         case GSettingItemTypeValue1:
             return @"Value1";
+        case GSettingItemTypeValue3:
+            return @"Value3";
         default:
             return @"Default";
     }
@@ -105,12 +88,20 @@
     }
     cell.textLabel.attributedText = item.title;
     cell.detailTextLabel.attributedText = item.subtitle;
+    if (item.isObserveSubtitle) {
+        [RACObserve(item, subtitle) subscribeNext:^(id  _Nullable x) {
+            cell.detailTextLabel.attributedText = x;
+        }];
+    }
+    if (item.isObserveTitle) {
+        [RACObserve(item, title) subscribeNext:^(id  _Nullable x) {
+            cell.textLabel.attributedText = x;
+        }];
+    }
     cell.imageView.image = [UIImage imageNamed:item.icon];
     cell.accessoryType = item.accessoryType;
     cell.accessoryView = item.accessoryview;
     cell.line.hidden = item.hideSeparatorLine;
-    cell.textLabel.numberOfLines = 2;
-    
     return cell;
    
 }

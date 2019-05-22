@@ -17,11 +17,12 @@
 @property (nonatomic) CGFloat heightForFooter;
 @property (nonatomic) CGFloat heightForHeader;
 @property (nonatomic) CGFloat heightForRow;
+@property (nonatomic) NSInteger index;
 
 @property (nonatomic) BOOL showArrow;
 @property (nonatomic) BOOL limit;
 
-@property (nonatomic, strong) NSArray *items; // 中间的条目
+@property (nonatomic, strong) NSMutableArray *items; // 中间的条目
 
 + (instancetype)groupWithItem:(NSArray *)items;
 

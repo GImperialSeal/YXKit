@@ -31,8 +31,4 @@ typedef void(^YXAlertBlock)(id obj);
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 
-- (void)alertSheet:(NSString *)title mssage:(NSString *)msg sheet:(NSArray<YXAlertProtocol> *)titles completion:(YXAlertBlock)block;
-
-- (void)alertStringSheet:(NSString *)title mssage:(NSString *)msg sheet:(NSArray<NSString *> *)titles completion:(YXAlertBlock)block;
-
 @end
