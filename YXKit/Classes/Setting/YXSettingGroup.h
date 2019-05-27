@@ -19,6 +19,8 @@
 @property (nonatomic) CGFloat heightForRow;
 @property (nonatomic) NSInteger index;
 
+@property (nonatomic) BOOL hidden;
+
 @property (nonatomic) BOOL showArrow;
 @property (nonatomic) BOOL limit;
 

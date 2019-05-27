@@ -40,6 +40,10 @@
             make.bottom.inset(12);
         }];
        
+        self.textLabel.textColor = [UIColor colorWithHexString:@"#555555"];
+        self.detailTextLabel.textColor = [UIColor colorWithHexString:@"#888888"];
+        self.textLabel.font = [UIFont systemFontOfSize:14];
+        self.detailTextLabel.font = [UIFont systemFontOfSize:14];
     }
     return self;
 }

@@ -11,17 +11,11 @@
 #import "YXTextFieldCell.h"
 #import <ReactiveObjC.h>
 
-@interface YXSettingController (){
-    UISwitch *_s;
-}
-@property (copy, nonatomic) void(^switchChangeBlock)(BOOL on);
+@interface YXSettingController ()
 
 @end
 
 @implementation YXSettingController
-
-
-
 
 
 - (UITableView *)tableView{
@@ -88,16 +82,6 @@
     }
     cell.textLabel.attributedText = item.title;
     cell.detailTextLabel.attributedText = item.subtitle;
-    if (item.isObserveSubtitle) {
-        [RACObserve(item, subtitle) subscribeNext:^(id  _Nullable x) {
-            cell.detailTextLabel.attributedText = x;
-        }];
-    }
-    if (item.isObserveTitle) {
-        [RACObserve(item, title) subscribeNext:^(id  _Nullable x) {
-            cell.textLabel.attributedText = x;
-        }];
-    }
     cell.imageView.image = [UIImage imageNamed:item.icon];
     cell.accessoryType = item.accessoryType;
     cell.accessoryView = item.accessoryview;
@@ -138,18 +122,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     YXSettingGroup *group = _allGroups[section];
-    return group.heightForFooter;
+    return group.hidden?0:group.heightForFooter;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     YXSettingGroup *group = _allGroups[section];
-    return group.heightForHeader;
+    return group.hidden?0:group.heightForHeader;
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
-    return item.rowHeight;
+    return group.hidden?0:item.rowHeight;
 }
 
 

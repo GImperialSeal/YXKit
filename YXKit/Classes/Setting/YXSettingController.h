@@ -11,15 +11,6 @@
 #import "YXSettingItem.h"
 
 
-@protocol YXAlertProtocol <NSObject>
-
-@property (nonatomic, strong)NSString *alertTitle;
-
-@end
-
-typedef void(^YXAlertBlock)(id obj);
-
-
 @interface YXSettingController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
     NSMutableArray *_allGroups; // 所有的组模型
 }
@@ -29,6 +20,5 @@ typedef void(^YXAlertBlock)(id obj);
 @property (nonatomic, strong) NSMutableArray *allGroups;
 
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
-
 
 @end
