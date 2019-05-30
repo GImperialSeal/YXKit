@@ -18,5 +18,10 @@
     return g;
 }
 
-
+- (NSMutableArray *)items{
+    if (!_items) {
+        _items = [NSMutableArray array];
+    }
+    return _items;
+}
 @end

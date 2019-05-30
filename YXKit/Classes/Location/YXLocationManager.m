@@ -7,7 +7,6 @@
 //
 
 #import "YXLocationManager.h"
-#import <CoreLocation/CoreLocation.h>
 #import <ReactiveObjC.h>
 @interface YXLocationManager()<CLLocationManagerDelegate>
 @property (nonatomic, strong)CLLocationManager *manager;
@@ -22,7 +21,7 @@
     NSString *whenInUse = info[@"NSLocationWhenInUseUsageDescription"];
     NSArray *backModes = info[@"UIBackgroundModes"];
 
-    if ([CLLocationManager locationServicesEnabled]) {
+    if (![CLLocationManager locationServicesEnabled]) {
         NSLog(@"定位服务不可用");
         return [RACSignal empty];
     }
@@ -59,7 +58,7 @@
 }
 
 // 定位
-- (void)location:(void(^)(NSDictionary *place))complete failure:(void(^)(NSError *error))failure{
+- (void)location:(PlaceMarksBlock)complete failure:(void(^)(NSError *error))failure{
     RACSignal *signal = [[[[self auth] filter:^BOOL(id  _Nullable value) {
         return [value boolValue];
     }] flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
@@ -72,8 +71,8 @@
         }] finally:^{
             [self.manager stopUpdatingLocation];
         }];
-    }] flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
-        CLLocation *loc = value[1];
+    }] flattenMap:^__kindof RACSignal * _Nullable(NSArray *value) {
+        CLLocation *loc = value.firstObject;
         return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
             [self.geocoder reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
                 if (error) {
@@ -89,8 +88,8 @@
         }];
     }];
     
-    [signal subscribeNext:^(id  _Nullable x) {
-        !complete?:complete([x addressDictionary]);
+    [signal subscribeNext:^(CLPlacemark *x) {
+        !complete?:complete([x addressDictionary],[x location]);
     }];
     
     [signal subscribeError:^(NSError * _Nullable error) {

@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@import CoreLocation;
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^PlaceMarksBlock)(NSDictionary *place,CLLocation *loc);
 @interface YXLocationManager : NSObject
-- (void)location:(void(^)(NSDictionary *place))complete failure:(void(^)(NSError *error))failure;
+- (void)location:(PlaceMarksBlock)complete failure:(void(^)(NSError *error))failure;
 @end
 
 NS_ASSUME_NONNULL_END
