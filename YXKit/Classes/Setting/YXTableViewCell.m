@@ -77,13 +77,22 @@
 }
 
 
-//-(void)addSubview:(UIView *)view{
-//    NSString* className = NSStringFromClass([view class]);
-//    if (![className isEqualToString:@"UIButton"]&&
-//        ![className isEqualToString:@"UITableViewCellContentView"]){
-//        return;
+- (void)configWithData:(YXSettingItem *)data{
+    self.accessoryType = data.accessoryType;
+    self.accessoryView = data.accessoryview;
+    self.line.hidden = data.hideSeparatorLine;
+//    self.textLabel.text = data.titleText;
+//    self.detailTextLabel.text = data.subtitleText;
+//    if (data.title) {
+        self.textLabel.attributedText = data.title;
 //    }
-//    [super addSubview:view];
-//}
+//    if (data.subtitle) {
+        self.detailTextLabel.attributedText = data.subtitle;
+    
+   
+
+//    }
+}
+
 
 @end

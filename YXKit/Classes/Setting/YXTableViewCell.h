@@ -18,4 +18,6 @@
 
 @property (nonatomic, strong)UILabel *subtitleLabel;
 
+
+- (void)configWithData:(YXSettingItem *)data;
 @end
