@@ -7,6 +7,7 @@
 //
 
 #import "YXPrefixConfig.h"
+#import <YYKit.h>
 #import <NSObject+runtime.h>
 @import UIKit;
 @implementation YXPrefixConfig
@@ -78,6 +79,8 @@
             }
             currentSubviewsCount = subviews.count;
         }
+        [sender removeAllTargets];
+
         sender.frame = CGRectMake(CGRectGetMinX(rect)+i%col*(rect.size.width+margin), CGRectGetMinY(rect)+(i/col)*(rect.size.height+margin), rect.size.width, rect.size.height);
         if (finished) {
             finished(sender,i);
