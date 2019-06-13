@@ -15,6 +15,11 @@
 
 @implementation YXSettingItem
 
++ (instancetype)itemTypeSubtitle{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeSubtitle;
+    return item;
+}
 
 + (instancetype)itemTypeDefault:(NSString *)icon{
     YXSettingItem *item = [[self alloc] init];
@@ -55,6 +60,8 @@
 + (instancetype)itemTypePicker{
     YXSettingItem *item = [[self alloc] init];
     item.type = GSettingItemTypePicker;
+    item.hideHint = NO;
+    item.maxImageCount = 6;
     return item;
 }
 

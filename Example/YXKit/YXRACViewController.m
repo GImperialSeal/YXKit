@@ -58,6 +58,10 @@
     
     
     
+    RACSubject *subject;
+    [subject bind:^RACSignalBindBlock _Nonnull{
+        
+    }];
 }
 
 - (void)dealloc{

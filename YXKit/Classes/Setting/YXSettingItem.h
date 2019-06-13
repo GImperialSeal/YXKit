@@ -21,6 +21,8 @@ typedef enum : NSInteger{
     GSettingItemTypeSlider,  // 拖动进度
     GSettingItemTypePicker,     // 选择照片
     GSettingItemTypeCustom,     // 自定义
+    GSettingItemTypeSubtitle,   // 什么也没有
+
 } GSettingItemType;
 
 typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *indexPath);
@@ -49,6 +51,8 @@ typedef void(^PickerImagesBlock)(NSArray *filesIDArray);
 
 // picker
 @property (nonatomic, strong) NSArray *pickerImagesArray;
+@property (nonatomic) NSInteger maxImageCount;
+@property (nonatomic) BOOL hideHint;
 @property (nonatomic, strong) PickerImagesBlock pickerBlock;/** 选择图片 */
 
 
@@ -92,4 +96,5 @@ typedef void(^PickerImagesBlock)(NSArray *filesIDArray);
 
 + (instancetype)itemTypeTextField;
 
++ (instancetype)itemTypeSubtitle;
 @end

@@ -7,23 +7,77 @@
 //
 
 #import "YXTextFieldCell.h"
-#import "UITextField+Limit.h"
+#import <Masonry.h>
+#import <ReactiveObjC.h>
 @implementation YXTextFieldCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self.contentView addSubview:self.tf];
+        [self.contentView addSubview:self.titleLabel];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        CGFloat space = UIScreen.mainScreen.bounds.size.width>375.f?20.f:25.f;
+        
+        [self.tf mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.offset(0);
+            make.height.mas_equalTo(44);
+            make.left.equalTo(self.titleLabel.mas_right).offset(10);
+            make.right.inset(space);
+        }];
+        
+        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(space);
+            make.centerY.offset(0);
+        }];
+        [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [self.titleLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        
+    }
+    return self;
 }
 
-
-- (void)setItem:(YXSettingItem *)item{
-    _item = item;
-    self.textField.placeholder = item.placeholder;
-    self.textField.keyboardType = item.keyType;
-    self.textField.limitLength = item.limitEditLength;
-    self.textField.editedBlock = item.editBlock;
+- (void)configWithData:(YXSettingItem *)data{
+    self.tf.placeholder = data.placeholder;
+    self.tf.keyboardType = data.keyType;
+    self.tf.text = data.text;
+    self.accessoryView = data.accessoryview;
+    self.titleLabel.attributedText = data.title;
+    @weakify(self)
+    [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
+        if (value.length>data.limitEditLength) {
+            self_weak_.tf.text = [self_weak_.tf.text substringToIndex:data.limitEditLength];
+        }
+        return value;
+    }] subscribeNext:^(id  _Nullable x) {
+        data.text = x;
+        !data.editBlock?:data.editBlock(x);
+    }];
 }
 
+- (UITextField *)tf{
+    if (!_tf) {
+        _tf = [[UITextField alloc]init];
+        _tf.borderStyle = UITextBorderStyleNone;
+        //        _tf.backgroundColor = [UIColor colorWithHexString:@"#F9F9F9"];
+        _tf.font = [UIFont systemFontOfSize:15];
+        //        _tf.textColor = [UIColor colorWithHexString:@"#26B3F4"];
+        //        _tf.layer.cornerRadius = 1;
+        //        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 8, 8)];
+        //        label.text = @" －";
+        //        [label sizeToFit];
+        //        _tf.leftView = label;
+        //        _tf.leftViewMode = UITextFieldViewModeAlways;
+    }
+    return _tf;
+}
+
+- (UILabel *)titleLabel{
+    if (!_titleLabel) {
+        _titleLabel = [UILabel new];
+    }
+    return _titleLabel;
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

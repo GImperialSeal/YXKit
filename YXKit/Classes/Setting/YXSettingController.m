@@ -48,6 +48,8 @@
             return @"Value1";
         case GSettingItemTypeValue3:
             return @"Value3";
+        case GSettingItemTypeSubtitle:
+            return @"subtitle";
         default:
             return @"Default";
     }
@@ -58,6 +60,8 @@
             return UITableViewCellStyleDefault;
         case GSettingItemTypeValue1:
             return UITableViewCellStyleValue1;
+        case GSettingItemTypeSubtitle:
+            return UITableViewCellStyleSubtitle;
         default:
             return UITableViewCellStyleDefault;
     }
@@ -76,21 +80,35 @@
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
     NSString *identifier = [self reuserIndentifier:item.type];
-    YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[YXTableViewCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
+    
+    if (item.type == GSettingItemTypeTextField) {
+        YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[YXTextFieldCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
+        }
+        [cell configWithData:item];
+        return cell;
+    }else{
+        YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[YXTableViewCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
+        }
+        [cell configWithData:item];
+        
+        return cell;
+
     }
-    cell.textLabel.attributedText = item.title;
-    cell.detailTextLabel.attributedText = item.subtitle;
-    cell.imageView.image = [UIImage imageNamed:item.icon];
-    cell.accessoryType = item.accessoryType;
-    cell.accessoryView = item.accessoryview;
-    cell.line.hidden = item.hideSeparatorLine;
-    return cell;
+    
+    
    
 }
 
 
+// 浅灰色
+- (NSAttributedString *)defaultSubtitle:(NSString *)text font:(CGFloat)font{
+    if (!text.length) { return nil; }
+    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font],NSForegroundColorAttributeName:[UIColor redColor]}];
+}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

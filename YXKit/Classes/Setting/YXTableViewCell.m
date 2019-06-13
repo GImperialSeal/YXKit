@@ -9,7 +9,9 @@
 #import "YXTableViewCell.h"
 #import <Masonry.h>
 #import <YYKit.h>
+#import <ReactiveObjC.h>
 @import Foundation;
+
 
 
 @implementation YXTableViewCell
@@ -19,27 +21,47 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self addSubview:self.line];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        CGFloat space = UIScreen.mainScreen.bounds.size.width>375.f?20.f:25.f;
+        
         [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(0.5);
-            make.left.offset(15);
+            make.left.offset(space);
             make.bottom.offset(0);
-            make.right.inset(15);
+            make.right.inset(space);
         }];
         
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.subtitleLabel];
         
-        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.offset(12);
-            make.top.offset(12);
-        }];
-        [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.titleLabel.mas_right).offset(4);
-            make.top.equalTo(self.titleLabel);
-            make.right.inset(12);
-            make.bottom.inset(12);
-        }];
-       
+        if (style == UITableViewCellStyleSubtitle) {
+            
+            [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.offset(space);
+                make.right.inset(space);
+                make.top.offset(12);
+            }];
+            [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.titleLabel);
+                make.top.equalTo(self.titleLabel.mas_bottom).offset(14);
+                make.right.inset(space);
+                make.bottom.inset(space);
+            }];
+            
+            
+        }else{
+            [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.offset(space);
+                make.top.offset(12);
+            }];
+            [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.titleLabel.mas_right).offset(12);
+                make.top.equalTo(self.titleLabel);
+                make.right.inset(space);
+                make.bottom.inset(12);
+            }];
+        }
+        
         self.textLabel.textColor = [UIColor colorWithHexString:@"#555555"];
         self.detailTextLabel.textColor = [UIColor colorWithHexString:@"#888888"];
         self.textLabel.font = [UIFont systemFontOfSize:14];
@@ -78,21 +100,47 @@
 
 
 - (void)configWithData:(YXSettingItem *)data{
+    
     self.accessoryType = data.accessoryType;
     self.accessoryView = data.accessoryview;
     self.line.hidden = data.hideSeparatorLine;
-//    self.textLabel.text = data.titleText;
-//    self.detailTextLabel.text = data.subtitleText;
-//    if (data.title) {
-        self.textLabel.attributedText = data.title;
-//    }
-//    if (data.subtitle) {
-        self.detailTextLabel.attributedText = data.subtitle;
     
-   
-
-//    }
+    if (data.type == GSettingItemTypeDefault) {
+        self.textLabel.attributedText = data.title;
+        self.imageView.image = [UIImage imageNamed:data.icon];
+    }else if (data.type == GSettingItemTypeSubtitle){
+        self.titleLabel.attributedText = data.title;
+        self.subtitleLabel.attributedText = data.subtitle;
+    }else if (data.type == GSettingItemTypeValue1){
+        self.textLabel.attributedText = data.title;
+        self.detailTextLabel.attributedText = data.subtitle;
+    }else if (data.type == GSettingItemTypeValue3){
+        self.titleLabel.attributedText = data.title;
+        self.subtitleLabel.attributedText = data.subtitle;
+    }
+    @weakify(self)
+    if (data.isObserveSubtitle) {
+        [[RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
+            NSLog(@"sub   订阅了几次呀");
+            if (data.type == GSettingItemTypeValue3 || data.type == GSettingItemTypeSubtitle) {
+                self_weak_.subtitleLabel.attributedText = x;
+            }else{
+                self_weak_.detailTextLabel.attributedText = x;
+            }
+        }];
+    }
+    
+    if (data.isObserveTitle) {
+        [[RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
+            NSLog(@"sub   订阅了几次呀");
+            if (data.type == GSettingItemTypeValue3 || data.type == GSettingItemTypeSubtitle) {
+                self_weak_.titleLabel.attributedText = x;
+            }else{
+                self_weak_.textLabel.attributedText = x;
+            }
+        }];
+    }
+  
 }
-
 
 @end

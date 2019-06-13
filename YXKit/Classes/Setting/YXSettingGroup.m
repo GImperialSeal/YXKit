@@ -14,7 +14,7 @@
     YXSettingGroup *g = [[self alloc]init];
     g.heightForFooter = 10;
     g.heightForHeader = 10;
-    g.items = items;
+    [g.items  addObjectsFromArray:items];
     return g;
 }
 

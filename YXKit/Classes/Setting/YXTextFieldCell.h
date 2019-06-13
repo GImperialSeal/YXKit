@@ -10,8 +10,8 @@
 #import "YXSettingItem.h"
 @interface YXTextFieldCell : UITableViewCell
 
-@property (nonatomic, strong) UITextField *textField;
-
-@property (nonatomic, strong) YXSettingItem *item;
+@property (nonatomic, strong)UITextField *tf;
+@property (nonatomic, strong)UILabel *titleLabel;
+- (void)configWithData:(YXSettingItem *)data;
 
 @end
