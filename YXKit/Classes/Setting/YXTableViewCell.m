@@ -11,9 +11,6 @@
 #import <YYKit.h>
 #import <ReactiveObjC.h>
 @import Foundation;
-
-
-
 @implementation YXTableViewCell
 
 
@@ -22,19 +19,20 @@
         [self addSubview:self.line];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        CGFloat space = UIScreen.mainScreen.bounds.size.width>375.f?20.f:25.f;
-        
+        CGFloat space = UIScreen.mainScreen.bounds.size.width>375.f?20.f:15.f;
+
         [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(0.5);
             make.left.offset(space);
             make.bottom.offset(0);
             make.right.inset(space);
         }];
+      
         
-        [self.contentView addSubview:self.titleLabel];
-        [self.contentView addSubview:self.subtitleLabel];
-        
-        if (style == UITableViewCellStyleSubtitle) {
+        if ([reuseIdentifier isEqualToString:@"subtitle"]) {
+            
+            [self.contentView addSubview:self.titleLabel];
+            [self.contentView addSubview:self.subtitleLabel];
             
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(space);
@@ -47,9 +45,10 @@
                 make.right.inset(space);
                 make.bottom.inset(space);
             }];
+        }else if([reuseIdentifier isEqualToString:@"Value3"]){
+            [self.contentView addSubview:self.titleLabel];
+            [self.contentView addSubview:self.subtitleLabel];
             
-            
-        }else{
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(space);
                 make.top.offset(12);
@@ -97,6 +96,7 @@
     }
     return _titleLabel;
 }
+
 
 
 - (void)configWithData:(YXSettingItem *)data{

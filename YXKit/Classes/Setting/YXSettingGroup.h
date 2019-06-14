@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 @interface YXSettingGroup : NSObject
+
 @property (nonatomic, copy) NSString *header; // 头部标题
 @property (nonatomic, copy) NSString *footer; // 尾部标题
 @property (nonatomic, copy) NSString *subtitle; // 尾部标题
@@ -16,19 +17,16 @@
 
 @property (nonatomic) CGFloat heightForFooter;
 @property (nonatomic) CGFloat heightForHeader;
-@property (nonatomic) CGFloat heightForRow;
 @property (nonatomic) NSInteger index;
 
 @property (nonatomic) BOOL hidden;
 
-@property (nonatomic) BOOL showArrow;
 @property (nonatomic) BOOL limit;
+
+@property (nonatomic) NSInteger limitRow;// 默认为1
 
 @property (nonatomic, strong) NSMutableArray *items; // 中间的条目
 
 + (instancetype)groupWithItem:(NSArray *)items;
-
-
-@property (nonatomic, strong) NSDictionary *actionDict;
 
 @end

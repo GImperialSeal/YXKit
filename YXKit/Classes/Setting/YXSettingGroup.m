@@ -18,6 +18,16 @@
     return g;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.heightForFooter = 10;
+        self.limitRow = 1;
+    }
+    return self;
+}
+
 - (NSMutableArray *)items{
     if (!_items) {
         _items = [NSMutableArray array];

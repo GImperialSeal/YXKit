@@ -9,6 +9,7 @@
 #import "YXTextFieldCell.h"
 #import <Masonry.h>
 #import <ReactiveObjC.h>
+#import <YYKit.h>
 @implementation YXTextFieldCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -17,7 +18,7 @@
         [self.contentView addSubview:self.titleLabel];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        CGFloat space = UIScreen.mainScreen.bounds.size.width>375.f?20.f:25.f;
+        CGFloat space = UIScreen.mainScreen.bounds.size.width>375.f?20.f:15.f;
         
         [self.tf mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.offset(0);
@@ -49,7 +50,13 @@
             self_weak_.tf.text = [self_weak_.tf.text substringToIndex:data.limitEditLength];
         }
         return value;
-    }] subscribeNext:^(id  _Nullable x) {
+    }] subscribeNext:^(NSString *x) {
+        if (data.accessoryview &&[data.accessoryview isKindOfClass:UILabel.class]) {
+            NSString *strLength = [NSString stringWithFormat:@"%lu",(unsigned long)x.length];
+            NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@/%d",strLength,data.limitEditLength]];
+            [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#20B1F4"] range:NSMakeRange(0, strLength.length)];
+            [data.accessoryview setValue:str forKey:@"attributedText"];
+        }
         data.text = x;
         !data.editBlock?:data.editBlock(x);
     }];
