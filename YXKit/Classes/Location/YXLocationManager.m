@@ -59,6 +59,7 @@
 
 // 定位
 - (void)location:(PlaceMarksBlock)complete failure:(void(^)(NSError *error))failure{
+    
     RACSignal *signal = [[[[self auth] filter:^BOOL(id  _Nullable value) {
         return [value boolValue];
     }] flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
@@ -66,10 +67,12 @@
             return value[1];
         }] merge:[[self rac_signalForSelector:@selector(locationManager:didFailWithError:) fromProtocol:@protocol(CLLocationManagerDelegate)] map:^id _Nullable(RACTuple * _Nullable value) {
             return [RACSignal error:value[1]];
-        }]] take:1] initially:^{
+        }]] take:self.alwaysLocation?NSIntegerMax:1] initially:^{
             [self.manager startUpdatingLocation];
         }] finally:^{
-            [self.manager stopUpdatingLocation];
+            if (!self.alwaysLocation) {
+                [self.manager stopUpdatingLocation];
+            }
         }];
     }] flattenMap:^__kindof RACSignal * _Nullable(NSArray *value) {
         CLLocation *loc = value.firstObject;
@@ -101,6 +104,10 @@
     if (!_manager) {
         _manager = [[CLLocationManager alloc]init];
         _manager.delegate = self;
+        _manager.distanceFilter = 10;
+        _manager.desiredAccuracy = kCLLocationAccuracyBest;
+        _manager.pausesLocationUpdatesAutomatically = NO;
+//        [_manager allowDeferredLocationUpdatesUntilTraveled:1000 timeout:2];
     }
     return _manager;
 }
@@ -110,6 +117,15 @@
         _geocoder = [[CLGeocoder alloc]init];
     }
     return _geocoder;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.alwaysLocation = YES;
+    }
+    return self;
 }
 
 @end

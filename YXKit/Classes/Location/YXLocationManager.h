@@ -12,7 +12,14 @@
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^PlaceMarksBlock)(NSDictionary *place,CLLocation *loc);
 @interface YXLocationManager : NSObject
+
+
+@property (nonatomic)BOOL alwaysLocation;// 一直定位, 或者只定位一次
+
+
 - (void)location:(PlaceMarksBlock)complete failure:(void(^)(NSError *error))failure;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

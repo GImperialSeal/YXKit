@@ -17,12 +17,10 @@
 @implementation NetworkManager
 
 - (void)configContentTypes{
-    
     YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
     NSSet *acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", @"text/html", @"text/css", nil];
     NSString *keypath = @"jsonResponseSerializer.acceptableContentTypes";
     [agent setValue:acceptableContentTypes forKeyPath:keypath];
-    
 }
 
 
