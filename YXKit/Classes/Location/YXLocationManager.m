@@ -75,20 +75,25 @@
             }
         }];
     }] flattenMap:^__kindof RACSignal * _Nullable(NSArray *value) {
-        CLLocation *loc = value.firstObject;
-        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-            [self.geocoder reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-                if (error) {
-                    [subscriber sendError:error];
-                }else{
-                    [subscriber sendNext:placemarks.firstObject];
-                    [subscriber sendCompleted];
-                }
+        if ([value isKindOfClass:NSArray.class]) {
+            CLLocation *loc = value.firstObject;
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                [self.geocoder reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+                    if (error) {
+                        [subscriber sendError:error];
+                    }else{
+                        [subscriber sendNext:placemarks.firstObject];
+                        [subscriber sendCompleted];
+                    }
+                }];
+                return [RACDisposable disposableWithBlock:^{
+                    
+                }];
             }];
-            return [RACDisposable disposableWithBlock:^{
-                
-            }];
-        }];
+
+        }else{
+            return [RACSignal empty];
+        }
     }];
     
     [signal subscribeNext:^(CLPlacemark *x) {
@@ -106,7 +111,7 @@
         _manager.delegate = self;
         _manager.distanceFilter = 10;
         _manager.desiredAccuracy = kCLLocationAccuracyBest;
-        _manager.pausesLocationUpdatesAutomatically = NO;
+//        _manager.pausesLocationUpdatesAutomatically = NO;
 //        [_manager allowDeferredLocationUpdatesUntilTraveled:1000 timeout:2];
     }
     return _manager;
@@ -123,7 +128,7 @@
 {
     self = [super init];
     if (self) {
-        self.alwaysLocation = YES;
+        self.alwaysLocation = NO;
     }
     return self;
 }
