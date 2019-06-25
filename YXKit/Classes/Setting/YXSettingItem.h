@@ -28,7 +28,7 @@ typedef enum : NSInteger{
 typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *indexPath);
 typedef void(^EditBlock)(NSString *text);
 typedef void(^AccessoryViewBlock)(UIButton *sender);
-typedef void(^PickerImagesBlock)(NSArray *filesIDArray);
+typedef void(^PickerImagesBlock)(NSString *filesIDArray);
 
 
 @interface YXSettingItem : NSObject
