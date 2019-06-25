@@ -73,7 +73,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     YXSettingGroup *group = _allGroups[section];
-    return group.limit?group.limitRow: group.items.count;
+    return group.limitRow == -1? group.items.count:group.limitRow;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -140,18 +140,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     YXSettingGroup *group = _allGroups[section];
-    return group.hidden?0:group.heightForFooter;
+    return group.heightForFooter;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     YXSettingGroup *group = _allGroups[section];
-    return group.hidden?0:group.heightForHeader;
+    return group.heightForHeader;
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
-    return group.hidden?0:item.rowHeight;
+    return item.rowHeight;
 }
 
 

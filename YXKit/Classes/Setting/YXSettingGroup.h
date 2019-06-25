@@ -19,11 +19,8 @@
 @property (nonatomic) CGFloat heightForHeader;
 @property (nonatomic) NSInteger index;
 
-@property (nonatomic) BOOL hidden;
 
-@property (nonatomic) BOOL limit;
-
-@property (nonatomic) NSInteger limitRow;// 默认为1
+@property (nonatomic) NSInteger limitRow;// 默认为-1 -1不隐藏
 
 @property (nonatomic, strong) NSMutableArray *items; // 中间的条目
 

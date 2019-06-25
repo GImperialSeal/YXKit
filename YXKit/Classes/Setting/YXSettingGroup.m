@@ -23,7 +23,7 @@
     self = [super init];
     if (self) {
         self.heightForFooter = 10;
-        self.limitRow = 1;
+        self.limitRow = -1;
     }
     return self;
 }
