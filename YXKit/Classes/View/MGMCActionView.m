@@ -57,8 +57,6 @@
         }];
     }else{// 隐藏
         if (!animated) {
-            [self setTableViewTransform];
-            self.maskView.alpha = 0;
             [self removeFromSuperview];
             if (complete) {complete();}
             self.isAnimating = NO;
@@ -104,7 +102,7 @@
 // dismiss
 - (void)enventForDismiss{
     if (!self.isAnimating) {
-        [self animated:YES delay:0 show:NO completion:nil];
+        [self animated:NO delay:0 show:NO completion:nil];
     }
 }
 

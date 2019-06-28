@@ -157,10 +157,7 @@ typedef void(^cancelBlock)(void);
     
     [UIView animateWithDuration:0.3 animations:^{
         self.sheetView.frame = CGRectMake(0, ZGQ_SCREEN_HEIGHT - self.sheetViewHeight, ZGQ_SCREEN_WIDTH, self.sheetViewHeight);
-        
     }];
-
-
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
