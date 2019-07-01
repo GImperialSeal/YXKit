@@ -50,6 +50,8 @@
             return @"Value3";
         case GSettingItemTypeSubtitle:
             return @"subtitle";
+        case GSettingItemTypeFullImage:
+            return @"fullImage";
         default:
             return @"Default";
     }
@@ -62,6 +64,8 @@
             return UITableViewCellStyleValue1;
         case GSettingItemTypeSubtitle:
             return UITableViewCellStyleSubtitle;
+        case GSettingItemTypeFullImage:
+            return UITableViewCellStyleDefault;
         default:
             return UITableViewCellStyleDefault;
     }

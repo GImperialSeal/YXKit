@@ -22,6 +22,7 @@ typedef enum : NSInteger{
     GSettingItemTypePicker,     // 选择照片
     GSettingItemTypeCustom,     // 自定义
     GSettingItemTypeSubtitle,   // 什么也没有
+    GSettingItemTypeFullImage,   // 铺满的图
 
 } GSettingItemType;
 
@@ -32,6 +33,10 @@ typedef void(^PickerImagesBlock)(NSString *filesIDArray);
 
 
 @interface YXSettingItem : NSObject
+
+// fullimage
+@property (nonatomic, strong)NSString *url;
+@property (nonatomic, strong)UIImage *image;
 
 // default
 @property (nonatomic, strong) NSString *icon;
@@ -97,4 +102,6 @@ typedef void(^PickerImagesBlock)(NSString *filesIDArray);
 + (instancetype)itemTypeTextField;
 
 + (instancetype)itemTypeSubtitle;
+
++ (instancetype)itemTypeFullImage;
 @end

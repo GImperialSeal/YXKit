@@ -59,6 +59,11 @@
                 make.right.inset(space);
                 make.bottom.inset(12);
             }];
+        }else if ([reuseIdentifier isEqualToString:@"fullImage"]){
+            [self.contentView addSubview:self.fullImageView];
+            [self.fullImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.inset(space);
+            }];
         }
         
         self.textLabel.textColor = [UIColor colorWithHexString:@"#555555"];
@@ -93,10 +98,18 @@
         _titleLabel = [UILabel new];
         _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.textColor = [UIColor colorWithHexString:@"#555555"];
+        _titleLabel.numberOfLines = 0;
+
     }
     return _titleLabel;
 }
 
+- (UIImageView *)fullImageView{
+    if (!_fullImageView) {
+        _fullImageView = [[UIImageView alloc]init];
+    }
+    return _fullImageView;
+}
 
 
 - (void)configWithData:(YXSettingItem *)data{
@@ -117,6 +130,13 @@
     }else if (data.type == GSettingItemTypeValue3){
         self.titleLabel.attributedText = data.title;
         self.subtitleLabel.attributedText = data.subtitle;
+    }else if (data.type == GSettingItemTypeFullImage){
+        if (data.image) {
+            self.fullImageView.image = data.image;
+        }
+        if (data.url.length) {
+            [self.fullImageView setImageURL:[NSURL URLWithString:data.url]];
+        }
     }
     @weakify(self)
     if (data.isObserveSubtitle) {

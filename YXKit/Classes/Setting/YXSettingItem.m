@@ -34,6 +34,12 @@
     return item;
 }
 
++ (instancetype)itemTypeFullImage{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeFullImage;
+    return item;
+}
+
 + (instancetype)itemTypeValue3{
     YXSettingItem *item = [[self alloc] init];
     item.type = GSettingItemTypeValue3;
