@@ -48,6 +48,8 @@
             return @"Value1";
         case GSettingItemTypeValue3:
             return @"Value3";
+        case GSettingItemTypeValue4:
+            return @"Value4";
         case GSettingItemTypeSubtitle:
             return @"subtitle";
         case GSettingItemTypeFullImage:
@@ -65,6 +67,8 @@
         case GSettingItemTypeSubtitle:
             return UITableViewCellStyleSubtitle;
         case GSettingItemTypeFullImage:
+            return UITableViewCellStyleDefault;
+        case GSettingItemTypeValue4:
             return UITableViewCellStyleDefault;
         default:
             return UITableViewCellStyleDefault;

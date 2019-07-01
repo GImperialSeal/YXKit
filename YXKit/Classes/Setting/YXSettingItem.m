@@ -33,6 +33,11 @@
     item.type = GSettingItemTypeValue1;
     return item;
 }
++ (instancetype)itemTypeValue4{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeValue4;
+    return item;
+}
 
 + (instancetype)itemTypeFullImage{
     YXSettingItem *item = [[self alloc] init];
@@ -85,7 +90,7 @@
 
 - (instancetype)init{
     if ([super init]) {
-        self.rowHeight = 44;
+        self.rowHeight = UITableViewAutomaticDimension;
         self.limitEditLength = 500;
         self.accessoryview = nil;
         self.accessoryType = UITableViewCellAccessoryNone;
