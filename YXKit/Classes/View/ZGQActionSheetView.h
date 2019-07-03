@@ -112,8 +112,6 @@
                      completion:(void(^)(NSInteger index))completion
                          cancel:(void(^)(void))cancelBlock;
 
-
-
 /**
  展现视图
  */

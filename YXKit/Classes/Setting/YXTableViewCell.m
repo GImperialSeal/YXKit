@@ -87,6 +87,8 @@
         self.detailTextLabel.textColor = [UIColor colorWithHexString:@"#888888"];
         self.textLabel.font = [UIFont systemFontOfSize:14];
         self.detailTextLabel.font = [UIFont systemFontOfSize:14];
+        
+        self.textLabel.numberOfLines = 0;
     }
     return self;
 }

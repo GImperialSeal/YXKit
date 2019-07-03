@@ -67,7 +67,6 @@ typedef void(^cancelBlock)(void);
         self.selectBlock = completion;
         self.cancelBlock = cancelBlock;
     }
-    
     return self;
 }
 
