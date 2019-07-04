@@ -7,6 +7,7 @@
 //
 
 #import "QRCodeViewController.h"
+#import <Masonry.h>
 @import AVFoundation;
 @import Photos;
 //#import "UINavigationController+FDFullscreenPopGesture.h"
@@ -24,6 +25,13 @@
 #define cornerLineLength  10 // 角线长度
 
 #define PingFangSCRegular(fontSize) [UIFont fontWithName:@"PingFang-SC-Regular" size:fontSize]
+
+#define IPHONE_X \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
 
 @implementation QRCodeViewController
 
@@ -80,28 +88,39 @@
 
 //    self.fd_prefersNavigationBarHidden = YES;
 //    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
-    
-    
-//    UIView *barView = [UIView newAutoLayoutView];
-//    barView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.6];
-//    [self.view addSubview:barView];
-//
+
+
+    UIView *barView = [UIView new];
+    barView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.6];
+    [self.view addSubview:barView];
+    //判断safearea是否是UIEdgeInsetsZero，如果不是，则是刘海头手机
+    CGFloat safeTop = IPHONE_X ? 88 : 64;
+    [barView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.left.offset(0);
+        make.height.mas_equalTo(safeTop);
+    }];
+
 //    [barView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeBottom];
 //    [barView autoSetDimension:ALDimensionHeight toSize:64];
-//
-//    UILabel *title = [UILabel newAutoLayoutView];
+
+//    UILabel *title = [UILabel new];
 //    title.text = @"扫一扫";
 //    title.font = PingFangSCRegular(20);
 //    title.textColor = [UIColor whiteColor];
 //    [barView addSubview:title];
 //    [title autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:barView withOffset:-12];
 //    [title autoAlignAxisToSuperviewAxis:ALAxisVertical];
-//
-//
-//    UIButton *back = [UIButton newAutoLayoutView];
-//    [back setBackgroundImage:[UIImage imageNamed:@"qrcode_scan_titlebar_back_nor"] forState:UIControlStateNormal];
-//    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-//    [barView addSubview:back];
+
+
+    UIButton *back = [UIButton new];
+    [back setBackgroundImage:[UIImage imageNamed:@"qrcode_scan_titlebar_back_nor"] forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [barView addSubview:back];
+    [back mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.offset(0);
+        make.left.offset(12);
+        make.width.mas_equalTo(30);
+    }];
 //    [back autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:12];
 //    [back autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:12];
     
