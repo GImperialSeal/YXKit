@@ -24,6 +24,8 @@
 
 #import <MBProgressHUD.h>
 
+#import "QRCodeViewController.h"
+
 @import AVFoundation;
 @import OpenGLES;
 
@@ -152,7 +154,7 @@
     }else if (indexPath.row == 1){
         [self startMonitoring];
     }else if (indexPath.row == 2){
-
+        [self.navigationController pushViewController:[QRCodeViewController new] animated:YES];
         
     }else{
         NSString *tip0 = @"由于版权限制,请切换使用本地设备投屏观看";
