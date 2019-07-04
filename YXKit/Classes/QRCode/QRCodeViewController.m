@@ -101,27 +101,6 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
         make.height.mas_equalTo(safeTop);
     }];
 
-//    [barView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeBottom];
-//    [barView autoSetDimension:ALDimensionHeight toSize:64];
-
-//    UILabel *title = [UILabel new];
-    
-    
-    UIView *barView = [UIView new];
-    barView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.6];
-    [self.view addSubview:barView];
-    
-    [barView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.bottom.offset(0);
-        make.height.mas_equalTo(64);
-
-        if (@available(iOS 11.0, *)) {
-        } else {
-        }
-        
-    }];
-
-   
 //
 //    UILabel *title = [UILabel newAutoLayoutView];
 //    title.text = @"扫一扫";
@@ -133,27 +112,16 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 
     UIButton *back = [UIButton new];
-    [back setBackgroundImage:[UIImage imageNamed:@"qrcode_scan_titlebar_back_nor"] forState:UIControlStateNormal];
+    [back setImage:[YXResources imageNamed:@"qrcode_scan_titlebar_back_nor"] forState:UIControlStateNormal];
     [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [barView addSubview:back];
     [back mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.offset(0);
+        make.top.offset(10);
+        make.bottom.offset(0);
         make.left.offset(12);
         make.width.mas_equalTo(30);
     }];
-//    [back autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:12];
-//    [back autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:12];
-//
-//
-    UIButton *back = [UIButton buttonWithType:UIButtonTypeCustom];
-    [back setBackgroundImage:[YXResources imageNamed:@"qrcode_scan_titlebar_back_nor"] forState:UIControlStateNormal];
-    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [barView addSubview:back];
   
-    [back mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.offset(12);
-        make.bottom.inset(12);
-    }];
     
 }
 - (void)back{
