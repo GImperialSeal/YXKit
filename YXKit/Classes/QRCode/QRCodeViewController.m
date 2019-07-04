@@ -7,6 +7,7 @@
 //
 
 #import "QRCodeViewController.h"
+#import "YXResources.h"
 #import <Masonry.h>
 @import AVFoundation;
 @import Photos;
@@ -104,6 +105,25 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 //    [barView autoSetDimension:ALDimensionHeight toSize:64];
 
 //    UILabel *title = [UILabel new];
+    
+    
+    UIView *barView = [UIView new];
+    barView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.6];
+    [self.view addSubview:barView];
+    
+    [barView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.offset(0);
+        make.height.mas_equalTo(64);
+
+        if (@available(iOS 11.0, *)) {
+        } else {
+        }
+        
+    }];
+
+   
+//
+//    UILabel *title = [UILabel newAutoLayoutView];
 //    title.text = @"扫一扫";
 //    title.font = PingFangSCRegular(20);
 //    title.textColor = [UIColor whiteColor];
@@ -123,6 +143,17 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
     }];
 //    [back autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:12];
 //    [back autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:12];
+//
+//
+    UIButton *back = [UIButton buttonWithType:UIButtonTypeCustom];
+    [back setBackgroundImage:[YXResources imageNamed:@"qrcode_scan_titlebar_back_nor"] forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [barView addSubview:back];
+  
+    [back mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(12);
+        make.bottom.inset(12);
+    }];
     
 }
 - (void)back{
@@ -158,7 +189,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
     CGFloat checklineY = CGRectGetMinY(checkbox.frame);
     UIImageView *checkline = [[UIImageView alloc]initWithFrame:CGRectMake(checklineX,checklineY, checkboxWidth, 15)];
     checkline.tag = 1001;
-    checkline.image = [UIImage imageNamed:@"qrcode_scan_light_green"];
+    checkline.image = [YXResources imageNamed:@"qrcode_scan_light_green"];
     [self.view addSubview:checkline];
     
     // 添加动画
@@ -193,7 +224,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
     UIButton *flashBtn = [[UIButton alloc]init];
     flashBtn.frame = CGRectMake(CGRectGetMidX(checkbox.frame) - flashBtnWidth/2, CGRectGetMaxY(checkbox.frame) - flashBtnWidth - 4, flashBtnWidth, flashBtnWidth);
     [self.view addSubview:flashBtn];
-    [flashBtn setBackgroundImage:[UIImage imageNamed:@"QRCode_light"] forState:UIControlStateNormal];
+    [flashBtn setBackgroundImage:[YXResources imageNamed:@"QRCode_light"] forState:UIControlStateNormal];
     [flashBtn addTarget:self action:@selector(openOrCloseFlash:) forControlEvents:UIControlEventTouchUpInside];
 
 }
