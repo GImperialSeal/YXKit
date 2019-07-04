@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   s.dependency 'YYKit'
   s.dependency 'BFKit'
   s.dependency 'ReactiveObjC'
+  s.dependency 'UITableView+FDTemplateLayoutCell'
   
 
   s.subspec 'Config' do |ss|

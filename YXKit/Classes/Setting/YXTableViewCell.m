@@ -10,6 +10,7 @@
 #import <Masonry.h>
 #import <YYKit.h>
 #import <ReactiveObjC.h>
+#import <YXPrefixConfig.h>
 @import Foundation;
 @implementation YXTableViewCell
 
@@ -19,7 +20,7 @@
         [self addSubview:self.line];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        CGFloat space = UIScreen.mainScreen.bounds.size.width>375.f?20.f:15.f;
+        CGFloat space = KSpace;
 
         [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(0.5);
@@ -51,13 +52,13 @@
             
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(space);
-                make.top.offset(12);
+                make.top.offset(8);
             }];
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.titleLabel.mas_right).offset(12);
-                make.top.equalTo(self.titleLabel);
+                make.left.equalTo(self.titleLabel.mas_right).offset(8);
+                make.top.offset(8);
                 make.right.inset(space);
-                make.bottom.inset(12);
+                make.bottom.inset(8).priorityLow();
             }];
             [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             
@@ -67,11 +68,11 @@
             
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(space);
-                make.top.offset(12);
-                make.bottom.inset(12);
+                make.top.offset(8);
+                make.bottom.inset(8);
             }];
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.titleLabel.mas_right).offset(12);
+                make.left.equalTo(self.titleLabel.mas_right).offset(8);
                 make.top.equalTo(self.titleLabel);
                 make.right.inset(space);
             }];
