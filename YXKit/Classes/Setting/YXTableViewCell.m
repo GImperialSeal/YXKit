@@ -56,7 +56,7 @@
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.titleLabel.mas_right).offset(12);
                 make.top.equalTo(self.titleLabel);
-                make.right.inset(space);
+                make.right.inset(space).priorityLow();
                 make.bottom.inset(12);
             }];
             [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
