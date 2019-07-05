@@ -10,7 +10,7 @@
 #import "YXTableViewCell.h"
 #import "YXTextFieldCell.h"
 #import <ReactiveObjC.h>
-
+#import <UITableView+FDTemplateLayoutCell.h>
 @interface YXSettingController ()
 
 @end
@@ -24,6 +24,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.estimatedRowHeight = 100;
     }
     return _tableView;
 }
@@ -38,6 +39,14 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
+    
+    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"TextField"];
+    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value1"];
+    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value3"];
+    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value4"];
+    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"subtitle"];
+    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"fullImage"];
+    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Default"];
 }
 
 - (NSString *)reuserIndentifier:(GSettingItemType)type{
@@ -89,23 +98,29 @@
     YXSettingItem *item = group.items[indexPath.row];
     NSString *identifier = [self reuserIndentifier:item.type];
     
-    if (item.type == GSettingItemTypeTextField) {
-        YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (!cell) {
-            cell = [[YXTextFieldCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
-        }
-        [cell configWithData:item];
-        return cell;
-    }else{
-        YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (!cell) {
-            cell = [[YXTableViewCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
-        }
-        [cell configWithData:item];
-        
-        return cell;
+    
+    YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    [cell configWithData:item];
 
-    }
+    return cell;
+    
+//    if (item.type == GSettingItemTypeTextField) {
+//        YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+//        if (!cell) {
+//            cell = [[YXTextFieldCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
+//        }
+//        [cell configWithData:item];
+//        return cell;
+//    }else{
+//        YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+//        if (!cell) {
+//            cell = [[YXTableViewCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
+//        }
+//        [cell configWithData:item];
+//
+//        return cell;
+//
+//    }
 }
 
 
@@ -153,10 +168,19 @@
     return group.heightForHeader;
 }
 
+
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
-    return item.rowHeight;
+    
+    if (item.rowHeight == UITableViewAutomaticDimension) {
+        return [tableView fd_heightForCellWithIdentifier:[self reuserIndentifier:item.type] cacheByIndexPath:indexPath configuration:^(YXTextFieldCell *cell) {
+            [cell configWithData:item];
+        }];
+    }else{
+        return item.rowHeight;
+    }
+   
 }
 
 

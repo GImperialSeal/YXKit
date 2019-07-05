@@ -10,6 +10,7 @@
 #import <Masonry.h>
 #import <ReactiveObjC.h>
 #import <YYKit.h>
+#import <YXPrefixConfig.h>
 @implementation YXTextFieldCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -18,7 +19,7 @@
         [self.contentView addSubview:self.titleLabel];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        CGFloat space = UIScreen.mainScreen.bounds.size.width>375.f?20.f:15.f;
+        CGFloat space = KSpace;
         
         [self.tf mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.offset(0);
