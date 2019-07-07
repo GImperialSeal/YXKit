@@ -14,6 +14,9 @@
 @import Foundation;
 @implementation YXTableViewCell
 
+- (void)updateConstraints{
+    [super updateConstraints];
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -21,14 +24,14 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         CGFloat space = KSpace;
-
+        
         [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(0.5);
             make.left.offset(space);
             make.bottom.offset(0);
             make.right.inset(space);
         }];
-      
+        
         
         if ([reuseIdentifier isEqualToString:@"subtitle"]) {
             
@@ -52,13 +55,31 @@
             
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(space);
-                make.top.offset(8);
+                make.top.equalTo(self.subtitleLabel.mas_firstBaseline);
             }];
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.titleLabel.mas_right).offset(8);
-                make.top.offset(8);
+                make.top.offset(0);
                 make.right.inset(space);
-                make.bottom.inset(8).priorityLow();
+                make.bottom.inset(0).priorityLow();
+                make.height.mas_greaterThanOrEqualTo(44);
+            }];
+            [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+            
+        }else if([reuseIdentifier isEqualToString:@"Value3_center"]){
+            [self.contentView addSubview:self.titleLabel];
+            [self.contentView addSubview:self.subtitleLabel];
+            
+            [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.offset(space);
+                make.top.equalTo(self.subtitleLabel.mas_top);
+            }];
+            [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.titleLabel.mas_right).offset(8);
+                make.top.offset(12);
+                make.right.inset(space);
+                make.bottom.inset(12).priorityLow();
+                make.height.mas_greaterThanOrEqualTo(44);
             }];
             [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             
@@ -82,13 +103,11 @@
             [self.fullImageView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.inset(space);
             }];
-        }
-        
+        }        
         self.textLabel.textColor = [UIColor colorWithHexString:@"#555555"];
         self.detailTextLabel.textColor = [UIColor colorWithHexString:@"#888888"];
         self.textLabel.font = [UIFont systemFontOfSize:14];
         self.detailTextLabel.font = [UIFont systemFontOfSize:14];
-        
         self.textLabel.numberOfLines = 0;
     }
     return self;
@@ -162,7 +181,6 @@
     @weakify(self)
     if (data.isObserveSubtitle) {
         [[RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
-            NSLog(@"sub   订阅了几次呀");
             if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
                 self_weak_.subtitleLabel.attributedText = x;
             }else{

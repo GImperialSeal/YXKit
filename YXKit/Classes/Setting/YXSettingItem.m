@@ -47,6 +47,12 @@
 
 + (instancetype)itemTypeValue3{
     YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeValue3_center;
+    return item;
+}
+
++ (instancetype)itemTypeValue3Center{
+    YXSettingItem *item = [[self alloc] init];
     item.type = GSettingItemTypeValue3;
     return item;
 }

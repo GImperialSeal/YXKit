@@ -15,6 +15,7 @@ typedef enum : NSInteger{
     GSettingItemTypeDefault,   // 什么也没有
     GSettingItemTypeValue1, // value1
     GSettingItemTypeValue3, // value3 主标题和副标题紧挨着, 副标题会换行显示
+    GSettingItemTypeValue3_center, // value3 主标题和副标题紧挨着, 副标题会换行显示
     GSettingItemTypeValue4, // value4 主标题和副标题紧挨着, 主标题会换行显示
     GSettingItemTypeTextField,    // 输入
     GSettingItemTypeNineBox,     // 九宫格
@@ -24,8 +25,13 @@ typedef enum : NSInteger{
     GSettingItemTypeCustom,     // 自定义
     GSettingItemTypeSubtitle,   // 什么也没有
     GSettingItemTypeFullImage,   // 铺满的图
-
 } GSettingItemType;
+
+typedef enum : NSInteger{
+    center, //标题和副标题 ,居中显示,不会自适应大小, 只显示1行
+    left,    // 标题和副标题  
+    right
+} ValueType;
 
 typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *indexPath);
 typedef void(^EditBlock)(NSString *text);
@@ -90,6 +96,8 @@ typedef void(^PickerImagesBlock)(NSString *filesIDArray);
 + (instancetype)itemTypeValue1;
 
 + (instancetype)itemTypeValue3;
+
++ (instancetype)itemTypeValue3Center;
 
 + (instancetype)itemTypeValue4;
 

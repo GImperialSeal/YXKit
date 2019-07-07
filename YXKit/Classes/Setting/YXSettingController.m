@@ -40,13 +40,12 @@
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
     
-    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"TextField"];
-    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value1"];
     [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value3"];
+    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value3_center"];
     [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value4"];
     [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"subtitle"];
     [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"fullImage"];
-    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Default"];
+//    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Default"];
 }
 
 - (NSString *)reuserIndentifier:(GSettingItemType)type{
@@ -57,6 +56,8 @@
             return @"Value1";
         case GSettingItemTypeValue3:
             return @"Value3";
+        case GSettingItemTypeValue3_center:
+            return @"Value3_center";
         case GSettingItemTypeValue4:
             return @"Value4";
         case GSettingItemTypeSubtitle:
@@ -97,30 +98,27 @@
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
     NSString *identifier = [self reuserIndentifier:item.type];
-    
-    
-    YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    [cell configWithData:item];
 
-    return cell;
-    
-//    if (item.type == GSettingItemTypeTextField) {
-//        YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-//        if (!cell) {
-//            cell = [[YXTextFieldCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
-//        }
-//        [cell configWithData:item];
-//        return cell;
-//    }else{
-//        YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-//        if (!cell) {
-//            cell = [[YXTableViewCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
-//        }
-//        [cell configWithData:item];
-//
-//        return cell;
-//
-//    }
+    if (item.type == GSettingItemTypeTextField) {
+        YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[YXTextFieldCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
+        }
+        [cell configWithData:item];
+        return cell;
+    }else  if (item.type == GSettingItemTypeValue1||item.type == GSettingItemTypeDefault) {
+        YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[YXTableViewCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
+        }
+        [cell configWithData:item];
+        return cell;
+
+    }else{
+        YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        [cell configWithData:item];
+        return cell;
+    }
 }
 
 
@@ -173,7 +171,7 @@
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
     
-    if (item.rowHeight == UITableViewAutomaticDimension) {
+    if (item.type == GSettingItemTypeValue3||item.type == GSettingItemTypeValue4||item.type == GSettingItemTypeSubtitle||item.type == GSettingItemTypeFullImage) {
         return [tableView fd_heightForCellWithIdentifier:[self reuserIndentifier:item.type] cacheByIndexPath:indexPath configuration:^(YXTextFieldCell *cell) {
             [cell configWithData:item];
         }];

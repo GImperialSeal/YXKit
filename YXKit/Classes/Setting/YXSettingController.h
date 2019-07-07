@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YXSettingGroup.h"
 #import "YXSettingItem.h"
+#import <UITableView+FDTemplateLayoutCell.h>
 
 
 @interface YXSettingController : UIViewController <UITableViewDataSource, UITableViewDelegate>{

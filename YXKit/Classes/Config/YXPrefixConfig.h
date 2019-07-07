@@ -8,7 +8,7 @@
 
 #define KW [UIScreen mainScreen].bounds.size.width
 #define KH [UIScreen mainScreen].bounds.size.height
-#define KSpace  KW>375.f?20.f:15.f;
+#define KSpace  (KW>375.f?20.f:15.f)
 #define KScaleValue(value) value * MIN(KW,KH)/375.f
 
 

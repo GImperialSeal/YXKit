@@ -80,12 +80,7 @@
     return _tf;
 }
 
-- (UILabel *)titleLabel{
-    if (!_titleLabel) {
-        _titleLabel = [UILabel new];
-    }
-    return _titleLabel;
-}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
