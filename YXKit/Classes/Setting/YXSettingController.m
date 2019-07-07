@@ -56,7 +56,7 @@
             return @"Value1";
         case GSettingItemTypeValue3:
             return @"Value3";
-        case GSettingItemTypeValue3_center:
+        case GSettingItemTypeValue3_fit:
             return @"Value3_center";
         case GSettingItemTypeValue4:
             return @"Value4";

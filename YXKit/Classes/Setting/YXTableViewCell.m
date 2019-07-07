@@ -55,14 +55,14 @@
             
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(space);
-                make.top.equalTo(self.subtitleLabel.mas_firstBaseline);
+                make.top.equalTo(self.subtitleLabel.mas_top);
             }];
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.titleLabel.mas_right).offset(8);
-                make.top.offset(0);
+                make.top.offset(15);
                 make.right.inset(space);
-                make.bottom.inset(0).priorityLow();
-                make.height.mas_greaterThanOrEqualTo(44);
+                make.bottom.inset(15).priorityLow();
+//                make.height.mas_greaterThanOrEqualTo(44);
             }];
             [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             
@@ -76,10 +76,10 @@
             }];
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.titleLabel.mas_right).offset(8);
-                make.top.offset(12);
+                make.top.offset(8);
                 make.right.inset(space);
-                make.bottom.inset(12).priorityLow();
-                make.height.mas_greaterThanOrEqualTo(44);
+                make.bottom.inset(8).priorityLow();
+//                make.height.mas_greaterThanOrEqualTo(44);
             }];
             [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             
@@ -167,7 +167,7 @@
     }else if (data.type == GSettingItemTypeValue1){
         self.textLabel.attributedText = data.title;
         self.detailTextLabel.attributedText = data.subtitle;
-    }else if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue4){
+    }else if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue4||data.type == GSettingItemTypeValue3_fit){
         self.titleLabel.attributedText = data.title;
         self.subtitleLabel.attributedText = data.subtitle;
     }else if (data.type == GSettingItemTypeFullImage){
@@ -181,7 +181,7 @@
     @weakify(self)
     if (data.isObserveSubtitle) {
         [[RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
-            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
+            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
                 self_weak_.subtitleLabel.attributedText = x;
             }else{
                 self_weak_.detailTextLabel.attributedText = x;
@@ -192,7 +192,7 @@
     if (data.isObserveTitle) {
         [[RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
             NSLog(@"sub   订阅了几次呀");
-            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
+            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
                 self_weak_.titleLabel.attributedText = x;
             }else{
                 self_weak_.textLabel.attributedText = x;
