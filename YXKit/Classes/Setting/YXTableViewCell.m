@@ -88,16 +88,20 @@
             [self.contentView addSubview:self.subtitleLabel];
             
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.offset(15);
                 make.left.offset(space);
-                make.top.offset(8);
-                make.bottom.inset(8);
+                make.bottom.inset(15).priorityMedium();
             }];
+            
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.titleLabel.mas_right).offset(8);
-                make.top.equalTo(self.titleLabel);
                 make.right.inset(space);
+                make.top.equalTo(self.titleLabel);
+                make.left.equalTo(self.titleLabel.mas_right).offset(8);
             }];
+            
             [self.subtitleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+            [self.subtitleLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+
         }else if ([reuseIdentifier isEqualToString:@"fullImage"]){
             [self.contentView addSubview:self.fullImageView];
             [self.fullImageView mas_makeConstraints:^(MASConstraintMaker *make) {

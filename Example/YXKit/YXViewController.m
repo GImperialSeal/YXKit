@@ -26,6 +26,8 @@
 
 #import "QRCodeViewController.h"
 
+#import <Masonry.h>
+
 @import AVFoundation;
 @import OpenGLES;
 
@@ -146,6 +148,37 @@
     return result;
 }
 
+- (void)aaaaa:(BOOL)test{
+    UIViewController *vc = [UIViewController new];
+    vc.view.backgroundColor = [UIColor whiteColor];
+    UILabel *lab1 = [UILabel new];
+    lab1.numberOfLines = 0;
+    lab1.text = @"由于版权限制";
+    lab1.backgroundColor = [UIColor orangeColor];
+    [vc.view addSubview:lab1];
+    
+    UILabel *lab2 = [UILabel new];
+    lab2.text = @"122";
+    lab2.backgroundColor = [UIColor yellowColor];
+    [vc.view addSubview:lab2];
+    
+    [lab1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(90);
+        make.left.offset(10);
+        make.bottom.inset(12).priorityMedium();
+    }];
+    
+    [lab2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.inset(10);
+        make.top.equalTo(lab1);
+        make.left.equalTo(lab1.mas_right).offset(8);
+    }];
+    
+    [lab2 setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [lab2 setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    [self.navigationController pushViewController:vc animated:YES];
+
+}
 
     
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -154,8 +187,7 @@
     }else if (indexPath.row == 1){
         [self startMonitoring];
     }else if (indexPath.row == 2){
-        [self.navigationController pushViewController:[QRCodeViewController new] animated:YES];
-        
+        [self aaaaa:YES];
     }else{
         NSString *tip0 = @"由于版权限制,请切换使用本地设备投屏观看";
         NSString *tip1 = @"注: 本地设备指名称前有标志的设备";
