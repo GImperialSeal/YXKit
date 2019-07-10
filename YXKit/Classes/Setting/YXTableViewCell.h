@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong)UILabel *subtitleLabel;
 
-@property (nonatomic, strong)UIImageView *fullImageView;
+@property (nonatomic, strong)UIImageView *imageV;
 
 - (void)configWithData:(YXSettingItem *)data;
 @end

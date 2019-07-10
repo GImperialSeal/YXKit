@@ -103,11 +103,11 @@
             [self.subtitleLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
 
         }else if ([reuseIdentifier isEqualToString:@"fullImage"]){
-            [self.contentView addSubview:self.fullImageView];
-            [self.fullImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.contentView addSubview:self.imageV];
+            [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.inset(space);
             }];
-        }        
+        }
         self.textLabel.textColor = [UIColor colorWithHexString:@"#555555"];
         self.detailTextLabel.textColor = [UIColor colorWithHexString:@"#888888"];
         self.textLabel.font = [UIFont systemFontOfSize:14];
@@ -116,6 +116,62 @@
     }
     return self;
 }
+
+
+
+
+
+- (void)configWithData:(YXSettingItem *)data{
+    
+    self.accessoryType = data.accessoryType;
+    self.accessoryView = data.accessoryview;
+    self.line.hidden = data.hideSeparatorLine;
+    
+    
+    if (data.type == GSettingItemTypeDefault) {
+        self.textLabel.attributedText = data.title;
+        self.imageView.image = [UIImage imageNamed:data.icon];
+    }else if (data.type == GSettingItemTypeSubtitle){
+        self.titleLabel.attributedText = data.title;
+        self.subtitleLabel.attributedText = data.subtitle;
+    }else if (data.type == GSettingItemTypeValue1){
+        self.textLabel.attributedText = data.title;
+        self.detailTextLabel.attributedText = data.subtitle;
+    }else if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue4||data.type == GSettingItemTypeValue3_fit){
+        self.titleLabel.attributedText = data.title;
+        self.subtitleLabel.attributedText = data.subtitle;
+    }else if (data.type == GSettingItemTypeFullImage){
+        if (data.image) {
+            self.imageV.image = data.image;
+        }
+        if (data.url.length) {
+            [self.imageV setImageURL:[NSURL URLWithString:data.url]];
+        }
+    }
+    @weakify(self)
+    if (data.isObserveSubtitle) {
+        [[RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
+            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
+                self_weak_.subtitleLabel.attributedText = x;
+            }else{
+                self_weak_.detailTextLabel.attributedText = x;
+            }
+        }];
+    }
+    
+    if (data.isObserveTitle) {
+        [[RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
+            NSLog(@"sub   订阅了几次呀");
+            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
+                self_weak_.titleLabel.attributedText = x;
+            }else{
+                self_weak_.textLabel.attributedText = x;
+            }
+        }];
+    }
+  
+}
+
 
 
 - (UIView *)line{
@@ -142,68 +198,16 @@
         _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.textColor = [UIColor colorWithHexString:@"#555555"];
         _titleLabel.numberOfLines = 0;
-
+        
     }
     return _titleLabel;
 }
 
-- (UIImageView *)fullImageView{
-    if (!_fullImageView) {
-        _fullImageView = [[UIImageView alloc]init];
+- (UIImageView *)imageV{
+    if (!_imageV) {
+        _imageV = [[UIImageView alloc]init];
     }
-    return _fullImageView;
-}
-
-
-- (void)configWithData:(YXSettingItem *)data{
-    
-    self.accessoryType = data.accessoryType;
-    self.accessoryView = data.accessoryview;
-    self.line.hidden = data.hideSeparatorLine;
-    
-    
-    if (data.type == GSettingItemTypeDefault) {
-        self.textLabel.attributedText = data.title;
-        self.imageView.image = [UIImage imageNamed:data.icon];
-    }else if (data.type == GSettingItemTypeSubtitle){
-        self.titleLabel.attributedText = data.title;
-        self.subtitleLabel.attributedText = data.subtitle;
-    }else if (data.type == GSettingItemTypeValue1){
-        self.textLabel.attributedText = data.title;
-        self.detailTextLabel.attributedText = data.subtitle;
-    }else if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue4||data.type == GSettingItemTypeValue3_fit){
-        self.titleLabel.attributedText = data.title;
-        self.subtitleLabel.attributedText = data.subtitle;
-    }else if (data.type == GSettingItemTypeFullImage){
-        if (data.image) {
-            self.fullImageView.image = data.image;
-        }
-        if (data.url.length) {
-            [self.fullImageView setImageURL:[NSURL URLWithString:data.url]];
-        }
-    }
-    @weakify(self)
-    if (data.isObserveSubtitle) {
-        [[RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
-            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
-                self_weak_.subtitleLabel.attributedText = x;
-            }else{
-                self_weak_.detailTextLabel.attributedText = x;
-            }
-        }];
-    }
-    
-    if (data.isObserveTitle) {
-        [[RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
-            NSLog(@"sub   订阅了几次呀");
-            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
-                self_weak_.titleLabel.attributedText = x;
-            }else{
-                self_weak_.textLabel.attributedText = x;
-            }
-        }];
-    }
-  
+    return _imageV;
 }
 
 @end
