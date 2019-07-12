@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YXKit'
-  s.version          = '0.0.5'
+  s.version          = '0.0.6'
   s.summary          = '常用类.'
   s.homepage         = 'https://github.com/GImperialSeal/YXKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.dependency 'ReactiveObjC'
   s.dependency 'UITableView+FDTemplateLayoutCell'
   s.dependency  'Masonry'
-
+  s.dependency  'FCUUID'
 
   s.subspec 'Config' do |ss|
       ss.source_files = 'YXKit/Classes/Config/*'
