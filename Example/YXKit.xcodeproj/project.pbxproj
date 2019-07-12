@@ -448,6 +448,7 @@
 				"${PODS_ROOT}/BFKit/Source/Languages/vi.lproj",
 				"${PODS_ROOT}/BFKit/Source/Languages/zh-Hans.lproj",
 				"${PODS_ROOT}/BFKit/Source/Languages/zh-Hant.lproj",
+				"${PODS_ROOT}/../../YXKit/Source/YXResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -462,6 +463,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/vi.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hant.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YXResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
