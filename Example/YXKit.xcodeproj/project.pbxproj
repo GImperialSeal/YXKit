@@ -448,7 +448,7 @@
 				"${PODS_ROOT}/BFKit/Source/Languages/vi.lproj",
 				"${PODS_ROOT}/BFKit/Source/Languages/zh-Hans.lproj",
 				"${PODS_ROOT}/BFKit/Source/Languages/zh-Hant.lproj",
-				"${PODS_ROOT}/../../YXKit/Source/YXResources.bundle",
+				"${PODS_ROOT}/../../YXKit/Classes/Resources/YXResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
