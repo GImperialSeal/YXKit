@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/GImperialSeal/YXKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
   s.source_files = 'YXKit/Classes/**/*'
-  s.resources = ['YXKit/resources/YXResources.bundle']
+  s.resources = ['YXKit/Resources/YXResources.bundle']
   s.dependency 'YYKit'
   s.dependency 'BFKit'
   s.dependency 'ReactiveObjC'
@@ -17,6 +17,10 @@ Pod::Spec.new do |s|
   s.dependency  'Masonry'
   s.dependency  'FCUUID'
   s.dependency 'YTKNetwork'
+
+  s.subspec 'Resources' do |ss|
+   ss.source_files = 'YXKit/Resources/*'
+  end
 end
 
 
