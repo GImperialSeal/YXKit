@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.dependency 'UITableView+FDTemplateLayoutCell'
   s.dependency  'Masonry'
   s.dependency  'FCUUID'
-
+  s.dependency 'YTKNetwork'
 end
 
 
