@@ -17,43 +17,43 @@ Pod::Spec.new do |s|
   s.dependency  'Masonry'
   s.dependency  'FCUUID'
 
-  s.subspec 'Config' do |ss|
-      ss.source_files = 'YXKit/Classes/Config/*'
-  end
-  s.subspec 'Setting' do |ss|
-      ss.source_files = 'YXKit/Classes/Setting/*'
-      ss.dependency 'YXKit/Until'
-  end
-  
-  s.subspec 'AppDelegateManager' do |ss|
-      ss.source_files = 'YXKit/Classes/AppDelegateManager/*'
-      ss.dependency 'YXKit/Config'
-  end
-
-  s.subspec 'WKWebView' do |ss|
-  ss.source_files = 'YXKit/Classes/WKWebView/*'
-  end
-
-  s.subspec 'Until' do |ss|
-  ss.source_files = 'YXKit/Classes/Until/*'
-  ss.dependency 'YXKit/WKWebView'
-  ss.dependency 'YXKit/Config'
-  end
-  
-  s.subspec 'QRCode' do |ss|
-      ss.source_files = 'YXKit/Classes/QRCode/*'
-  end
-
-  s.subspec 'Network' do |ss|
-     ss.source_files = 'YXKit/Classes/Network/*'
-     ss.dependency 'YTKNetwork'
-  end
-
-
-  s.subspec 'View' do |ss|
-     ss.source_files = 'YXKit/Classes/View/*'
-     ss.dependency 'YXKit/Until'
-   end
-
-
 end
+
+
+#s.subspec 'Config' do |ss|
+#ss.source_files = 'YXKit/Classes/Config/*'
+#end
+#s.subspec 'Setting' do |ss|
+#   ss.source_files = 'YXKit/Classes/Setting/*'
+#   ss.dependency 'YXKit/Until'
+#end
+
+#s.subspec 'AppDelegateManager' do |ss|
+#   ss.source_files = 'YXKit/Classes/AppDelegateManager/*'
+#   ss.dependency 'YXKit/Config'
+#end
+
+#s.subspec 'WKWebView' do |ss|
+#   ss.source_files = 'YXKit/Classes/WKWebView/*'
+#end
+
+#s.subspec 'Until' do |ss|
+#   ss.source_files = 'YXKit/Classes/Until/*'
+#   ss.dependency 'YXKit/WKWebView'
+#   ss.dependency 'YXKit/Config'
+#end
+
+#s.subspec 'QRCode' do |ss|
+# ss.source_files = 'YXKit/Classes/QRCode/*'
+#end
+
+#s.subspec 'Network' do |ss|
+# ss.source_files = 'YXKit/Classes/Network/*'
+# ss.dependency 'YTKNetwork'
+#end
+
+
+#s.subspec 'View' do |ss|
+#  ss.source_files = 'YXKit/Classes/View/*'
+# ss.dependency 'YXKit/Until'
+#end
