@@ -23,7 +23,6 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		EE0F5D3221A652DE000F979F /* YXResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE0F5D3121A652DE000F979F /* YXResources.bundle */; };
 		EE0F5D3521A65382000F979F /* YXGIFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0F5D3421A65382000F979F /* YXGIFViewController.m */; };
 		EE1B87EB21B765BF00638B93 /* YXQueueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */; };
 		EE211F1E224F236A0017A53E /* NetworkManager+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F1D224F236A0017A53E /* NetworkManager+Download.m */; };
@@ -42,7 +41,6 @@
 		EE9BBA2721DC936A00B9ACFC /* NSObject+YXKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */; };
 		EE9BBA3021E2EB0B00B9ACFC /* YXViewController+Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2F21E2EB0B00B9ACFC /* YXViewController+Socket.m */; };
 		EEB8538C21C0EF51007A0B90 /* YXRACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB8538B21C0EF51007A0B90 /* YXRACViewController.m */; };
-		EED2D06B2196733B00EFE020 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EED2D04E2196733B00EFE020 /* .gitkeep */; };
 		EED2D088219BF23C00EFE020 /* YXViewController+review.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D087219BF23C00EFE020 /* YXViewController+review.m */; };
 		EED2D08B219BF9C700EFE020 /* YXViewController+reachablity.m in Sources */ = {isa = PBXBuildFile; fileRef = EED2D08A219BF9C700EFE020 /* YXViewController+reachablity.m */; };
 /* End PBXBuildFile section */
@@ -86,7 +84,6 @@
 		9F1E86B91F40D1C1F12215E6 /* libPods-YXKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YXKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA62B7CD12735403A792DAA0 /* Pods-YXKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Tests/Pods-YXKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC73A375BE7B3FF43CFB0DBE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		EE0F5D3121A652DE000F979F /* YXResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YXResources.bundle; sourceTree = "<group>"; };
 		EE0F5D3321A65382000F979F /* YXGIFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXGIFViewController.h; sourceTree = "<group>"; };
 		EE0F5D3421A65382000F979F /* YXGIFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXGIFViewController.m; sourceTree = "<group>"; };
 		EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXQueueViewController.m; sourceTree = "<group>"; };
@@ -117,7 +114,6 @@
 		EE9BBA2F21E2EB0B00B9ACFC /* YXViewController+Socket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YXViewController+Socket.m"; sourceTree = "<group>"; };
 		EEB8538A21C0EF51007A0B90 /* YXRACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXRACViewController.h; sourceTree = "<group>"; };
 		EEB8538B21C0EF51007A0B90 /* YXRACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXRACViewController.m; sourceTree = "<group>"; };
-		EED2D04E2196733B00EFE020 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		EED2D086219BF23C00EFE020 /* YXViewController+review.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YXViewController+review.h"; sourceTree = "<group>"; };
 		EED2D087219BF23C00EFE020 /* YXViewController+review.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YXViewController+review.m"; sourceTree = "<group>"; };
 		EED2D089219BF9C700EFE020 /* YXViewController+reachablity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YXViewController+reachablity.h"; sourceTree = "<group>"; };
@@ -198,7 +194,6 @@
 		6003F593195388D20070C39A /* Example for YXKit */ = {
 			isa = PBXGroup;
 			children = (
-				EED2D04D2196733B00EFE020 /* Assets */,
 				6003F59C195388D20070C39A /* YXAppDelegate.h */,
 				6003F59D195388D20070C39A /* YXAppDelegate.m */,
 				EE9BBA2521DC936A00B9ACFC /* NSObject+YXKVO.h */,
@@ -292,16 +287,6 @@
 			path = "tableView性能优化";
 			sourceTree = "<group>";
 		};
-		EED2D04D2196733B00EFE020 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				EED2D04E2196733B00EFE020 /* .gitkeep */,
-				EE0F5D3121A652DE000F979F /* YXResources.bundle */,
-			);
-			name = Assets;
-			path = ../../YXKit/Assets;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,7 +298,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				FA5FBD359DD0AA0EE292FA0A /* [CP] Copy Pods Resources */,
+				6FD15AB37E2EA87471499D57 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -388,14 +373,12 @@
 			files = (
 				EE8FB755221BE88300E1E9CD /* RC-盒子-选中@3x.png in Resources */,
 				EE8FB751221BAD2F00E1E9CD /* toast@2x.png in Resources */,
-				EE0F5D3221A652DE000F979F /* YXResources.bundle in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				EE8FB752221BAD2F00E1E9CD /* toast@3x.png in Resources */,
 				EE434C1821F5C6BC00744FB1 /* Images.xcassets in Resources */,
 				EE434C1A21F5C78700744FB1 /* angle.jpg in Resources */,
 				EE8FB756221BE88300E1E9CD /* RC-盒子-选中@2x.png in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
-				EED2D06B2196733B00EFE020 /* .gitkeep in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,25 +412,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		725972A6DEF11EAECC5C1475 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YXKit_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA5FBD359DD0AA0EE292FA0A /* [CP] Copy Pods Resources */ = {
+		6FD15AB37E2EA87471499D57 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -465,7 +430,6 @@
 				"${PODS_ROOT}/BFKit/Source/Languages/vi.lproj",
 				"${PODS_ROOT}/BFKit/Source/Languages/zh-Hans.lproj",
 				"${PODS_ROOT}/BFKit/Source/Languages/zh-Hant.lproj",
-				"${PODS_ROOT}/../../YXKit/Assets/YXResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -480,11 +444,28 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/vi.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hant.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YXResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		725972A6DEF11EAECC5C1475 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YXKit_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
