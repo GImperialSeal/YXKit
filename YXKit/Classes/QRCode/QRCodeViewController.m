@@ -294,8 +294,13 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #pragma mark - - - 播放音频文件
 - (void)SG_playSoundEffect:(NSString *)name {
     // 获取音效
-    NSString *audioFile = [[NSBundle mainBundle] pathForResource:name ofType:nil];
-    NSURL *fileUrl = [NSURL fileURLWithPath:audioFile];
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"YXResources" ofType:@"bundle"];
+    path = [path stringByAppendingPathComponent:name];
+    
+    if (!path) {
+        return;
+    }
+    NSURL *fileUrl = [NSURL fileURLWithPath:path];
     
     // 1、获得系统声音ID
     SystemSoundID soundID = 0;
