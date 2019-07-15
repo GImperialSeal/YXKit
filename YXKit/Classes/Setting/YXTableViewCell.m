@@ -98,21 +98,20 @@
                 make.top.equalTo(self.titleLabel);
                 make.left.equalTo(self.titleLabel.mas_right).offset(8);
             }];
-            
-            [self.subtitleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-            [self.subtitleLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-
+        
         }else if ([reuseIdentifier isEqualToString:@"fullImage"]){
             [self.contentView addSubview:self.imageV];
             [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.inset(space);
             }];
+        }else{
+            self.textLabel.textColor = [UIColor colorWithHexString:@"#555555"];
+            self.detailTextLabel.textColor = [UIColor colorWithHexString:@"#888888"];
+            self.textLabel.font = [UIFont systemFontOfSize:14];
+            self.detailTextLabel.font = [UIFont systemFontOfSize:14];
+            self.textLabel.numberOfLines = 0;
         }
-        self.textLabel.textColor = [UIColor colorWithHexString:@"#555555"];
-        self.detailTextLabel.textColor = [UIColor colorWithHexString:@"#888888"];
-        self.textLabel.font = [UIFont systemFontOfSize:14];
-        self.detailTextLabel.font = [UIFont systemFontOfSize:14];
-        self.textLabel.numberOfLines = 0;
+    
     }
     return self;
 }
