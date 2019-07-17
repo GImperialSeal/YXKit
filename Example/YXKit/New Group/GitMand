@@ -1,0 +1,9 @@
+
+查找域名对应的ip地址
+nslookup github.com
+
+hosts文件地址
+/private/etc
+
+刷新dns
+sudo dscacheutil -flushcache

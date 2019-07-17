@@ -38,6 +38,7 @@
 		EE8FB752221BAD2F00E1E9CD /* toast@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8FB750221BAD2F00E1E9CD /* toast@3x.png */; };
 		EE8FB755221BE88300E1E9CD /* RC-盒子-选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8FB753221BE88200E1E9CD /* RC-盒子-选中@3x.png */; };
 		EE8FB756221BE88300E1E9CD /* RC-盒子-选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8FB754221BE88300E1E9CD /* RC-盒子-选中@2x.png */; };
+		EE8FDBE122DF13E8009D9B12 /* GitMand in Resources */ = {isa = PBXBuildFile; fileRef = EE8FDBE022DF13E8009D9B12 /* GitMand */; };
 		EE9BBA2721DC936A00B9ACFC /* NSObject+YXKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */; };
 		EE9BBA3021E2EB0B00B9ACFC /* YXViewController+Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9BBA2F21E2EB0B00B9ACFC /* YXViewController+Socket.m */; };
 		EEB8538C21C0EF51007A0B90 /* YXRACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB8538B21C0EF51007A0B90 /* YXRACViewController.m */; };
@@ -108,6 +109,7 @@
 		EE8FB750221BAD2F00E1E9CD /* toast@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toast@3x.png"; sourceTree = "<group>"; };
 		EE8FB753221BE88200E1E9CD /* RC-盒子-选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RC-盒子-选中@3x.png"; sourceTree = "<group>"; };
 		EE8FB754221BE88300E1E9CD /* RC-盒子-选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RC-盒子-选中@2x.png"; sourceTree = "<group>"; };
+		EE8FDBE022DF13E8009D9B12 /* GitMand */ = {isa = PBXFileReference; lastKnownFileType = text; path = GitMand; sourceTree = "<group>"; };
 		EE9BBA2521DC936A00B9ACFC /* NSObject+YXKVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+YXKVO.h"; sourceTree = "<group>"; };
 		EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YXKVO.m"; sourceTree = "<group>"; };
 		EE9BBA2E21E2EB0B00B9ACFC /* YXViewController+Socket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YXViewController+Socket.h"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		6003F593195388D20070C39A /* Example for YXKit */ = {
 			isa = PBXGroup;
 			children = (
+				EE8FDBDC22DF13A4009D9B12 /* New Group */,
 				6003F59C195388D20070C39A /* YXAppDelegate.h */,
 				6003F59D195388D20070C39A /* YXAppDelegate.m */,
 				EE9BBA2521DC936A00B9ACFC /* NSObject+YXKVO.h */,
@@ -287,6 +290,14 @@
 			path = "tableView性能优化";
 			sourceTree = "<group>";
 		};
+		EE8FDBDC22DF13A4009D9B12 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				EE8FDBE022DF13E8009D9B12 /* GitMand */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE8FB755221BE88300E1E9CD /* RC-盒子-选中@3x.png in Resources */,
+				EE8FDBE122DF13E8009D9B12 /* GitMand in Resources */,
 				EE8FB751221BAD2F00E1E9CD /* toast@2x.png in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				EE8FB752221BAD2F00E1E9CD /* toast@3x.png in Resources */,
