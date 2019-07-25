@@ -8,10 +8,14 @@
 
 #import "YXLocationManager.h"
 #import <ReactiveObjC.h>
+#import "CLLocation+Sino.h"
 @interface YXLocationManager()<CLLocationManagerDelegate>
 @property (nonatomic, strong)CLLocationManager *manager;
 @property (nonatomic, strong)CLGeocoder *geocoder;
 @end
+
+
+
 @implementation YXLocationManager
 
 // 授权
@@ -76,9 +80,10 @@
         }];
     }] flattenMap:^__kindof RACSignal * _Nullable(NSArray *value) {
         if ([value isKindOfClass:NSArray.class]) {
-            CLLocation *loc = value.firstObject;
+            CLLocation *loc = [value.firstObject locationMarsFromEarth];
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-                [self.geocoder reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+                
+                [self.geocoder reverseGeocodeLocation:loc  completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
                     if (error) {
                         [subscriber sendError:error];
                     }else{
@@ -134,3 +139,5 @@
 }
 
 @end
+
+
