@@ -8,14 +8,17 @@
 
 #import "UITableView+DefaultView.h"
 #import <objc/message.h>
+#import <Masonry.h>
+#import "YXResources.h"
+#import <YYKit.h>
 @implementation UITableView (DefaultView)
 + (void)load{
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        Method originalSel = class_getInstanceMethod(self, @selector(reloadData));
-//        Method currentSel = class_getInstanceMethod(self, @selector(yx_reloadData));
-//        method_exchangeImplementations(originalSel, currentSel);
-//    });
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Method originalSel = class_getInstanceMethod(self, @selector(reloadData));
+        Method currentSel = class_getInstanceMethod(self, @selector(yx_reloadData));
+        method_exchangeImplementations(originalSel, currentSel);
+    });
 }
 
 - (void)yx_reloadData{
@@ -50,7 +53,28 @@
     UIView *v = objc_getAssociatedObject(self, _cmd);
     if (!v) {
         v = [[UIView alloc]initWithFrame:self.bounds];
-        v.backgroundColor = [UIColor orangeColor];
+        
+        UIImageView *imageV = [[UIImageView alloc]init];
+        imageV.image = [YXResources imageNamed:@"空页面"];
+        [v addSubview:imageV];
+        
+        UILabel *label = [[UILabel alloc]init];
+        label.text = @"暂时无完成的任务，我要去干活！";
+        label.font = [UIFont systemFontOfSize:12];
+        label.textColor = [UIColor colorWithHexString:@"#AAAAAA"];
+        [v addSubview:label];
+        
+        [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.offset(0);
+            make.centerY.offset(-80);
+        }];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.offset(0);
+            make.top.equalTo(imageV.mas_bottom).offset(8);
+        }];
+        
+        [self setDefaltView:v];
+//        v.backgroundColor = [UIColor orangeColor];
     }
     return v;
 }
