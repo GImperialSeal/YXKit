@@ -20,6 +20,7 @@ typedef enum : NSInteger{
     GSettingItemTypeTextField,    // 输入
     GSettingItemTypeNineBox,     // 九宫格
     GSettingItemTypeInput,   // 正方形输入框
+    GSettingItemTypeSelected,   // 有一个选择框
     GSettingItemTypeSlider,  // 拖动进度
     GSettingItemTypePicker,     // 选择照片
     GSettingItemTypeCustom,     // 自定义
@@ -116,4 +117,6 @@ typedef void(^PickerImagesBlock)(NSString *filesIDArray);
 + (instancetype)itemTypeSubtitle;
 
 + (instancetype)itemTypeFullImage;
+
++ (instancetype)itemTypeSelected;
 @end

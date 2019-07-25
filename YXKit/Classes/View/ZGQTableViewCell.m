@@ -32,7 +32,7 @@
 - (void)layoutSubviews {
     CGFloat contentViewWidth = CGRectGetWidth(self.contentView.bounds);
     CGFloat contentViewHeight = CGRectGetHeight(self.contentView.bounds);
-    self.titleLabel.frame = CGRectMake(contentViewWidth * 0.2, 0, contentViewWidth * 0.6, contentViewHeight);
+    self.titleLabel.frame = CGRectMake(0, 0, contentViewWidth, contentViewHeight);
     self.lineView.frame = CGRectMake(0, contentViewHeight - 0.3, contentViewWidth, 0.3);
 
 }

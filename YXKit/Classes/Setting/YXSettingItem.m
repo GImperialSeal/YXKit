@@ -82,9 +82,16 @@
     return item;
 }
 
++ (instancetype)itemTypeSelected{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeSelected;
+    return item;
+}
+
 + (instancetype)itemTypeTextField{
     YXSettingItem *item = [[self alloc] init];
     item.type = GSettingItemTypeTextField;
+    item.isObserveSubtitle = YES;
     return item;
 }
 

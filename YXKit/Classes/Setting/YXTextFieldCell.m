@@ -52,7 +52,8 @@
         }
         return value;
     }] subscribeNext:^(NSString *x) {
-        if (data.accessoryview &&[data.accessoryview isKindOfClass:UILabel.class]) {
+        
+        if (data.accessoryview &&[data.accessoryview isKindOfClass:UILabel.class]&&data.isObserveSubtitle) {
             NSString *strLength = [NSString stringWithFormat:@"%lu",(unsigned long)x.length];
             NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@/%d",strLength,data.limitEditLength]];
             [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#20B1F4"] range:NSMakeRange(0, strLength.length)];
