@@ -75,6 +75,9 @@ typedef void(^PickerImagesBlock)(NSString *filesIDArray);
 
 @property (nonatomic) BOOL isObserveTitle;
 @property (nonatomic) BOOL isObserveSubtitle;//副标题是可更改的
+@property (nonatomic) BOOL selected;//选中
+
+
 
 @property (nonatomic) BOOL hideSeparatorLine;
 
