@@ -73,7 +73,7 @@ typedef void(^PickerImagesBlock)(NSString *filesIDArray);
 @property (nonatomic) CGFloat rowHeight;
 
 @property (nonatomic) BOOL isObserveTitle;
-@property (nonatomic) BOOL isObserveSubtitle;
+@property (nonatomic) BOOL isObserveSubtitle;//副标题是可更改的
 
 @property (nonatomic) BOOL hideSeparatorLine;
 
