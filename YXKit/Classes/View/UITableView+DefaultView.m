@@ -36,14 +36,12 @@
         NSInteger rows = [dataSource tableView:self numberOfRowsInSection:i];
         r += rows;
     }
-    if (!r) {
-        [self addSubview:self.defaltView];
+    // 多个分区暂时不处理
+    if (!r&&section==0) {
+        [self insertSubview:self.defaltView atIndex:0];
     }else{
         [self.defaltView removeFromSuperview];
     }
-    
-
-    NSLog(@"r: %ld", (long)r);
 }
 
 - (void)setDefaltView:(UIView *)defaltView{
@@ -62,6 +60,7 @@
         label.text = @"暂时无完成的任务，我要去干活！";
         label.font = [UIFont systemFontOfSize:12];
         label.textColor = [UIColor colorWithHexString:@"#AAAAAA"];
+        label.tag = 100;
         [v addSubview:label];
         
         [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,5 +76,22 @@
 //        v.backgroundColor = [UIColor orangeColor];
     }
     return v;
+}
+
+- (void)setShowDefaultView:(BOOL)showDefaultView{
+    objc_setAssociatedObject(self, @selector(showDefaultView), @(showDefaultView), OBJC_ASSOCIATION_RETAIN);
+}
+
+- (BOOL)showDefaultView{
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+
+}
+
+- (void)setShow:(BOOL)show{
+    self.defaltView.hidden = show;
+}
+
+- (void)setTitle:(NSString *)title{
+    [(UILabel *)[self.defaltView viewWithTag:100] setText:title];
 }
 @end

@@ -130,19 +130,9 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    if (cell.selected) {
-//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    }
-//    cell.selected = !cell.selected;
+
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
-    
-    item.selected = !item.selected;
-    
-    cell.selected = item.selected;
     
     // 1.取出这行对应模型中的block代码
     !item.cellBlock?:item.cellBlock(group,item,indexPath);

@@ -125,7 +125,6 @@
     self.accessoryType = data.accessoryType;
     self.accessoryView = data.accessoryview;
     self.line.hidden = data.hideSeparatorLine;
-    self.selected = data.selected;
     
     if (data.type == GSettingItemTypeDefault) {
         self.textLabel.attributedText = data.title;

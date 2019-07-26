@@ -64,9 +64,11 @@
 // 定位
 - (void)location:(PlaceMarksBlock)complete failure:(void(^)(NSError *error))failure{
     
-    RACSignal *signal = [[[[self auth] filter:^BOOL(id  _Nullable value) {
-        return [value boolValue];
-    }] flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+   
+    RACSignal *signal = [[[self auth] flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+        if (![value boolValue]) {
+            return [RACSignal error:[NSError errorWithDomain:NSCocoaErrorDomain code:10011 userInfo:@{NSLocalizedDescriptionKey:@"用户未开启定位权限"}]];
+        }
         return [[[[[[self rac_signalForSelector:@selector(locationManager:didUpdateLocations:) fromProtocol:@protocol(CLLocationManagerDelegate)] map:^id _Nullable(RACTuple * _Nullable value) {
             return value[1];
         }] merge:[[self rac_signalForSelector:@selector(locationManager:didFailWithError:) fromProtocol:@protocol(CLLocationManagerDelegate)] map:^id _Nullable(RACTuple * _Nullable value) {
