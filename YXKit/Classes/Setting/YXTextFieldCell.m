@@ -47,10 +47,7 @@
     self.titleLabel.attributedText = data.title;
     @weakify(self)
     [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
-        if (value.length>data.limitEditLength) {
-            self_weak_.tf.text = [self_weak_.tf.text substringToIndex:data.limitEditLength];
-        }
-        return value;
+        return value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
     }] subscribeNext:^(NSString *x) {
         
         if (data.accessoryview &&[data.accessoryview isKindOfClass:UILabel.class]&&data.isObserveSubtitle) {

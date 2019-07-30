@@ -95,6 +95,12 @@
     return item;
 }
 
++ (instancetype)itemTypeTextView{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeTextView;
+    return item;
+}
+
 + (instancetype)itemTypeCustom{
     YXSettingItem *item = [[self alloc] init];
     item.type = GSettingItemTypeCustom;
