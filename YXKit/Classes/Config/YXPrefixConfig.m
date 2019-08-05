@@ -18,7 +18,17 @@
     // 获得父容器的宽度，我这里是获取控制器View的宽度
     CGFloat contentViewWidth = width;
     // 新建一个宽度约束
-    NSLayoutConstraint *widthFenceConstraint = [NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:contentViewWidth];
+    NSLayoutConstraint *widthFenceConstraint = [NSLayoutConstraint
+                                                constraintWithItem:contentView
+                                                attribute:NSLayoutAttributeWidth
+                                                relatedBy:NSLayoutRelationEqual
+                                                toItem:nil
+                                                attribute:NSLayoutAttributeNotAnAttribute
+                                                multiplier:1.0
+                                                constant:contentViewWidth];
+    
+    widthFenceConstraint.priority = UILayoutPriorityRequired - 1;
+
     // 添加宽度约束
     [contentView addConstraint:widthFenceConstraint];
     // 获取约束后的size

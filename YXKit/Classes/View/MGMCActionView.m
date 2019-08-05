@@ -24,6 +24,7 @@
         v.tag = 10000;
         UIWindow *windows = [UIApplication sharedApplication].keyWindow;
         [windows addSubview:v];
+        
         [v animated:animated delay:0 show:YES completion:nil];
     }
 }
