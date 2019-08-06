@@ -121,19 +121,6 @@
     }
 }
 
-- (void)reloadItem:(YXSettingItem *)item{
-    NSIndexPath *indexPath;
-    for (NSInteger section = 0; section<self.allGroups.count; section++) {
-        YXSettingGroup *group = _allGroups[section];
-        if ([group.items containsObject:item]) {
-            NSInteger row = [group.items indexOfObject:item];
-            indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-            break;
-        }
-    }
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-}
-
 
 // 浅灰色
 - (NSAttributedString *)defaultSubtitle:(NSString *)text font:(CGFloat)font{
