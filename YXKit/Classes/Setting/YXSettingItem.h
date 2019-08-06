@@ -29,11 +29,6 @@ typedef enum : NSInteger{
     GSettingItemTypeFullImage,   // 铺满的图
 } GSettingItemType;
 
-//typedef enum : NSInteger{
-//    center, //标题和副标题 ,居中显示,不会自适应大小, 只显示1行
-//    left,    // 标题和副标题
-//    right
-//} ValueType;
 
 typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *indexPath);
 typedef void(^EditBlock)(NSString *text);
