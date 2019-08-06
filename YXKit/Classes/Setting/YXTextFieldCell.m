@@ -47,9 +47,11 @@
     self.titleLabel.attributedText = data.title;
     @weakify(self)
     
-    [[RACObserve(data, text) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
-        self_weak_.tf.text = x;
-    }];
+//    [[RACObserve(data, text) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
+//        self_weak_.tf.text = x;
+//    }];
+    
+    RAC(self.tf,text) = [RACObserve(data, text) takeUntil:self.rac_prepareForReuseSignal];
     [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
         return value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
     }] subscribeNext:^(NSString *x) {
