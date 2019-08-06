@@ -22,5 +22,4 @@
 
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
-- (void)reloadItem:(YXSettingItem *)item;
 @end
