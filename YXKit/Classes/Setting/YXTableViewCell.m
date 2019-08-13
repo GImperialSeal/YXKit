@@ -117,8 +117,13 @@
 }
 
 
-
-
+- (void)setImageView:(UIImageView *)IV url:(NSString *)url{
+    if (url.length&&[url hasPrefix:@"http:"]) {
+        [IV setImageURL:[NSURL URLWithString:url]];
+    }else if (url.length){
+        IV.image = [UIImage imageNamed:url];
+    }
+}
 
 - (void)configWithData:(YXSettingItem *)data{
     
@@ -128,10 +133,12 @@
     
     if (data.type == GSettingItemTypeDefault) {
         self.textLabel.attributedText = data.title;
-        self.imageView.image = [UIImage imageNamed:data.icon];
+        [self setImageView:self.imageView url:data.icon];
+
     }else if (data.type == GSettingItemTypeSubtitle){
         self.titleLabel.attributedText = data.title;
         self.subtitleLabel.attributedText = data.subtitle;
+        [self setImageView:self.imageView url:data.icon];
     }else if (data.type == GSettingItemTypeValue1){
         self.textLabel.attributedText = data.title;
         self.detailTextLabel.attributedText = data.subtitle;
@@ -188,6 +195,16 @@
         _subtitleLabel.numberOfLines = 0;
     }
     return _subtitleLabel;
+}
+
+- (UILabel *)spareLabel{
+    if (!_spareLabel) {
+        _spareLabel = [UILabel new];
+        _spareLabel.font = [UIFont systemFontOfSize:14];
+        _spareLabel.textColor = [UIColor colorWithHexString:@"#888888"];
+        _spareLabel.numberOfLines = 0;
+    }
+    return _spareLabel;
 }
 
 - (UILabel *)titleLabel{

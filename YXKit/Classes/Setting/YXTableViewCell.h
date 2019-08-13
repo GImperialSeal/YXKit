@@ -18,7 +18,11 @@
 
 @property (nonatomic, strong)UILabel *subtitleLabel;
 
+@property (nonatomic, strong)UILabel *spareLabel;// 备用的lab, 懒加载, 默认是没有添加到视图上
+
 @property (nonatomic, strong)UIImageView *imageV;
 
 - (void)configWithData:(YXSettingItem *)data;
+
+- (void)setImageView:(UIImageView *)IV url:(NSString *)url;
 @end

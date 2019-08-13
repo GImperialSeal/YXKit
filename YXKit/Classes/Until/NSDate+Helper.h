@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 根据字符串返回NSDate */
 + (NSDate *)dateWithString:(NSString *)string format:(NSString *)format;
 
+// 星期一
+- (NSString *)dayFromWeekday;
+
 /** 根据TimeInterval获取字符串,带有时区偏移 */
 + (NSString *)stringWithTimeInterval:(unsigned int)time Formatter:(NSString *)format;
 
