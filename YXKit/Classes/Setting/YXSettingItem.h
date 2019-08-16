@@ -34,6 +34,7 @@ typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *
 typedef void(^EditBlock)(NSString *text);
 typedef void(^AccessoryViewBlock)(UIButton *sender);
 typedef void(^PickerImagesBlock)(NSString *filesIDArray);
+typedef void(^SeletedBlock)(BOOL selected);
 
 
 @interface YXSettingItem : NSObject
@@ -86,6 +87,7 @@ typedef void(^PickerImagesBlock)(NSString *filesIDArray);
 
 // op
 @property (nonatomic, strong) CellBlock cellBlock ; // 点击cell后要执行的操作
+@property (nonatomic, strong) SeletedBlock selectedBlock ; // 点击cell后要执行的操作
 
 
 @property (nonatomic, strong) AccessoryViewBlock accessoryBlock;/** AccessoryView事件 */
