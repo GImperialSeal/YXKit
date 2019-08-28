@@ -37,7 +37,8 @@
             
             [self.contentView addSubview:self.titleLabel];
             [self.contentView addSubview:self.subtitleLabel];
-            
+            self.titleLabel.numberOfLines = 1;
+
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(space);
                 make.right.inset(space);
@@ -52,24 +53,25 @@
         }else if([reuseIdentifier isEqualToString:@"Value3"]){
             [self.contentView addSubview:self.titleLabel];
             [self.contentView addSubview:self.subtitleLabel];
-            
+            self.titleLabel.numberOfLines = 1;
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(space);
                 make.top.equalTo(self.subtitleLabel.mas_top);
             }];
+            
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.titleLabel.mas_right).offset(8);
-                make.top.offset(15);
+                make.top.offset(KSpace);
                 make.right.inset(space);
-                make.bottom.inset(15).priorityLow();
-//                make.height.mas_greaterThanOrEqualTo(44);
+                make.bottom.inset(KSpace);
             }];
             [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             
         }else if([reuseIdentifier isEqualToString:@"Value3_center"]){
             [self.contentView addSubview:self.titleLabel];
             [self.contentView addSubview:self.subtitleLabel];
-            
+            self.titleLabel.numberOfLines = 1;
+
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(space);
                 make.top.equalTo(self.subtitleLabel.mas_top);
@@ -78,7 +80,7 @@
                 make.left.equalTo(self.titleLabel.mas_right).offset(8);
                 make.top.offset(8);
                 make.right.inset(space);
-                make.bottom.inset(8).priorityLow();
+                make.bottom.inset(8);
 //                make.height.mas_greaterThanOrEqualTo(44);
             }];
             [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
@@ -86,11 +88,12 @@
         }else if([reuseIdentifier isEqualToString:@"Value4"]){
             [self.contentView addSubview:self.titleLabel];
             [self.contentView addSubview:self.subtitleLabel];
-            
+            self.subtitleLabel.numberOfLines = 1;
+
             [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.offset(15);
+                make.top.offset(KSpace);
                 make.left.offset(space);
-                make.bottom.inset(15).priorityMedium();
+                make.bottom.inset(KSpace);
             }];
             
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,6 +101,7 @@
                 make.top.equalTo(self.titleLabel);
                 make.left.equalTo(self.titleLabel.mas_right).offset(8);
             }];
+            [self.subtitleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         
         }else if ([reuseIdentifier isEqualToString:@"fullImage"]){
             [self.contentView addSubview:self.imageV];
