@@ -7,7 +7,7 @@
 //
 
 #import "YXLocationManager.h"
-#import <ReactiveObjC.h>
+#import "ReactiveObjC.h"
 #import "CLLocation+Sino.h"
 @interface YXLocationManager()<CLLocationManagerDelegate>
 @property (nonatomic, strong)CLLocationManager *manager;

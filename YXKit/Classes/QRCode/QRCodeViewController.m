@@ -8,7 +8,7 @@
 
 #import "QRCodeViewController.h"
 #import "YXResources.h"
-#import <Masonry.h>
+#import "Masonry.h"
 @import AVFoundation;
 @import Photos;
 //#import "UINavigationController+FDFullscreenPopGesture.h"

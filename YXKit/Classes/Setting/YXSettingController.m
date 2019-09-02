@@ -9,8 +9,8 @@
 #import "YXSettingController.h"
 #import "YXTableViewCell.h"
 #import "YXTextFieldCell.h"
-#import <ReactiveObjC.h>
-#import <UITableView+FDTemplateLayoutCell.h>
+#import "ReactiveObjC.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 @interface YXSettingController ()
 
 @end
@@ -185,6 +185,31 @@
     }
    
 }
+
+
+- ( UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.canDelete) {
+        //删除
+        __weak typeof(self)weakself = self;
+        UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"删除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+            YXSettingGroup *group = _allGroups[indexPath.section];
+            YXSettingItem *item = group.items[indexPath.row];
+            !item.deleteBlock?:item.deleteBlock();
+            [group.items removeObjectAtIndex:indexPath.row];
+            [weakself.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            completionHandler (YES);
+
+        }];
+        //    deleteRowAction.title = @"删除";
+        //    deleteRowAction.backgroundColor = [UIColor redColor];
+        
+        return [UISwipeActionsConfiguration configurationWithActions:@[deleteRowAction]];
+    }else{
+        return [UISwipeActionsConfiguration configurationWithActions:@[]];
+    }
+   
+}
+
 
 
 

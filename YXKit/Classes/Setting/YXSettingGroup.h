@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class YXSettingItem;
 @import UIKit;
 @interface YXSettingGroup : NSObject
 
@@ -25,5 +26,5 @@
 @property (nonatomic, strong) NSMutableArray *items; // 中间的条目
 
 + (instancetype)groupWithItem:(NSArray *)items;
-
+- (void)addObject:(YXSettingItem *)obj;
 @end

@@ -6,7 +6,7 @@
 //
 
 #import "YXResources.h"
-#import <YYKit.h>
+#import "YYKit.h"
 @implementation YXResources
 
 + (YYMemoryCache *)imageCache {

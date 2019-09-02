@@ -7,7 +7,7 @@
 //
 
 #import "YXPrefixConfig.h"
-#import <YYKit.h>
+#import "YYKit.h"
 #import <NSObject+runtime.h>
 @import UIKit;
 @implementation YXPrefixConfig

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YXSettingGroup.h"
 #import "YXSettingItem.h"
-#import <UITableView+FDTemplateLayoutCell.h>
+#import "UITableView+FDTemplateLayoutCell.h"
 
 
 @interface YXSettingController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
@@ -21,5 +21,8 @@
 @property (nonatomic, strong) NSMutableArray *allGroups;
 
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+
+@property (nonatomic) BOOL canDelete;
+
 
 @end

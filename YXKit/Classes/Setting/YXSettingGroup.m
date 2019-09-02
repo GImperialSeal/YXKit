@@ -28,6 +28,10 @@
     return self;
 }
 
+- (void)addObject:(id)obj{
+    [self.items addObject:obj];
+}
+
 - (NSMutableArray *)items{
     if (!_items) {
         _items = [NSMutableArray array];

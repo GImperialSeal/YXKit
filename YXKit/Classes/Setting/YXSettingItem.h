@@ -35,9 +35,12 @@ typedef void(^EditBlock)(NSString *text);
 typedef void(^AccessoryViewBlock)(UIButton *sender);
 typedef void(^PickerImagesBlock)(NSString *filesIDArray);
 typedef void(^SeletedBlock)(BOOL selected);
+typedef void(^DeleteBlock)();
 
 
 @interface YXSettingItem : NSObject
+
+
 
 // fullimage
 @property (nonatomic, strong)NSString *url;
@@ -74,6 +77,7 @@ typedef void(^SeletedBlock)(BOOL selected);
 @property (nonatomic) BOOL isObserveSubtitle;//副标题是可更改的
 @property (nonatomic) BOOL selected;//选中
 
+@property (nonatomic, strong) DeleteBlock deleteBlock;/** 选择图片 */
 
 
 @property (nonatomic) BOOL hideSeparatorLine;
