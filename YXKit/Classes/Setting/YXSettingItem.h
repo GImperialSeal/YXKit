@@ -47,6 +47,7 @@ typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *
 typedef void(^EditBlock)(NSString *text);
 typedef void(^AccessoryViewBlock)(UIButton *sender);
 typedef void(^PickerImagesBlock)(NSString *filesIDArray);
+typedef void(^PickerDeleteBlock)(NSInteger idx);
 typedef void(^SeletedBlock)(BOOL selected);
 typedef void(^DeleteBlock)();
 
@@ -99,6 +100,7 @@ typedef void(^DeleteBlock)();
 @property (nonatomic) NSInteger maxImageCount;
 @property (nonatomic) BOOL hideHint;
 @property (nonatomic, strong) PickerImagesBlock pickerBlock;/** 选择图片 */
+@property (nonatomic, strong) PickerDeleteBlock pickerDeleteBlock;/** 删除图片 */
 
 
 // cell

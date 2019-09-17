@@ -88,10 +88,12 @@
                 [self.geocoder reverseGeocodeLocation:loc  completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
                     if (error) {
                         [subscriber sendError:error];
+                        failure(error);
                     }else{
                         [subscriber sendNext:placemarks.firstObject];
-                        [subscriber sendCompleted];
                     }
+                    [subscriber sendCompleted];
+
                 }];
                 return [RACDisposable disposableWithBlock:^{
                     
