@@ -29,19 +29,6 @@ typedef enum : NSInteger{
     GSettingItemTypeFullImage,   // 铺满的图
 } GSettingItemType;
 
-typedef enum : NSInteger{
-    left,
-    right,
-    top,
-    bottom,
-    center,
-} YXTextAttachment;
-
-typedef enum : NSInteger{
-    single,
-    mulit,
-} YXNumbleOfLine;
-
 
 typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *indexPath);
 typedef void(^EditBlock)(NSString *text);
