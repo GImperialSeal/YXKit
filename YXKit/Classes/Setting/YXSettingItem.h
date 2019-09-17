@@ -29,6 +29,19 @@ typedef enum : NSInteger{
     GSettingItemTypeFullImage,   // 铺满的图
 } GSettingItemType;
 
+typedef enum : NSInteger{
+    left,
+    right,
+    top,
+    bottom,
+    center,
+} YXTextAttachment;
+
+typedef enum : NSInteger{
+    single,
+    mulit,
+} YXNumbleOfLine;
+
 
 typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *indexPath);
 typedef void(^EditBlock)(NSString *text);
@@ -39,6 +52,24 @@ typedef void(^DeleteBlock)();
 
 
 @interface YXSettingItem : NSObject
+
+@property (nonatomic, strong)YXSettingItem * (^setUrl)(NSString *url);
+@property (nonatomic, strong)YXSettingItem * (^setText)(NSString *text);
+
+@property (nonatomic, strong)YXSettingItem * (^setTitle)(NSAttributedString *title);
+@property (nonatomic, strong)YXSettingItem * (^setSubtitle)(NSAttributedString *subtitle);
+
+@property (nonatomic, strong)YXSettingItem * (^setPlaceholder)(NSString *placeholder);
+@property (nonatomic, strong)YXSettingItem * (^setKeyType)(UIKeyboardType keytype);
+@property (nonatomic, strong)YXSettingItem * (^setLimitEdit)(NSInteger limit);
+@property (nonatomic, strong)YXSettingItem * (^setEditBlock)(EditBlock block);
+
+@property (nonatomic, strong)YXSettingItem * (^setType)(GSettingItemType type);
+@property (nonatomic, strong)YXSettingItem * (^setRowHeight)(CGFloat height);
+@property (nonatomic, strong)YXSettingItem * (^setHideSeparatorLine)(BOOL hide);
+@property (nonatomic, strong)YXSettingItem * (^setAccessoryType)(UITableViewCellAccessoryType type);
+@property (nonatomic, strong)YXSettingItem * (^setCellBlock)(CellBlock block);
+
 
 
 

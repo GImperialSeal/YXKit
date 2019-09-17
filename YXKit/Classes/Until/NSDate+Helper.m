@@ -200,6 +200,11 @@
 + (NSInteger)weekday:(NSDate *)date {
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+//    NSCalendar *gregorian = [NSCalendar currentCalendar];
+//
+//    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
+//    [gregorian setTimeZone: timeZone];
+
     NSDateComponents *comps = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday) fromDate:date];
     NSInteger weekday = [comps weekday];
     weekday == 1 ? weekday = 7 : weekday--;
@@ -211,32 +216,34 @@
 }
 
 + (NSString *)dayFromWeekday:(NSDate *)date {
+    NSString *weekDayStr = @"";
     switch([date weekday]) {
-        case 7:
-            return @"星期天";
-            break;
         case 1:
-            return @"星期一";
+            weekDayStr =@"星期日";
             break;
         case 2:
-            return @"星期二";
+            weekDayStr =@"星期一";
             break;
         case 3:
-            return @"星期三";
+            weekDayStr =@"星期二";
             break;
         case 4:
-            return @"星期四";
+            weekDayStr =@"星期三";
             break;
         case 5:
-            return @"星期五";
+            weekDayStr =@"星期四";
             break;
         case 6:
-            return @"星期六";
+            weekDayStr =@"星期五";
+            break;
+        case 7:
+            weekDayStr =@"星期六";
             break;
         default:
+            weekDayStr =@"";
             break;
     }
-    return @"";
+    return weekDayStr;
 }
 
 - (NSString*)lunar{

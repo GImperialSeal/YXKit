@@ -88,7 +88,7 @@
 }
 
 - (void)setShow:(BOOL)show{
-    self.defaltView.hidden = show;
+    self.defaltView.hidden = !show;
 }
 
 - (void)setTitle:(NSString *)title{

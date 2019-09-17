@@ -15,10 +15,94 @@
 
 @implementation YXSettingItem
 
-+ (instancetype)itemTypeSubtitle{
-    YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeSubtitle;
-    return item;
+- (YXSettingItem *(^)(EditBlock))setEditBlock{
+    return ^YXSettingItem *(EditBlock block) {
+        self.editBlock = block;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(CellBlock))setCellBlock{
+    return ^YXSettingItem *(CellBlock block) {
+        self.cellBlock = block;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(UITableViewCellAccessoryType))setAccessoryType{
+    return ^YXSettingItem *(UITableViewCellAccessoryType h) {
+        self.accessoryType = h;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(BOOL))setHideSeparatorLine{
+    return ^YXSettingItem *(BOOL h) {
+        self.hideSeparatorLine = h;
+        return self;
+    };
+}
+- (YXSettingItem *(^)(NSString *))setUrl{
+    return ^YXSettingItem *(NSString *url) {
+        self.url = url;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(CGFloat))setRowHeight{
+    return ^YXSettingItem *(CGFloat h) {
+        self.rowHeight = h;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(NSAttributedString *))setTitle{
+    return ^YXSettingItem *(NSAttributedString *title) {
+        self.title = title;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(NSAttributedString *))setSubtitle{
+    return  ^YXSettingItem *(NSAttributedString *subtitle) {
+        self.subtitle = subtitle;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(NSString *))setPlaceholder{
+    return ^YXSettingItem *(NSString *palce) {
+        self.placeholder = palce;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(UIKeyboardType))setKeyType{
+    return ^YXSettingItem *(NSInteger type) {
+        self.keyType = type;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(NSInteger))setLimitEdit{
+    return ^YXSettingItem *(NSInteger type) {
+        self.limitEditLength = type;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(GSettingItemType))setType{
+    return ^YXSettingItem *(GSettingItemType type) {
+        self.type = type;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(NSString *))setText{
+    return ^YXSettingItem *(NSString *text) {
+        self.text = text;
+        return self;
+    };
 }
 
 + (instancetype)itemTypeDefault:(NSString *)icon{
@@ -104,6 +188,12 @@
 + (instancetype)itemTypeCustom{
     YXSettingItem *item = [[self alloc] init];
     item.type = GSettingItemTypeCustom;
+    return item;
+}
+
++ (instancetype)itemTypeSubtitle{
+    YXSettingItem *item = [[self alloc] init];
+    item.type = GSettingItemTypeSubtitle;
     return item;
 }
 
