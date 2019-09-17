@@ -55,11 +55,13 @@ typedef UITableViewCellAccessoryType AccessoryType;
 @property (nonatomic, strong)YXSettingItem * (^setHideSeparatorLine)(BOOL hide);
 @property (nonatomic, strong)YXSettingItem * (^setAccessoryType)(AccessoryType type);
 @property (nonatomic, strong)YXSettingItem * (^setCellBlock)(CellBlock block);
+@property (nonatomic, strong)YXSettingItem * (^setScrollEnabled)(BOOL enable);
 
 
 // fullimage
 @property (nonatomic, strong)NSString *url;
 @property (nonatomic, strong)UIImage *image;
+@property (nonatomic)BOOL scrollEnabled;
 
 // default
 @property (nonatomic, strong) NSString *icon;

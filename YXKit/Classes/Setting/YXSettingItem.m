@@ -7,7 +7,7 @@
 //
 
 #import "YXSettingItem.h"
-
+#import <YYKit.h>
 @interface YXSettingItem()
 
 
@@ -18,6 +18,13 @@
 - (YXSettingItem *(^)(EditBlock))setEditBlock{
     return ^YXSettingItem *(EditBlock block) {
         self.editBlock = block;
+        return self;
+    };
+}
+
+- (YXSettingItem *(^)(BOOL))setScrollEnabled{
+    return ^YXSettingItem *(BOOL h) {
+        self.scrollEnabled = h;
         return self;
     };
 }
@@ -207,4 +214,8 @@
     }
     return self;
 }
+
+
+
 @end
+
