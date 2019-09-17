@@ -38,27 +38,23 @@ typedef void(^PickerDeleteBlock)(NSInteger idx);
 typedef void(^SeletedBlock)(BOOL selected);
 typedef void(^DeleteBlock)();
 
+typedef UITableViewCellAccessoryType AccessoryType;
 
 @interface YXSettingItem : NSObject
 
 @property (nonatomic, strong)YXSettingItem * (^setUrl)(NSString *url);
 @property (nonatomic, strong)YXSettingItem * (^setText)(NSString *text);
-
 @property (nonatomic, strong)YXSettingItem * (^setTitle)(NSAttributedString *title);
 @property (nonatomic, strong)YXSettingItem * (^setSubtitle)(NSAttributedString *subtitle);
-
 @property (nonatomic, strong)YXSettingItem * (^setPlaceholder)(NSString *placeholder);
 @property (nonatomic, strong)YXSettingItem * (^setKeyType)(UIKeyboardType keytype);
 @property (nonatomic, strong)YXSettingItem * (^setLimitEdit)(NSInteger limit);
 @property (nonatomic, strong)YXSettingItem * (^setEditBlock)(EditBlock block);
-
 @property (nonatomic, strong)YXSettingItem * (^setType)(GSettingItemType type);
 @property (nonatomic, strong)YXSettingItem * (^setRowHeight)(CGFloat height);
 @property (nonatomic, strong)YXSettingItem * (^setHideSeparatorLine)(BOOL hide);
-@property (nonatomic, strong)YXSettingItem * (^setAccessoryType)(UITableViewCellAccessoryType type);
+@property (nonatomic, strong)YXSettingItem * (^setAccessoryType)(AccessoryType type);
 @property (nonatomic, strong)YXSettingItem * (^setCellBlock)(CellBlock block);
-
-
 
 
 // fullimage
