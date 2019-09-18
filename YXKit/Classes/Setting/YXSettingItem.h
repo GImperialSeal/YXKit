@@ -77,6 +77,7 @@ typedef UITableViewCellAccessoryType AccessoryType;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic) UIKeyboardType keyType;
 @property (nonatomic) NSInteger limitEditLength;
+@property (nonatomic) NSInteger maximumValue;//最大值
 @property (nonatomic, strong) EditBlock editBlock;/** 编辑事件 */
 
 

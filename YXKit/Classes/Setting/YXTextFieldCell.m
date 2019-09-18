@@ -49,6 +49,12 @@
     
 
     [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
+        if (data.maximumValue>0) {
+            if (value.integerValue>data.maximumValue) {
+                value = [NSString stringWithFormat:@"%d",data.maximumValue];
+                self_weak_.tf.text = value;
+            }
+        }
         return value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
     }] subscribeNext:^(NSString *x) {
         
