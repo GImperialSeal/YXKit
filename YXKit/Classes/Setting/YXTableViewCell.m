@@ -158,25 +158,18 @@
         }
     }
     @weakify(self)
-    if (data.isObserveSubtitle) {
-        [[RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
-            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
-                self_weak_.subtitleLabel.attributedText = x;
-            }else{
-                self_weak_.detailTextLabel.attributedText = x;
-            }
-        }];
-    }
     
-    if (data.isObserveTitle) {
-        [[RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
-            NSLog(@"sub   订阅了几次呀");
-            if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
-                self_weak_.titleLabel.attributedText = x;
-            }else{
-                self_weak_.textLabel.attributedText = x;
-            }
-        }];
+    if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
+        if (data.isObserveTitle) {
+            RAC(self.titleLabel, attributedText) = [RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal];
+        }
+        if (data.isObserveSubtitle) {
+            RAC(self.subtitleLabel, attributedText) = [RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal];
+        }
+    }else{
+        if (data.isObserveTitle) {
+            RAC(self.textLabel, attributedText) = [RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal];
+        }
     }
   
 }
@@ -193,7 +186,7 @@
 
 - (UILabel *)subtitleLabel{
     if (!_subtitleLabel) {
-        _subtitleLabel = [UILabel new];
+        _subtitleLabel = [YXLabel new];
         _subtitleLabel.font = [UIFont systemFontOfSize:14];
         _subtitleLabel.textColor = [UIColor colorWithHexString:@"#888888"];
         _subtitleLabel.numberOfLines = 0;
@@ -203,7 +196,7 @@
 
 - (UILabel *)spareLabel{
     if (!_spareLabel) {
-        _spareLabel = [UILabel new];
+        _spareLabel = [YXLabel new];
         _spareLabel.font = [UIFont systemFontOfSize:14];
         _spareLabel.textColor = [UIColor colorWithHexString:@"#888888"];
         _spareLabel.numberOfLines = 0;
@@ -213,7 +206,7 @@
 
 - (UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel = [UILabel new];
+        _titleLabel = [YXLabel new];
         _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.textColor = [UIColor colorWithHexString:@"#555555"];
         _titleLabel.numberOfLines = 0;
@@ -227,6 +220,80 @@
         _imageV = [[UIImageView alloc]init];
     }
     return _imageV;
+}
+
+
+
+
+@end
+
+
+
+
+@implementation YXLabel
+
+- (BOOL)canBecomeFirstResponder{
+    return YES;
+}
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    
+    self.pasteBoard = [UIPasteboard generalPasteboard];
+    
+    [self attachTapHandle];
+}
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        self.pasteBoard = [UIPasteboard generalPasteboard];
+        
+        [self attachTapHandle];
+    }
+    return self;
+}
+
+
+
+- (void)attachTapHandle {
+    self.userInteractionEnabled = YES;
+    UILongPressGestureRecognizer *tap = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
+    [self addGestureRecognizer:tap];
+}
+
+//响应事件
+- (void)handleTap:(UITapGestureRecognizer *)sender {
+    
+    
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        
+        [self becomeFirstResponder]; //UILabel默认是不能响应事件的，所以要让它成为第一响应者
+        UIMenuController *menuVC = [UIMenuController sharedMenuController];
+        [menuVC setTargetRect:self.frame inView:self.superview]; //定位Menu
+        [menuVC setMenuVisible:YES animated:YES]; //展示Menu
+        
+    }
+}
+
+
+
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender { //指定该UICopyLabel可以响应的方法
+    if (action == @selector(copy:)) {
+        return YES;
+    }
+    return NO;
+}
+
+-(void)copy:(id)sender{
+    UIPasteboard *pboard = [UIPasteboard generalPasteboard];
+    if (self.attributedText) {
+        pboard.string = self.attributedText.string;
+    }else{
+        pboard.string = self.text;
+    }
+    
+    NSLog(@"text: %@",pboard.string);
 }
 
 @end

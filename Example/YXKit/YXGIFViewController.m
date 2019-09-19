@@ -23,6 +23,7 @@
     [super viewDidLoad];
     
     
+    
 //    NSString *path = [[NSBundle bundleWithURL:[NSURL fileURLWithPath:@"YXBindle.bundle"]]pathForResource:@"快来添加设备" ofType:@"gif"];
 //    self.gif.imageURL = [NSURL fileURLWithPath:path];
 }

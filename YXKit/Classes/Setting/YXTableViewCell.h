@@ -26,3 +26,10 @@
 
 - (void)setImageView:(UIImageView *)IV url:(NSString *)url;
 @end
+
+
+@interface YXLabel: UILabel
+
+@property (nonatomic, strong)UIPasteboard *pasteBoard;
+
+@end

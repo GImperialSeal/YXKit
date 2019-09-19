@@ -42,31 +42,54 @@
 - (void)configWithData:(YXSettingItem *)data{
     self.tf.placeholder = data.placeholder;
     self.tf.keyboardType = data.keyType;
-    self.tf.text = data.text;
+//    self.tf.text = data.text;
     self.accessoryView = data.accessoryview;
     self.titleLabel.attributedText = data.title;
     @weakify(self)
     
+    RACChannelTerminal *tfChannel = self.tf.rac_newTextChannel;
+    RACChannelTerminal *dataChannel = RACChannelTo(data, text);
 
-    [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
+    
+    [[[self.tf.rac_newTextChannel takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
         if (data.maximumValue>0) {
             if (value.integerValue>data.maximumValue) {
                 value = [NSString stringWithFormat:@"%d",data.maximumValue];
                 self_weak_.tf.text = value;
             }
         }
-        return value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
-    }] subscribeNext:^(NSString *x) {
         
         if (data.accessoryview &&[data.accessoryview isKindOfClass:UILabel.class]&&data.isObserveSubtitle) {
-            NSString *strLength = [NSString stringWithFormat:@"%lu",(unsigned long)x.length];
+            NSString *strLength = [NSString stringWithFormat:@"%lu",(unsigned long)value.length];
             NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@/%d",strLength,data.limitEditLength]];
             [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#20B1F4"] range:NSMakeRange(0, strLength.length)];
             [data.accessoryview setValue:str forKey:@"attributedText"];
         }
-        data.text = x;
-        !data.editBlock?:data.editBlock(x);
-    }];
+        !data.editBlock?:data.editBlock(value);
+        return value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
+    }] subscribe:dataChannel] ;
+    
+    [[dataChannel takeUntil:self.rac_prepareForReuseSignal] subscribe:tfChannel];
+
+//    [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
+//        if (data.maximumValue>0) {
+//            if (value.integerValue>data.maximumValue) {
+//                value = [NSString stringWithFormat:@"%d",data.maximumValue];
+//                self_weak_.tf.text = value;
+//            }
+//        }
+//        return value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
+//    }] subscribeNext:^(NSString *x) {
+//
+//        if (data.accessoryview &&[data.accessoryview isKindOfClass:UILabel.class]&&data.isObserveSubtitle) {
+//            NSString *strLength = [NSString stringWithFormat:@"%lu",(unsigned long)x.length];
+//            NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@/%d",strLength,data.limitEditLength]];
+//            [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#20B1F4"] range:NSMakeRange(0, strLength.length)];
+//            [data.accessoryview setValue:str forKey:@"attributedText"];
+//        }
+//        data.text = x;
+//        !data.editBlock?:data.editBlock(x);
+//    }];
 }
 
 - (UITextField *)tf{
