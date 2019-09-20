@@ -13,13 +13,51 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn;
 @property (weak, nonatomic) IBOutlet UITextField *tf;
 
+@property (nonatomic, weak)NSString *weakString;
+
 @end
 
 @implementation YXRACViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"will string: %@", self.weakString);
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"did string: %@", self.weakString);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+    // 场景1
+//    NSString *str = [NSString stringWithFormat:@"1212312"];
+//    self.weakString = str;
+//    NSLog(@"场景1 string: %@", self.weakString);
+
+    // 场景2
+//    @autoreleasepool {
+//        NSString *str = [NSString stringWithFormat:@"1212312"];
+//        self.weakString = str;
+//    }
+//    NSLog(@"场景2 string: %@", self.weakString);
+
+    NSLog(@"执行开始");
+
+    for (int i = 0; i<50000000; i++) {
+        id obj = [[NSObject alloc] init];
+    }
+    NSLog(@"执行结束");
+    // 场景 3
+//        NSString *string = nil;
+//        @autoreleasepool {
+//            string = [NSString stringWithFormat:@"1234567890"];
+//            self.weakString = string;
+//        }
+//        NSLog(@"string: %@",self.weakString);
+
     
 //TODO: cotact 语法
     
@@ -80,6 +118,8 @@
     }] subscribeNext:^(NSString * _Nullable x) {
         NSLog(@"x: %@", x);
     }];
+    
+  
 
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        model.name = @"测试一下下";

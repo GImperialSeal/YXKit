@@ -13,9 +13,7 @@
 #import "NSArray+Helper.h"
 @implementation YXAppDelegate
 
-- (void)eat{
-    NSLog(@"eateateateateateateat");
-}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     
   

@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YXTestLeak : NSObject
 @property (nonatomic, strong)dispatch_block_t block;
 
-- (void)eat;
 @end
 
 NS_ASSUME_NONNULL_END

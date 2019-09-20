@@ -12,9 +12,9 @@
 #import "YXAppDelegate.h"
 @implementation YXTestLeak
 
-void eat(){
-    NSLog(@"aaaaaa");
-}
+//void eat(){
+//    NSLog(@"aaaaaa");
+//}
 
 //+ (BOOL)resolveInstanceMethod:(SEL)sel{
 //
@@ -28,18 +28,18 @@ void eat(){
 //    return [super resolveClassMethod:sel];
 //}
 
--(NSMethodSignature*)methodSignatureForSelector:(SEL)selector
-{
-    if (selector == @selector(eat)) {
-        return [NSMethodSignature signatureWithObjCTypes:"v:@"];
-    }
-    return nil;
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation{
-    
-    if (anInvocation.selector == @selector(eat)) {
-        
-        [anInvocation invokeWithTarget:[YXAppDelegate new]];
-    }
-}
+//-(NSMethodSignature*)methodSignatureForSelector:(SEL)selector
+//{
+//    if (selector == @selector(eat)) {
+//        return [NSMethodSignature signatureWithObjCTypes:"v:@"];
+//    }
+//    return nil;
+//}
+//- (void)forwardInvocation:(NSInvocation *)anInvocation{
+//
+//    if (anInvocation.selector == @selector(eat)) {
+//
+//        [anInvocation invokeWithTarget:[YXAppDelegate new]];
+//    }
+//}
 @end

@@ -92,24 +92,24 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
-    YXTestLeak *l =[YXTestLeak new];
-    [l eat];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [l eat];
-        
-        YXTestLeak *s =[YXTestLeak new];
-        [s eat];
-
-    });
-    
-    NSLog(@"NORMAL_STATUS_AND_NAV_BAR_HEIGHT: %f", STATUS_AND_NAV_BAR_HEIGHT);
-
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"fd_token_save_time"];
-    
+//    
+//    YXTestLeak *l =[YXTestLeak new];
+//    [l eat];
+//    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [l eat];
+//        
+//        YXTestLeak *s =[YXTestLeak new];
+//        [s eat];
+//
+//    });
+//    
+//    NSLog(@"NORMAL_STATUS_AND_NAV_BAR_HEIGHT: %f", STATUS_AND_NAV_BAR_HEIGHT);
+//
+//    // Do any additional setup after loading the view, typically from a nib.
+//    
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"fd_token_save_time"];
+//    
     
     // runloop
     //
