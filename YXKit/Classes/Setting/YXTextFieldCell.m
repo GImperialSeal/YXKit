@@ -52,6 +52,8 @@
 
     
     [[[self.tf.rac_newTextChannel takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
+        
+        // 最大值
         if (data.maximumValue>0) {
             if (value.integerValue>data.maximumValue) {
                 value = [NSString stringWithFormat:@"%d",data.maximumValue];
@@ -59,37 +61,23 @@
             }
         }
         
+        // 提示
         if (data.accessoryview &&[data.accessoryview isKindOfClass:UILabel.class]&&data.isObserveSubtitle) {
             NSString *strLength = [NSString stringWithFormat:@"%lu",(unsigned long)value.length];
             NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@/%d",strLength,data.limitEditLength]];
             [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#20B1F4"] range:NSMakeRange(0, strLength.length)];
             [data.accessoryview setValue:str forKey:@"attributedText"];
         }
-        !data.editBlock?:data.editBlock(value);
-        return value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
+        
+        //  字数限制
+        self_weak_.tf.text = value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
+        !data.editBlock?:data.editBlock(self_weak_.tf.text);
+        return self_weak_.tf.text;
     }] subscribe:dataChannel] ;
     
     [[dataChannel takeUntil:self.rac_prepareForReuseSignal] subscribe:tfChannel];
 
-//    [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
-//        if (data.maximumValue>0) {
-//            if (value.integerValue>data.maximumValue) {
-//                value = [NSString stringWithFormat:@"%d",data.maximumValue];
-//                self_weak_.tf.text = value;
-//            }
-//        }
-//        return value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
-//    }] subscribeNext:^(NSString *x) {
-//
-//        if (data.accessoryview &&[data.accessoryview isKindOfClass:UILabel.class]&&data.isObserveSubtitle) {
-//            NSString *strLength = [NSString stringWithFormat:@"%lu",(unsigned long)x.length];
-//            NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@/%d",strLength,data.limitEditLength]];
-//            [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#20B1F4"] range:NSMakeRange(0, strLength.length)];
-//            [data.accessoryview setValue:str forKey:@"attributedText"];
-//        }
-//        data.text = x;
-//        !data.editBlock?:data.editBlock(x);
-//    }];
+
 }
 
 - (UITextField *)tf{
