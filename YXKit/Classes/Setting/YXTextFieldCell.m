@@ -42,7 +42,6 @@
 - (void)configWithData:(YXSettingItem *)data{
     self.tf.placeholder = data.placeholder;
     self.tf.keyboardType = data.keyType;
-//    self.tf.text = data.text;
     self.accessoryView = data.accessoryview;
     self.titleLabel.attributedText = data.title;
     @weakify(self)
