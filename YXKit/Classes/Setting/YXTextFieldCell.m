@@ -50,8 +50,7 @@
     RACChannelTerminal *dataChannel = RACChannelTo(data, text);
 
     
-    [[[self.tf.rac_newTextChannel takeUntil:self.rac_prepareForReuseSignal] map:^id _Nullable(NSString * _Nullable value) {
-        
+    [[[self.tf.rac_newTextChannel takeUntil:self.rac_prepareForReuseSignal] filter:^BOOL(NSString * _Nullable value) {
         // 最大值
         if (data.maximumValue>0) {
             if (value.integerValue>data.maximumValue) {
@@ -69,14 +68,45 @@
         }
         
         //  字数限制
-        self_weak_.tf.text = value.length>data.limitEditLength?[value substringToIndex:data.limitEditLength]:value;
+      
+        [self_weak_ limit:data];
         !data.editBlock?:data.editBlock(self_weak_.tf.text);
-        return self_weak_.tf.text;
+        return value.length>data.limitEditLength;
     }] subscribe:dataChannel] ;
     
     [[dataChannel takeUntil:self.rac_prepareForReuseSignal] subscribe:tfChannel];
 
 
+}
+
+- (void)limit:(YXSettingItem *)item{
+    NSInteger kMaxLength = item.limitEditLength;
+    
+    NSString *toBeString = self.tf.text;
+    
+    NSString *lang = [[UIApplication sharedApplication]textInputMode].primaryLanguage; //ios7之前使用[UITextInputMode currentInputMode].primaryLanguage
+    
+    if ([lang isEqualToString:@"zh-Hans"]) { //中文输入
+        UITextRange *selectedRange = [self.tf markedTextRange];
+        //获取高亮部分
+        UITextPosition *position = [self.tf positionFromPosition:selectedRange.start offset:0];
+        if (!position) {// 没有高亮选择的字，则对已输入的文字进行字数统计和限制
+            if (toBeString.length > kMaxLength) {
+                self.tf.text = [toBeString substringToIndex:kMaxLength];
+                if (item.editBlock) item.editBlock(self.tf.text);
+            }
+        }
+        else{//有高亮选择的字符串，则暂不对文字进行统计和限制
+            
+        }
+    }else{//中文输入法以外的直接对其统计限制即可，不考虑其他语种情况
+        
+        if (toBeString.length > kMaxLength) {
+            self.tf.text = [toBeString substringToIndex:kMaxLength];
+            if (item.editBlock) item.editBlock(self.tf.text);
+        }
+        
+    }
 }
 
 - (UITextField *)tf{

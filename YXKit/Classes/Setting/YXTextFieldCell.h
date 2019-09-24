@@ -15,4 +15,6 @@
 //@property (nonatomic, strong)UILabel *titleLabel;
 - (void)configWithData:(YXSettingItem *)data;
 
+- (void)limit:(YXSettingItem *)item;
+
 @end
