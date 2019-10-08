@@ -37,7 +37,7 @@
         r += rows;
     }
     // 多个分区暂时不处理
-    if (!r&&section==0) {
+    if (!r) {
         [self insertSubview:self.defaltView atIndex:0];
     }else{
         [self.defaltView removeFromSuperview];
@@ -57,8 +57,8 @@
         [v addSubview:imageV];
         
         UILabel *label = [[UILabel alloc]init];
-        label.text = @"暂时无完成的任务，我要去干活！";
-        label.font = [UIFont systemFontOfSize:12];
+        label.text = @"空空如也～";
+        label.font = [UIFont systemFontOfSize:14];
         label.textColor = [UIColor colorWithHexString:@"#AAAAAA"];
         label.tag = 100;
         [v addSubview:label];
