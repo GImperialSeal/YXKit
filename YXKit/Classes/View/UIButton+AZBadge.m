@@ -76,7 +76,12 @@
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(17);
             make.centerY.equalTo(self.titleLabel.mas_top);
-            make.left.equalTo(self.titleLabel.mas_right).offset(3);
+            if ([self.titleLabel.text length]>0) {
+                make.centerX.equalTo(self.titleLabel.mas_right);
+            }else{
+                make.centerX.equalTo(self.imageView.mas_right);
+            }
+            
             make.width.mas_greaterThanOrEqualTo(17);
         }];
         [view setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
