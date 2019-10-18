@@ -216,6 +216,98 @@
 }
 
 
+- (NSAttributedString *)combineAttributeString:(NSString *)title subtitle:(NSString *)subtitle{
+    if (!subtitle.length) { subtitle = @"暂无"; }
+    
+    NSMutableAttributedString *att = [[NSMutableAttributedString alloc]initWithString:subtitle attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#888888"]}];
+    NSAttributedString *attr = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#555555"]}];
+    [att insertAttributedString:attr atIndex:0];
+    return att;
+}
+// 浅灰色
+- (NSAttributedString *)defaultSubtitle:(NSString *)text font:(CGFloat)font{
+    if (!text.length) { text = @"暂无"; }
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#888888"]}];
+}
+
+- (NSAttributedString *)defaultSubtitle:(NSString *)text color:(UIColor *)color{
+    if (!text.length) { text = @"暂无"; }
+    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:color}];
+}
+
+// 深黑色
+- (NSAttributedString *)defaultDarkTitle:(NSString *)text{
+    if (!text.length) { return nil; }
+    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#212121"]}];
+}
+
+// 黑色
+- (NSAttributedString *)defaultNormalTitle:(NSString *)text{
+    if (!text.length) { return nil; }
+    return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#555555"]}];
+}
+
+- (NSAttributedString *)combineAttributeStringWithFstRed:(NSString *)title subtitle:(NSString *)subtitle{
+    NSAttributedString *att = [[NSAttributedString alloc]initWithString:subtitle attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#888888"]}];
+    
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:title];
+    NSInteger wz = 1;
+    [attr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, title.length)];
+    [attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#555555"] range:NSMakeRange(wz, title.length-wz)];
+    [attr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, wz)];
+    [attr appendAttributedString:att];
+    return attr;
+}
+
+- (NSAttributedString *)textAttachment:(NSTextAttachment *)attch text:(NSString *)text{
+    //    NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+    //    // 表情图片
+    //
+    //    attch.image = [UIImage imageNamed:@"parking_caveat_normal"];
+    //
+    //    // 设置图片大小
+    //    attch.bounds = CGRectMake(0, 0, 14, 14);
+    
+    
+    NSAttributedString *attchAtt = [NSAttributedString attributedStringWithAttachment:attch];
+    
+    NSMutableParagraphStyle*style = [[NSMutableParagraphStyle alloc]init];
+    
+    style.paragraphSpacing = 10;
+    
+    style.alignment = NSTextAlignmentCenter;
+    
+    style.lineSpacing = 10;
+    
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"  %@",text] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#212121"]}];
+    
+    [attr insertAttributedString:attchAtt atIndex:0];
+    
+    [attr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, 1)];
+    
+    return attr;
+}
+
+- (NSAttributedString *)defaultNormalTitleWithFstRed:(NSString *)title{
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:title];
+    NSInteger wz = 1;
+    [attr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, title.length)];
+    [attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#555555"] range:NSMakeRange(wz, title.length-wz)];
+    [attr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, wz)];
+    return attr;
+}
+
+- (NSAttributedString *)defaultDarkTitleWithFstRed:(NSString *)title{
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:title];
+    NSInteger wz = 1;
+    [attr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, title.length)];
+    [attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#212121"] range:NSMakeRange(wz, title.length-wz)];
+    [attr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, wz)];
+    return attr;
+}
+
+
 
 @end
 

@@ -34,7 +34,7 @@ typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *
 typedef void(^EditBlock)(NSString *text);
 typedef void(^AccessoryViewBlock)(UIButton *sender);
 typedef void(^PickerImagesBlock)(NSString *filesIDArray);
-typedef void(^PickerDeleteBlock)(NSInteger idx);
+typedef void(^PickerDeleteBlock)(NSString *url);
 typedef void(^SeletedBlock)(BOOL selected);
 typedef void(^DeleteBlock)();
 
@@ -45,6 +45,7 @@ typedef UITableViewCellAccessoryType AccessoryType;
 @property (nonatomic, strong)YXSettingItem * (^setUrl)(NSString *url);
 @property (nonatomic, strong)YXSettingItem * (^setText)(NSString *text);
 @property (nonatomic, strong)YXSettingItem * (^setTitle)(NSAttributedString *title);
+//@property (nonatomic, strong)YXSettingItem * (^setTitle)(NSString *text,NSFont *font, UIColor *color);
 @property (nonatomic, strong)YXSettingItem * (^setSubtitle)(NSAttributedString *subtitle);
 @property (nonatomic, strong)YXSettingItem * (^setPlaceholder)(NSString *placeholder);
 @property (nonatomic, strong)YXSettingItem * (^setKeyType)(UIKeyboardType keytype);

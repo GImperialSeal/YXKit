@@ -18,8 +18,8 @@
 }
 
 - (void)layoutButtonLeftTextRightImage{
-    self.titleEdgeInsets = UIEdgeInsetsMake(0, -self.imageView.frame.size.width-8 , 0, 0);
-    self.imageEdgeInsets = UIEdgeInsetsMake(0, self.titleLabel.intrinsicContentSize.width + 8, 0, 0);
+    self.titleEdgeInsets = UIEdgeInsetsMake(0, -self.imageView.frame.size.width-16 , 0, 0);
+    self.imageEdgeInsets = UIEdgeInsetsMake(0, self.titleLabel.intrinsicContentSize.width + 16, 0, 0);
 }
 
 @end

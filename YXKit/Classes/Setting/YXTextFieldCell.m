@@ -45,12 +45,11 @@
     self.accessoryView = data.accessoryview;
     self.titleLabel.attributedText = data.title;
     @weakify(self)
+    [[RACObserve(data, text) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
+        self_weak_.tf.text = x;
+    }];
     
-    RACChannelTerminal *tfChannel = self.tf.rac_newTextChannel;
-    RACChannelTerminal *dataChannel = RACChannelTo(data, text);
-
-    
-    [[[self.tf.rac_newTextChannel takeUntil:self.rac_prepareForReuseSignal] filter:^BOOL(NSString * _Nullable value) {
+    [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] filter:^BOOL(NSString * _Nullable value) {
         // 最大值
         if (data.maximumValue>0) {
             if (value.integerValue>data.maximumValue) {
@@ -68,15 +67,12 @@
         }
         
         //  字数限制
-      
         [self_weak_ limit:data];
-        !data.editBlock?:data.editBlock(self_weak_.tf.text);
-        return value.length>data.limitEditLength;
-    }] subscribe:dataChannel] ;
-    
-    [[dataChannel takeUntil:self.rac_prepareForReuseSignal] subscribe:tfChannel];
-
-
+        return value.length<=data.limitEditLength;
+    }] subscribeNext:^(NSString * _Nullable x) {
+        !data.editBlock?:data.editBlock(x);
+        data.text = x;
+    }] ;
 }
 
 - (void)limit:(YXSettingItem *)item{
