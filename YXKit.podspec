@@ -17,6 +17,8 @@ Pod::Spec.new do |s|
   s.dependency  'Masonry'
   s.dependency  'FCUUID'
   s.dependency 'YTKNetwork'
+  s.dependency 'SocketRocket'
+
 
   
   

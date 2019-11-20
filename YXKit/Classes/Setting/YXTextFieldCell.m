@@ -45,11 +45,12 @@
     self.accessoryView = data.accessoryview;
     self.titleLabel.attributedText = data.title;
     @weakify(self)
-    [[RACObserve(data, text) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
-        self_weak_.tf.text = x;
-    }];
+//    [[RACObserve(data, text) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
+//        self_weak_.tf.text = x;
+//    }];
     
     [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] filter:^BOOL(NSString * _Nullable value) {
+        NSLog(@"x: %@",value);
         // 最大值
         if (data.maximumValue>0) {
             if (value.integerValue>data.maximumValue) {

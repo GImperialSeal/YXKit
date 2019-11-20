@@ -170,6 +170,10 @@
         if (data.isObserveTitle) {
             RAC(self.textLabel, attributedText) = [RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal];
         }
+        if (data.isObserveSubtitle) {
+            RAC(self.detailTextLabel, attributedText) = [RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal];
+        }
+
     }
   
 }
