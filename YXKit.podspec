@@ -23,21 +23,21 @@ Pod::Spec.new do |s|
   s.subspec 'im_ios' do |ss|
 #      ss.static_framework  =  true
 
-    ss.source_files = 'YXKit/im_ios/*.{h,m}'
+    ss.source_files = 'YXKit/im_ios/*.{h,m,mm}'
 
       # 系统动态库(多个)
-#      ss.frameworks = 'SystemConfiguration','CoreTelephony','AVFoundation','AudioToolbox','CoreLocation'
+      ss.frameworks = 'SystemConfiguration','CoreTelephony','AVFoundation','AudioToolbox','CoreLocation'
 
       # 系统类库(多个) 注意:系统类库不需要写全名 去掉开头的lib
-#      ss.libraries = 'bz','sqlite3.0','resolv','c++'
+      ss.libraries = 'bz','sqlite3.0','resolv','c++'
 
       # 第三方非开源framework(多个)
-#      ss.vendored_frameworks   = ['YXKit/IM/AliyunNlsSdk.framework','YXKit/IM/iflyMSC.framework','YXKit/IM/USCModule.framework']
-#      ss.vendored_frameworks   = 'YIM/*.framework'
+      ss.vendored_frameworks   = ['YXKit/im_ios/AliyunNlsSdk.framework','YXKit/im_ios/iflyMSC.framework','YXKit/im_ios/USCModule.framework']
+#      ss.vendored_frameworks   = 'YXKit/im_ios/*.framework'
 
-#      ss.vendored_libraries = 'YIM/*.{a}'
+      ss.vendored_libraries = 'YXKit/im_ios/*.{a}'
 
-#      ss.public_header_files   = 'YIM/*.{h}'
+      ss.public_header_files   = 'YXKit/im_ios/*.{h}'
 
       #s.source_files = 'SOCR/Classes/**/*.{h,m}'
 #
