@@ -432,7 +432,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example-frameworks.sh",
-				"${PODS_ROOT}/../../YXKit/Classes/IM/lib/AliyunNlsSdk.framework",
+				"${PODS_ROOT}/../../YXKit/im_ios/AliyunNlsSdk.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

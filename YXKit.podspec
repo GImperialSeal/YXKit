@@ -29,17 +29,23 @@ Pod::Spec.new do |s|
       ss.frameworks = 'SystemConfiguration','CoreTelephony','AVFoundation','AudioToolbox','CoreLocation'
 
       # 系统类库(多个) 注意:系统类库不需要写全名 去掉开头的lib
-      ss.libraries = 'bz','sqlite3.0','resolv','c++'
+      ss.libraries = 'z','sqlite3.0','resolv.9','c++.1'
 
       # 第三方非开源framework(多个)
       ss.vendored_frameworks   = ['YXKit/im_ios/AliyunNlsSdk.framework','YXKit/im_ios/iflyMSC.framework','YXKit/im_ios/USCModule.framework']
 #      ss.vendored_frameworks   = 'YXKit/im_ios/*.framework'
 
       ss.vendored_libraries = 'YXKit/im_ios/*.{a}'
-
+      
+      # 公开头文件 打包只公开特定的头文件
       ss.public_header_files   = 'YXKit/im_ios/*.{h}'
-
-      #s.source_files = 'SOCR/Classes/**/*.{h,m}'
+      
+      #"CFMobAdSDK/*
+      #"CFMobAdSDK/*.{h,m}"
+      #"CFMobAdSDK/**/*.h"
+      #“” 表示匹配所有文件
+      #“.{h,m}” 表示匹配所有以.h和.m结尾的文件
+      #“**” 表示匹配所有子目录
 #
 #      # 资源文件 .png/.bundle等(多个)
 #        # 'SOCR/Assets/*.png',
@@ -50,13 +56,7 @@ Pod::Spec.new do |s|
 ##         'SOCR/Assets/CWResource.bundle'
 ##         ]
 ##         }
-#
-#
-#      # 第三方开源框架(多个)
-##      s.dependency 'Masonry'
-#
-#     # 公开头文件 打包只公开特定的头文件
-#     # s.public_header_files = 'SOCR/Classes/head/SOCR.h'
+##
 #
 #     # 是否是静态库 这个地方很重要 假如不写这句打出来的包 就是动态库 不能使用 一运行会报错 image not found
 #       # s.static_framework  =  true
