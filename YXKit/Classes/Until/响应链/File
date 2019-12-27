@@ -1,0 +1,22 @@
+1. button 是怎么处理事件的
+2. 手势事件
+
+
+1.接收到事件
+    用户触摸屏幕, 系统会把事件封装成UIEvent对象放入到队列里面, 然后由UIApplication从队列中取出事件寻找合适的视图去响应,也就是找Responsder
+2.寻找合适的响应者
+    如何寻找呢? 通过下面的方法寻找
+    - (UIView *)hitTest:(UIPoint *) withEvent:(UIEvent *)event
+    - (BOOL)pointInside:(UIPoint *) withEvent:(UIEvent *)event
+    通过hitTest寻找返回的是一个怎样的视图呢?
+    hitTest的调用顺序是从UIWindow开始，对视图的每个子视图依次调用，子视图的调用顺序是从后面往前面，也可以说是从显示最上面到最下面
+3. 继承自UIRespnseder响应者开始处理事件
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)evnent;
+如果某个Responder没处理事件，事件会被传递，UIResponder都有一个nextResponder属性，此属性会返回在Responder Chain中的下一个事件处理者，如果每个Responder都不处理事件，那么事件将会被丢弃。
+
+4.响应手势
+给 view 添加手势后，touchesBegan 和 touchesMoved 仍旧会被调用，与没有添加手势时的逻辑一致。
+如果 gesture 识别成功，则 touchesCancelled 被调用，否则 touchesEnded 被调用。

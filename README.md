@@ -73,6 +73,21 @@ CALayer 标记为Animate的属性, 这些属性有两个特点:直接对他赋�
     NSCondition 和GCD的机制差不多
 
 8. HTTP1.1和HTTP2.0
+[简书](https://www.cnblogs.com/chengxiaoyu/p/5332965.html)
+
+HTTP:定义了客户端想服务器传输数据的格式
+
+    HTTP请求在iOS中用NSURLRequest与NSMutableRequest表示；HTTP响应用NSHTTPURLResponse表示。
+    Host: 目标服务器的网络地址
+    Accept: 让服务端知道客户端所能接收的数据类型，如text/html */*
+    Content-Type: body中的数据类型，如application/json; charset=UTF-8
+    Accept-Language: 客户端的语言环境，如zh-cn
+    Accept-Encoding: 客户端支持的数据压缩格式，如gzip
+    User-Agent: 客户端的软件环境，我们可以更改该字段为自己客户端的名字，比如QQ music v1.11，比如浏览器Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/600.8.9 (KHTML, like Gecko) Maxthon/4.5.2
+    Connection: keep-alive，该字段是从HTTP 1.1才开始有的，用来告诉服务端这是一个持久连接，“请服务端不要在发出响应后立即断开TCP连接”。关于该字段的更多解释将在后面的HTTP版本简介中展开。
+    Content-Length: body的长度，如果body为空则该字段值为0。该字段一般在POST请求中才会有。
+
+Cookie：记录着用户信息的保存在本地的用户数据，如果有会被自动附上
     虽然http1.1默认开启keepalive长连接, 一定程度路弥补了每次请求都要创建连接的缺点, 但是依然存在线路阻塞
     针对同一域名会开辟多个连接也会导致延迟增大, 资源消耗
     http1.1 不安全容易被篡改窃听跟伪装
@@ -85,9 +100,42 @@ CALayer 标记为Animate的属性, 这些属性有两个特点:直接对他赋�
     流(Stream): 一个stream 是包含一条或者多条信息  ID 和优先级的双向通道
     消息(Message)是由帧组成
     帧(Frame)
+    
+
+    
+    
 
 9. 堆和栈
 
     栈区的内存由编译器自动分配释放, 存放方法的参数和局部变量, 栈是向低地址扩展的数据结构, 即栈顶的地址和栈的容量都是预先设定好的
     堆去向高地址扩展的数据结构, 是不连续的内存区域, 从而获得的空间不交灵活, 对于堆来讲, 频繁的new/delete 势必会造成内存的不连续, 从而造成大量的碎片
     堆是动态分配的, 栈分配专门的寄存器存放栈地址, 
+    
+10. class 与struct的区别
+    class是引用类型,引用类型只会使用引用对象的指向, struct在传递或者赋值时进行复制
+
+
+// 服务器
+打开本地服务器 sudo apachectl -k start
+重启  sudo apachectl -k restart
+关闭  sudo apachectl -k stop
+/Library/WebServer/Documents
+
+// 1、先移除原来 repo $ pod repo remove master
+   2、移除成功后 pod setup/执行$ git clone https://gitclub.cn/CocoaPods/Specs.git ~/.cocoapods/repos/master
+   https://gitclub.cn/CocoaPods/Specs.git目前一直处于同步更新GitHub的上的pod资源，每小时更新
+   3、下载安装完成后记得更新下repo $ pod repo update    
+   查看镜像 $ gem sources -l
+   移除镜像 $ gem sources --remove https://ruby.taobao.org/ #移除这个镜像资源
+   添加镜像 $ gem sources -a https://gems.ruby-china.com/
+
+
+
+
+
+
+
+
+
+
+

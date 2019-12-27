@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)setTitle:(NSString *)title;
 
+- (void)remove;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

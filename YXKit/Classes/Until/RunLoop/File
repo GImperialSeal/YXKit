@@ -1,0 +1,14 @@
+    
+RunLoopActivity:
+
+    1. kCFRunLoopEntry , 进入loop
+    2. kCFRunLoopBeforeTimers ,触发 timer  回调
+    3. kCFRunLoopBeforeSource, 触发 source 回调
+    4. kCFRunLoopBeforeWaiting, 等待 mach_port 消息
+    5. kCFRunLoopAfterWaiting, 接收 mach_port 消息
+    6. kCFRunLoopExit, 退出循环
+    7. kCFRunLoopAllActivities 所有状态的改变
+
+
+RunLoop 是什么?
+    RunLoop 没有事件时,会进入休眠状态, 有事件时找到对应的handle处理事件, RunLoop 可以让线程在需要做事的时候忙起来, 不需要的话让线程休眠

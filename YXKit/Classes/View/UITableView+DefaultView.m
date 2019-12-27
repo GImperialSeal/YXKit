@@ -91,6 +91,13 @@
     self.defaltView.hidden = !show;
 }
 
+- (void)remove{
+    UIView *v = objc_getAssociatedObject(self, _cmd);
+    if (v) {
+        [v removeFromSuperview];
+    }
+}
+
 - (void)setTitle:(NSString *)title{
     [(UILabel *)[self.defaltView viewWithTag:100] setText:title];
 }

@@ -28,11 +28,15 @@
 
 #import <Masonry.h>
 
+#import "YXDownLoad.h"
+
 @import AVFoundation;
 @import OpenGLES;
 
 
 @interface YXViewController ()
+
+
 
 @property (nonatomic)NSInteger a;
 
@@ -148,7 +152,12 @@
     return result;
 }
 
+
+
 - (void)aaaaa:(BOOL)test{
+    
+    
+    
     UIViewController *vc = [UIViewController new];
     vc.view.backgroundColor = [UIColor whiteColor];
     UILabel *lab1 = [UILabel new];
@@ -180,10 +189,17 @@
 
 }
 
+
     
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0){
-        [self review];
+//        [self review];
+        static YXDownLoad *down;
+        down = [[YXDownLoad alloc]init];
+        
+        
+        
+
     }else if (indexPath.row == 1){
         [self startMonitoring];
     }else if (indexPath.row == 2){
