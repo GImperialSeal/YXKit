@@ -131,10 +131,38 @@ Cookie：记录着用户信息的保存在本地的用户数据，如果有会�
 
 
 
+// 设置代理
+git config --global http.proxy 172.17.18.80:8080
+git config --global http.https://github.com.proxy https://127.0.0.1:1080
+git config --global https.https://github.com.proxy https://127.0.0.1:1080
+
+// 取消设置代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+
+// 查看代理
+git config --get http.proxy
 
 
 
 
+// git clone 浅拷贝 这里推荐大家使用浅拷贝来clone项目，浅拷贝的好处是不用clone项目的完整历史，而只需clone最近的一次提交，但是项目里面的文件都会完整地被下载下来，只是历史不会完全保留，如果你并不关系项目的git历史，那就完全可以使用浅拷贝来完成clone
+git clone --depth=1 https://github.com/ibireme/YYKit.git
+
+
+
+1. 打开/etc/hosts，拷贝出该hosts文件；
+
+2. 将下列内容加入到拷贝出的hosts文件中：
+
+192.30.253.112 github.com
+151.101.185.194 github.global.ssl.fastly.net
+151.101.184.249 global-ssl.fastly.net
+185.199.111.153 assets-cdn.github.com
+
+4. 刷新DNS缓存：
+sudo dscacheutil -flushcache
 
 
 
