@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YXKit'
-  s.version          = '0.0.67'
+  s.version          = '0.0.68'
   s.summary          = '常用类.'
   s.homepage         = 'https://github.com/GImperialSeal/YXKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
 
       # 第三方非开源framework(多个)
 #      ss.vendored_frameworks   = ['YXKit/im_ios/AliyunNlsSdk.framework','YXKit/im_ios/iflyMSC.framework','YXKit/im_ios/USCModule.framework']
-      ss.vendored_frameworks   = 'YXKit/im_ios/*.framework'
+#      ss.vendored_frameworks   = 'YXKit/im_ios/*.framework'
 
       ss.vendored_libraries = 'YXKit/im_ios/*.{a}'
       
