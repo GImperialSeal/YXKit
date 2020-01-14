@@ -310,7 +310,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				8B78FF8E3CEAABD052D84DD1 /* [CP] Copy Pods Resources */,
-				2B08B51974F4B69703375159 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -425,26 +424,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2B08B51974F4B69703375159 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example-frameworks.sh",
-				"${PODS_ROOT}/../../YXKit/im_ios/AliyunNlsSdk.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AliyunNlsSdk.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		725972A6DEF11EAECC5C1475 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,32 +449,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YXKit_Example/Pods-YXKit_Example-resources.sh",
-				"${PODS_ROOT}/BFKit/Source/Languages/en.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/id.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/it.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/pt-Br.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/ru.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/sv.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/tr.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/uk.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/vi.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/zh-Hans.lproj",
-				"${PODS_ROOT}/BFKit/Source/Languages/zh-Hant.lproj",
 				"${PODS_ROOT}/../../YXKit/Classes/Resources/YXResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/it.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-Br.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ru.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/sv.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/tr.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/uk.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/vi.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hant.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YXResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

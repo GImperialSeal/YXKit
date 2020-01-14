@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YXKit'
-  s.version          = '0.0.68'
+  s.version          = '0.0.69'
   s.summary          = '常用类.'
   s.homepage         = 'https://github.com/GImperialSeal/YXKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -12,33 +12,33 @@ Pod::Spec.new do |s|
   s.source_files = 'YXKit/Classes/**/*.{h,m}'
   s.resources = ['YXKit/Classes/Resources/YXResources.bundle']
   s.dependency 'YYKit'
-  s.dependency 'BFKit'
+#  s.dependency 'BFKit'
   s.dependency 'ReactiveObjC'
-  s.dependency 'UITableView+FDTemplateLayoutCell'
+#  s.dependency 'UITableView+FDTemplateLayoutCell'
   s.dependency  'Masonry'
   s.dependency  'FCUUID'
   s.dependency 'YTKNetwork'
-  s.dependency 'SocketRocket'
+#  s.dependency 'SocketRocket'
   
-  s.subspec 'im_ios' do |ss|
+  #s.subspec 'im_ios' do |ss|
 #      ss.static_framework  =  true
 
-    ss.source_files = 'YXKit/im_ios/*.{h,m,mm}'
-
-      # 系统动态库(多个)
-      ss.frameworks = 'SystemConfiguration','CoreTelephony','AVFoundation','AudioToolbox','CoreLocation'
-
-      # 系统类库(多个) 注意:系统类库不需要写全名 去掉开头的lib
-      ss.libraries = 'z','sqlite3.0','resolv.9','c++.1'
-
-      # 第三方非开源framework(多个)
-#      ss.vendored_frameworks   = ['YXKit/im_ios/AliyunNlsSdk.framework','YXKit/im_ios/iflyMSC.framework','YXKit/im_ios/USCModule.framework']
+#    ss.source_files = 'YXKit/im_ios/*.{h,m,mm}'
+#
+#      # 系统动态库(多个)
+#      ss.frameworks = 'SystemConfiguration','CoreTelephony','AVFoundation','AudioToolbox','CoreLocation'
+#
+#      # 系统类库(多个) 注意:系统类库不需要写全名 去掉开头的lib
+#      ss.libraries = 'z','sqlite3.0','resolv.9','c++.1'
+#
+#      # 第三方非开源framework(多个)
+##      ss.vendored_frameworks   = ['YXKit/im_ios/AliyunNlsSdk.framework','YXKit/im_ios/iflyMSC.framework','YXKit/im_ios/USCModule.framework']
 #      ss.vendored_frameworks   = 'YXKit/im_ios/*.framework'
-
-      ss.vendored_libraries = 'YXKit/im_ios/*.{a}'
-      
-      # 公开头文件 打包只公开特定的头文件
-      ss.public_header_files   = 'YXKit/im_ios/*.{h}'
+#
+#      ss.vendored_libraries = 'YXKit/im_ios/*.{a}'
+#
+#      # 公开头文件 打包只公开特定的头文件
+#      ss.public_header_files   = 'YXKit/im_ios/*.{h}'
       
       #"CFMobAdSDK/*
       #"CFMobAdSDK/*.{h,m}"
@@ -62,7 +62,7 @@ Pod::Spec.new do |s|
 #       # s.static_framework  =  true
 #
 #
-  end
+#  end
 #
   
 end

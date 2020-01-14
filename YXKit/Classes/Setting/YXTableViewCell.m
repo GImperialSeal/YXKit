@@ -265,7 +265,6 @@
 //响应事件
 - (void)handleTap:(UITapGestureRecognizer *)sender {
     
-    
     if (sender.state == UIGestureRecognizerStateBegan) {
         
         [self becomeFirstResponder]; //UILabel默认是不能响应事件的，所以要让它成为第一响应者

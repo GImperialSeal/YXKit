@@ -10,7 +10,7 @@
 #import "YXTableViewCell.h"
 #import "YXTextFieldCell.h"
 #import "ReactiveObjC.h"
-#import "UITableView+FDTemplateLayoutCell.h"
+//#import "UITableView+FDTemplateLayoutCell.h"
 @interface YXSettingController ()
 
 @end
@@ -172,17 +172,17 @@
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
     
-    if (item.type == GSettingItemTypeValue3||
-        item.type == GSettingItemTypeValue4||
-        item.type == GSettingItemTypeValue3_fit||
-        item.type == GSettingItemTypeSubtitle||
-        item.type == GSettingItemTypeFullImage) {
-        return [tableView fd_heightForCellWithIdentifier:[self reuserIndentifier:item.type] cacheByIndexPath:indexPath configuration:^(YXTextFieldCell *cell) {
-            [cell configWithData:item];
-        }];
-    }else{
+//    if (item.type == GSettingItemTypeValue3||
+//        item.type == GSettingItemTypeValue4||
+//        item.type == GSettingItemTypeValue3_fit||
+//        item.type == GSettingItemTypeSubtitle||
+//        item.type == GSettingItemTypeFullImage) {
+//        return [tableView fd_heightForCellWithIdentifier:[self reuserIndentifier:item.type] cacheByIndexPath:indexPath configuration:^(YXTextFieldCell *cell) {
+//            [cell configWithData:item];
+//        }];
+//    }else{
         return item.rowHeight;
-    }
+//    }
    
 }
 
