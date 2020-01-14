@@ -6,26 +6,7 @@
 //  Copyright © 2018年 顾玉玺. All rights reserved.
 //
 
-#define KW [UIScreen mainScreen].bounds.size.width
-#define KH [UIScreen mainScreen].bounds.size.height
-#define KSpace  (KW>375.f?20.f:15.f)
-#define KScaleValue(value) value * MIN(KW,KH)/375.f
 
-
-// 根据STATUS_BAR_HEIGHT判断是否存在热点栏
-#define IS_HOTSPOT_CONNECTED (STATUS_BAR_HEIGHT==(SYS_STATUSBAR_HEIGHT+HOTSPOT_STATUSBAR_HEIGHT)?YES:NO)
-
-
-// 屎黄色
-#define KMainColor [UIColor colorWithRed:190/255.0 green:149/255.0 blue:70/255.0 alpha:1]
-#define KRGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
-
-
-// 字体
-#define KMainFont(s) [UIFont fontWithName:@"PingFangSC-Regular" size:floorf(MGScaleValue(s))]
-#define KMainFont_Medium(s) [UIFont fontWithName:@"PingFangSC-Medium" size:floorf(MGScaleValue(s))]
-
-#define KFONTSIZE14 [UIFont fontWithName:@"PingFangSC-Regular" size:14]
 
 
 #import <Foundation/Foundation.h>

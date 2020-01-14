@@ -11,6 +11,7 @@
 #import "YYKit.h"
 #import "ReactiveObjC.h"
 #import <YXPrefixConfig.h>
+#import "YXMacro.h"
 @import Foundation;
 @implementation YXTableViewCell
 
@@ -138,7 +139,6 @@
     if (data.type == GSettingItemTypeDefault) {
         self.textLabel.attributedText = data.title;
         [self setImageView:self.imageView url:data.icon];
-
     }else if (data.type == GSettingItemTypeSubtitle){
         self.titleLabel.attributedText = data.title;
         self.subtitleLabel.attributedText = data.subtitle;

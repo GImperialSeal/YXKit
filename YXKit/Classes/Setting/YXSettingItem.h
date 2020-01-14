@@ -45,7 +45,6 @@ typedef UITableViewCellAccessoryType AccessoryType;
 @property (nonatomic, strong)YXSettingItem * (^setUrl)(NSString *url);
 @property (nonatomic, strong)YXSettingItem * (^setText)(NSString *text);
 @property (nonatomic, strong)YXSettingItem * (^setTitle)(NSAttributedString *title);
-//@property (nonatomic, strong)YXSettingItem * (^setTitle)(NSString *text,NSFont *font, UIColor *color);
 @property (nonatomic, strong)YXSettingItem * (^setSubtitle)(NSAttributedString *subtitle);
 @property (nonatomic, strong)YXSettingItem * (^setPlaceholder)(NSString *placeholder);
 @property (nonatomic, strong)YXSettingItem * (^setKeyType)(UIKeyboardType keytype);

@@ -11,6 +11,7 @@
 #import "ReactiveObjC.h"
 #import "YYKit.h"
 #import <YXPrefixConfig.h>
+#import "YXMacro.h"
 @implementation YXTextFieldCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
