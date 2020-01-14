@@ -19,8 +19,9 @@
     [super updateConstraints];
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+- (instancetype)initWithItem:(YXSettingItem *)item{
+    
+    if (self = [super initWithStyle:item.style reuseIdentifier:item.reuseIdentifier]) {
         [self addSubview:self.line];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -34,8 +35,8 @@
         }];
         
         
-        if ([reuseIdentifier isEqualToString:@"subtitle"]) {
-            
+        if (item.style == YXTableViewCellStyleSubtitle) {
+
             [self.contentView addSubview:self.titleLabel];
             [self.contentView addSubview:self.subtitleLabel];
             self.titleLabel.numberOfLines = 1;
@@ -51,7 +52,7 @@
                 make.right.inset(space);
                 make.bottom.inset(space);
             }];
-        }else if([reuseIdentifier isEqualToString:@"Value3"]){
+        }else if(item.style == YXTableViewCellStyleValue3){
             [self.contentView addSubview:self.titleLabel];
             [self.contentView addSubview:self.subtitleLabel];
             self.titleLabel.numberOfLines = 1;
@@ -59,7 +60,7 @@
                 make.left.offset(space);
                 make.top.equalTo(self.subtitleLabel.mas_top);
             }];
-            
+
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.titleLabel.mas_right).offset(8);
                 make.top.offset(KSpace);
@@ -67,26 +68,8 @@
                 make.bottom.inset(KSpace);
             }];
             [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-            
-        }else if([reuseIdentifier isEqualToString:@"Value3_center"]){
-            [self.contentView addSubview:self.titleLabel];
-            [self.contentView addSubview:self.subtitleLabel];
-            self.titleLabel.numberOfLines = 1;
 
-            [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.offset(space);
-                make.top.equalTo(self.subtitleLabel.mas_top);
-            }];
-            [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.titleLabel.mas_right).offset(8);
-                make.top.offset(8);
-                make.right.inset(space);
-                make.bottom.inset(8);
-//                make.height.mas_greaterThanOrEqualTo(44);
-            }];
-            [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-            
-        }else if([reuseIdentifier isEqualToString:@"Value4"]){
+        }else if(item.style == YXTableViewCellStyleValue4){
             [self.contentView addSubview:self.titleLabel];
             [self.contentView addSubview:self.subtitleLabel];
             self.subtitleLabel.numberOfLines = 1;
@@ -96,19 +79,13 @@
                 make.left.offset(space);
                 make.bottom.inset(KSpace);
             }];
-            
+
             [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.inset(space);
                 make.top.equalTo(self.titleLabel);
                 make.left.equalTo(self.titleLabel.mas_right).offset(8);
             }];
             [self.subtitleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-        
-        }else if ([reuseIdentifier isEqualToString:@"fullImage"]){
-            [self.contentView addSubview:self.imageV];
-            [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.inset(space);
-            }];
         }else{
             self.textLabel.textColor = [UIColor colorWithHexString:@"#555555"];
             self.detailTextLabel.textColor = [UIColor colorWithHexString:@"#888888"];
@@ -117,65 +94,52 @@
             self.textLabel.numberOfLines = 0;
         }
     
+                   
+           if (item.style == YXTableViewCellStyleValue3||
+               item.style == YXTableViewCellStyleValue3_fit||
+               item.style == YXTableViewCellStyleValue4 ||
+               item.style == YXTableViewCellStyleSubtitle) {
+               if (item.isObserveTitle) {
+                   RAC(self.titleLabel, attributedText) = [RACObserve(item, title) takeUntil:self.rac_prepareForReuseSignal];
+               }
+               if (item.isObserveSubtitle) {
+                   RAC(self.subtitleLabel, attributedText) = [RACObserve(item, subtitle) takeUntil:self.rac_prepareForReuseSignal];
+               }
+           }else{
+               if (item.isObserveTitle) {
+                   RAC(self.textLabel, attributedText) = [RACObserve(item, title) takeUntil:self.rac_prepareForReuseSignal];
+               }
+               if (item.isObserveSubtitle) {
+                   RAC(self.detailTextLabel, attributedText) = [RACObserve(item, subtitle) takeUntil:self.rac_prepareForReuseSignal];
+               }
+
+           }
     }
     return self;
 }
 
 
-- (void)setImageView:(UIImageView *)IV url:(NSString *)url{
-    if (url.length&&[url hasPrefix:@"http:"]) {
-        [IV setImageURL:[NSURL URLWithString:url]];
-    }else if (url.length){
-        IV.image = [UIImage imageNamed:url];
-    }
-}
 
-- (void)configWithData:(YXSettingItem *)data{
+- (void)configWithData:(YXSettingItem *)item{
     
-    self.accessoryType = data.accessoryType;
-    self.accessoryView = data.accessoryview;
-    self.line.hidden = data.hideSeparatorLine;
+    self.accessoryType = item.accessoryType;
+    self.accessoryView = item.accessoryview;
+    self.line.hidden = item.hideSeparatorLine;
     
-    if (data.type == GSettingItemTypeDefault) {
-        self.textLabel.attributedText = data.title;
-        [self setImageView:self.imageView url:data.icon];
-    }else if (data.type == GSettingItemTypeSubtitle){
-        self.titleLabel.attributedText = data.title;
-        self.subtitleLabel.attributedText = data.subtitle;
-        [self setImageView:self.imageView url:data.icon];
-    }else if (data.type == GSettingItemTypeValue1){
-        self.textLabel.attributedText = data.title;
-        self.detailTextLabel.attributedText = data.subtitle;
-    }else if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue4||data.type == GSettingItemTypeValue3_fit){
-        self.titleLabel.attributedText = data.title;
-        self.subtitleLabel.attributedText = data.subtitle;
-    }else if (data.type == GSettingItemTypeFullImage){
-        if (data.image) {
-            self.imageV.image = data.image;
-        }
-        if (data.url.length) {
-            [self.imageV setImageURL:[NSURL URLWithString:data.url]];
-        }
+    if (item.style == YXTableViewCellStyleDefault) {
+        self.textLabel.attributedText = item.title;
+        self.imageView.image = [UIImage imageNamed:item.icon];
+    }else if (item.style == YXTableViewCellStyleSubtitle){
+        self.titleLabel.attributedText = item.title;
+        self.subtitleLabel.attributedText = item.subtitle;
+        self.imageView.image = [UIImage imageNamed:item.icon];
+    }else if (item.style == YXTableViewCellStyleValue1){
+        self.textLabel.attributedText = item.title;
+        self.detailTextLabel.attributedText = item.subtitle;
+    }else if (item.style == YXTableViewCellStyleValue3||item.style == YXTableViewCellStyleValue4||item.style == YXTableViewCellStyleValue3_fit){
+        self.titleLabel.attributedText = item.title;
+        self.subtitleLabel.attributedText = item.subtitle;
     }
-    @weakify(self)
-    
-    if (data.type == GSettingItemTypeValue3||data.type == GSettingItemTypeValue3_fit||data.type == GSettingItemTypeValue4 || data.type == GSettingItemTypeSubtitle) {
-        if (data.isObserveTitle) {
-            RAC(self.titleLabel, attributedText) = [RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal];
-        }
-        if (data.isObserveSubtitle) {
-            RAC(self.subtitleLabel, attributedText) = [RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal];
-        }
-    }else{
-        if (data.isObserveTitle) {
-            RAC(self.textLabel, attributedText) = [RACObserve(data, title) takeUntil:self.rac_prepareForReuseSignal];
-        }
-        if (data.isObserveSubtitle) {
-            RAC(self.detailTextLabel, attributedText) = [RACObserve(data, subtitle) takeUntil:self.rac_prepareForReuseSignal];
-        }
-
-    }
-  
 }
 
 

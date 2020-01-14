@@ -98,12 +98,6 @@
     };
 }
 
-- (YXSettingItem *(^)(GSettingItemType))setType{
-    return ^YXSettingItem *(GSettingItemType type) {
-        self.type = type;
-        return self;
-    };
-}
 
 - (YXSettingItem *(^)(NSString *))setText{
     return ^YXSettingItem *(NSString *text) {
@@ -115,59 +109,54 @@
 + (instancetype)itemTypeDefault:(NSString *)icon{
     YXSettingItem *item = [[self alloc] init];
     item.icon = icon;
-    item.type = GSettingItemTypeDefault;
+    item.style = YXTableViewCellStyleDefault;
     return item;
 }
 
 + (instancetype)itemTypeValue1{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeValue1;
+    item.style = YXTableViewCellStyleValue1;
     return item;
 }
 + (instancetype)itemTypeValue4{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeValue4;
+    item.style = YXTableViewCellStyleValue4;
     return item;
 }
 
-+ (instancetype)itemTypeFullImage{
-    YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeFullImage;
-    return item;
-}
 
 + (instancetype)itemTypeValue3{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeValue3;
+    item.style = YXTableViewCellStyleValue3;
     return item;
 }
 
 + (instancetype)itemTypeValue3Center{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeValue3_fit;
+    item.style = YXTableViewCellStyleValue3_fit;
     return item;
 }
 
 + (instancetype)itemTypeSlider{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeSlider;
+    item.style = YXTableViewCellStyleSlider;
     return item;
 }
 
 + (instancetype)itemTypeInput{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeInput;
+    item.style = YXTableViewCellStyleInput;
     return item;
 }
 
 + (instancetype)itemTypeNineBox{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeNineBox;
+    item.style = YXTableViewCellStyleNineBox;
     return item;
 }
 + (instancetype)itemTypePicker{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypePicker;
+    item.style = YXTableViewCellStylePicker;
     item.hideHint = NO;
     item.maxImageCount = 6;
     return item;
@@ -175,32 +164,32 @@
 
 + (instancetype)itemTypeSelected{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeSelected;
+    item.style = YXTableViewCellStyleSelected;
     return item;
 }
 
 + (instancetype)itemTypeTextField{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeTextField;
+    item.style = YXTableViewCellStyleTextField;
     item.isObserveSubtitle = YES;
     return item;
 }
 
 + (instancetype)itemTypeTextView{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeTextView;
+    item.style = YXTableViewCellStyleTextView;
     return item;
 }
 
 + (instancetype)itemTypeCustom{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeCustom;
+    item.style = YXTableViewCellStyleCustom;
     return item;
 }
 
 + (instancetype)itemTypeSubtitle{
     YXSettingItem *item = [[self alloc] init];
-    item.type = GSettingItemTypeSubtitle;
+    item.style = YXTableViewCellStyleSubtitle;
     return item;
 }
 

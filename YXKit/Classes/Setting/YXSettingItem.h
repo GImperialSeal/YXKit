@@ -12,22 +12,22 @@
 @class YXSettingItem;
 @class YXSettingGroup;
 typedef enum : NSInteger{
-    GSettingItemTypeDefault,   // 什么也没有
-    GSettingItemTypeValue1, // value1
-    GSettingItemTypeValue3, // value3 主标题和副标题紧挨着, 副标题会换行显示, 上下间距是 12
-    GSettingItemTypeValue3_fit, // value3 主标题和副标题紧挨着, 上下间距是8
-    GSettingItemTypeValue4, // value4 主标题和副标题紧挨着, 主标题会换行显示
-    GSettingItemTypeTextField,    // 输入
-    GSettingItemTypeNineBox,     // 九宫格
-    GSettingItemTypeInput,   // 正方形输入框带插入图片
-    GSettingItemTypeTextView,   // 输入框
-    GSettingItemTypeSelected,   // 有一个选择框
-    GSettingItemTypeSlider,  // 拖动进度
-    GSettingItemTypePicker,     // 选择照片
-    GSettingItemTypeCustom,     // 自定义
-    GSettingItemTypeSubtitle,   // 什么也没有
-    GSettingItemTypeFullImage,   // 铺满的图
-} GSettingItemType;
+    YXTableViewCellStyleDefault,
+    YXTableViewCellStyleValue1,
+    YXTableViewCellStyleValue2,
+    YXTableViewCellStyleSubtitle,
+    YXTableViewCellStyleValue3, // value3 主标题和副标题紧挨着, 副标题会换行显示, 上下间距是 12
+    YXTableViewCellStyleValue3_fit, // value3 主标题和副标题紧挨着, 上下间距是8
+    YXTableViewCellStyleValue4, // value4 主标题和副标题紧挨着, 主标题会换行显示
+    YXTableViewCellStyleTextField,    // 输入
+    YXTableViewCellStyleNineBox,     // 九宫格
+    YXTableViewCellStyleInput,   // 正方形输入框带插入图片
+    YXTableViewCellStyleTextView,   // 输入框
+    YXTableViewCellStyleSelected,   // 有一个选择框
+    YXTableViewCellStyleSlider,  // 拖动进度
+    YXTableViewCellStylePicker,     // 选择照片
+    YXTableViewCellStyleCustom,     // 自定义
+} YXTableViewCellStyle;
 
 
 typedef void(^CellBlock)(YXSettingGroup *group,YXSettingItem *item,NSIndexPath *indexPath);
@@ -50,13 +50,17 @@ typedef UITableViewCellAccessoryType AccessoryType;
 @property (nonatomic, strong)YXSettingItem * (^setKeyType)(UIKeyboardType keytype);
 @property (nonatomic, strong)YXSettingItem * (^setLimitEdit)(NSInteger limit);
 @property (nonatomic, strong)YXSettingItem * (^setEditBlock)(EditBlock block);
-@property (nonatomic, strong)YXSettingItem * (^setType)(GSettingItemType type);
+@property (nonatomic, strong)YXSettingItem * (^setType)(YXTableViewCellStyle type);
 @property (nonatomic, strong)YXSettingItem * (^setRowHeight)(CGFloat height);
 @property (nonatomic, strong)YXSettingItem * (^setHideSeparatorLine)(BOOL hide);
 @property (nonatomic, strong)YXSettingItem * (^setAccessoryType)(AccessoryType type);
 @property (nonatomic, strong)YXSettingItem * (^setCellBlock)(CellBlock block);
 @property (nonatomic, strong)YXSettingItem * (^setScrollEnabled)(BOOL enable);
 
+
+@property (nonatomic)YXTableViewCellStyle style;
+
+@property (nonatomic, strong)NSString *reuseIdentifier;
 
 // fullimage
 @property (nonatomic, strong)NSString *url;
@@ -101,8 +105,6 @@ typedef UITableViewCellAccessoryType AccessoryType;
 
 @property (nonatomic) BOOL hideSeparatorLine;
 
-@property (nonatomic) GSettingItemType type;// Cell的样式
-
 // accessoryview
 @property (nonatomic, strong) UIView *accessoryview;// Cell的样式
 @property (nonatomic) UITableViewCellAccessoryType accessoryType;
@@ -139,8 +141,6 @@ typedef UITableViewCellAccessoryType AccessoryType;
 + (instancetype)itemTypeTextField;
 
 + (instancetype)itemTypeSubtitle;
-
-+ (instancetype)itemTypeFullImage;
 
 + (instancetype)itemTypeSelected;
 

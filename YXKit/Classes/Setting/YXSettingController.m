@@ -39,51 +39,10 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
-    
-    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value3"];
-    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value3_center"];
-    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Value4"];
-    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"subtitle"];
-    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"fullImage"];
-//    [self.tableView registerClass:YXTableViewCell.class forCellReuseIdentifier:@"Default"];
+  
 }
 
-- (NSString *)reuserIndentifier:(GSettingItemType)type{
-    switch (type) {
-        case GSettingItemTypeTextField:
-            return @"TextField";
-        case GSettingItemTypeValue1:
-            return @"Value1";
-        case GSettingItemTypeValue3:
-            return @"Value3";
-        case GSettingItemTypeValue3_fit:
-            return @"Value3_center";
-        case GSettingItemTypeValue4:
-            return @"Value4";
-        case GSettingItemTypeSubtitle:
-            return @"subtitle";
-        case GSettingItemTypeFullImage:
-            return @"fullImage";
-        default:
-            return @"Default";
-    }
-}
-- (UITableViewCellStyle)cellStyle:(GSettingItemType)type{
-    switch (type) {
-        case GSettingItemTypeDefault:
-            return UITableViewCellStyleDefault;
-        case GSettingItemTypeValue1:
-            return UITableViewCellStyleValue1;
-        case GSettingItemTypeSubtitle:
-            return UITableViewCellStyleSubtitle;
-        case GSettingItemTypeFullImage:
-            return UITableViewCellStyleDefault;
-        case GSettingItemTypeValue4:
-            return UITableViewCellStyleDefault;
-        default:
-            return UITableViewCellStyleDefault;
-    }
-}
+
 #pragma mark - delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return _allGroups.count;
@@ -97,28 +56,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
-    NSString *identifier = [self reuserIndentifier:item.type];
-
-    if (item.type == GSettingItemTypeTextField) {
-        YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (!cell) {
-            cell = [[YXTextFieldCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
+    YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:item.reuseIdentifier];
+    if (!cell) {
+        if (item.style == YXTableViewCellStyleTextField) {
+            cell = [[YXTextFieldCell alloc]initWithItem:item];
+        }else{
+            cell = [[YXTableViewCell alloc]initWithItem:item];
         }
-        [cell configWithData:item];
-        return cell;
-    }else  if (item.type == GSettingItemTypeValue1||item.type == GSettingItemTypeDefault) {
-        YXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (!cell) {
-            cell = [[YXTableViewCell alloc]initWithStyle:[self cellStyle:item.type] reuseIdentifier:identifier];
-        }
-        [cell configWithData:item];
-        return cell;
-
-    }else{
-        YXTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        [cell configWithData:item];
-        return cell;
     }
+    [cell configWithData:item];
+    return cell;
 }
 
 
@@ -171,19 +118,7 @@
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
-    
-//    if (item.type == GSettingItemTypeValue3||
-//        item.type == GSettingItemTypeValue4||
-//        item.type == GSettingItemTypeValue3_fit||
-//        item.type == GSettingItemTypeSubtitle||
-//        item.type == GSettingItemTypeFullImage) {
-//        return [tableView fd_heightForCellWithIdentifier:[self reuserIndentifier:item.type] cacheByIndexPath:indexPath configuration:^(YXTextFieldCell *cell) {
-//            [cell configWithData:item];
-//        }];
-//    }else{
-        return item.rowHeight;
-//    }
-   
+    return item.rowHeight;
 }
 
 
