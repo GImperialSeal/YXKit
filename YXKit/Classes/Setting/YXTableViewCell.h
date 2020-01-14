@@ -22,9 +22,10 @@
 
 @property (nonatomic, strong)UIImageView *imageV;
 
+- (instancetype)initWithItem:(YXSettingItem *)item;
+
 - (void)configWithData:(YXSettingItem *)data;
 
-- (void)setImageView:(UIImageView *)IV url:(NSString *)url;
 @end
 
 

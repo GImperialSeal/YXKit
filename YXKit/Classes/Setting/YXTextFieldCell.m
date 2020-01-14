@@ -14,14 +14,12 @@
 #import "YXMacro.h"
 @implementation YXTextFieldCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+- (instancetype)initWithItem:(YXSettingItem *)item{
+    if (self = [super initWithItem:item]) {
         [self.contentView addSubview:self.tf];
         [self.contentView addSubview:self.titleLabel];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         CGFloat space = KSpace;
-        
         [self.tf mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.offset(0);
             make.height.mas_equalTo(44);
@@ -46,16 +44,13 @@
     self.accessoryView = data.accessoryview;
     self.titleLabel.attributedText = data.title;
     @weakify(self)
-//    [[RACObserve(data, text) takeUntil:self.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
-//        self_weak_.tf.text = x;
-//    }];
     
     [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] filter:^BOOL(NSString * _Nullable value) {
         NSLog(@"x: %@",value);
         // 最大值
         if (data.maximumValue>0) {
             if (value.integerValue>data.maximumValue) {
-                value = [NSString stringWithFormat:@"%d",data.maximumValue];
+                value = [NSString stringWithFormat:@"%ld",(long)data.maximumValue];
                 self_weak_.tf.text = value;
             }
         }
