@@ -34,6 +34,33 @@
         [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [self.titleLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         
+        @weakify(self)
+        [[self.tf.rac_textSignal  filter:^BOOL(NSString * _Nullable value) {
+            NSLog(@"x: %@",value);
+            // 最大值
+            if (item.maximumValue>0) {
+                if (value.integerValue>item.maximumValue) {
+                    value = [NSString stringWithFormat:@"%ld",(long)item.maximumValue];
+                    self_weak_.tf.text = value;
+                }
+            }
+
+            // 提示
+//            if (item.accessoryview &&[item.accessoryview isKindOfClass:UILabel.class]&&item.isObserveSubtitle) {
+//                NSString *strLength = [NSString stringWithFormat:@"%lu",(unsigned long)value.length];
+//                NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@/%d",strLength,item.limitEditLength]];
+//                [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#20B1F4"] range:NSMakeRange(0, strLength.length)];
+//                [item.accessoryview setValue:str forKey:@"attributedText"];
+//            }
+
+            //  字数限制
+            [self_weak_ limit:item];
+            return value.length<=item.limitEditLength;
+        }] subscribeNext:^(NSString * _Nullable x) {
+            !item.editBlock?:item.editBlock(x);
+            item.text = x;
+        }] ;
+        
     }
     return self;
 }
@@ -41,35 +68,8 @@
 - (void)configWithData:(YXSettingItem *)data{
     self.tf.placeholder = data.placeholder;
     self.tf.keyboardType = data.keyType;
-    self.accessoryView = data.accessoryview;
     self.titleLabel.attributedText = data.title;
-    @weakify(self)
-    
-    [[[self.tf.rac_textSignal takeUntil:self.rac_prepareForReuseSignal] filter:^BOOL(NSString * _Nullable value) {
-        NSLog(@"x: %@",value);
-        // 最大值
-        if (data.maximumValue>0) {
-            if (value.integerValue>data.maximumValue) {
-                value = [NSString stringWithFormat:@"%ld",(long)data.maximumValue];
-                self_weak_.tf.text = value;
-            }
-        }
-        
-        // 提示
-        if (data.accessoryview &&[data.accessoryview isKindOfClass:UILabel.class]&&data.isObserveSubtitle) {
-            NSString *strLength = [NSString stringWithFormat:@"%lu",(unsigned long)value.length];
-            NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@/%d",strLength,data.limitEditLength]];
-            [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#20B1F4"] range:NSMakeRange(0, strLength.length)];
-            [data.accessoryview setValue:str forKey:@"attributedText"];
-        }
-        
-        //  字数限制
-        [self_weak_ limit:data];
-        return value.length<=data.limitEditLength;
-    }] subscribeNext:^(NSString * _Nullable x) {
-        !data.editBlock?:data.editBlock(x);
-        data.text = x;
-    }] ;
+    self.accessoryView = data.accessoryview;
 }
 
 - (void)limit:(YXSettingItem *)item{

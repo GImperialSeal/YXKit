@@ -193,13 +193,55 @@
     return item;
 }
 
+- (void)setStyle:(YXTableViewCellStyle)style{
+    _style = style;
+    switch (style) {
+        case YXTableViewCellStyleDefault:
+            self.reuseIdentifier = @"YXTableViewCellStyleDefault";
+        break;
+        case YXTableViewCellStyleValue1:
+            self.reuseIdentifier = @"YXTableViewCellStyleValue1";
+        break;
+        case YXTableViewCellStyleValue2:
+            self.reuseIdentifier = @"YXTableViewCellStyleValue2";
+        break;
+        case YXTableViewCellStyleValue3:
+            self.reuseIdentifier = @"YXTableViewCellStyleValue3";
+        break;
+        case YXTableViewCellStyleValue4:
+            self.reuseIdentifier = @"YXTableViewCellStyleValue4";
+        break;
+        case YXTableViewCellStyleSubtitle:
+            self.reuseIdentifier = @"YXTableViewCellStyleSubtitle";
+        break;
+        case YXTableViewCellStyleNineBox:
+            self.reuseIdentifier = @"YXTableViewCellStyleNineBox";
+        break;
+        case YXTableViewCellStyleInput:
+            self.reuseIdentifier = @"YXTableViewCellStyleInput";
+        break;
+        case YXTableViewCellStyleTextView:
+            self.reuseIdentifier = @"YXTableViewCellStyleTextView";
+        break;
+        case YXTableViewCellStyleTextField:
+            self.reuseIdentifier = @"YXTableViewCellStyleTextField";
+        break;
+        case YXTableViewCellStyleCustom:
+            self.reuseIdentifier = @"YXTableViewCellStyleCustom";
+        break;
+        default:
+            self.reuseIdentifier = @"YXTableViewCellStyleDefault";
+            break;
+    }
+}
+
 - (instancetype)init{
     if ([super init]) {
         self.rowHeight = UITableViewAutomaticDimension;
         self.limitEditLength = 500;
         self.accessoryview = nil;
         self.accessoryType = UITableViewCellAccessoryNone;
-        self.hideSeparatorLine = YES;
+        self.hideSeparatorLine = NO;
     }
     return self;
 }
@@ -207,7 +249,6 @@
 
 - (NSAttributedString *)combineAttributeString:(NSString *)title subtitle:(NSString *)subtitle{
     if (!subtitle.length) { subtitle = @"暂无"; }
-    
     NSMutableAttributedString *att = [[NSMutableAttributedString alloc]initWithString:subtitle attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#888888"]}];
     NSAttributedString *attr = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#555555"]}];
     [att insertAttributedString:attr atIndex:0];

@@ -10,6 +10,8 @@
 #import "YXTableViewCell.h"
 #import "YXTextFieldCell.h"
 #import "ReactiveObjC.h"
+#import "YXMacro.h"
+#import "YYKit.h"
 //#import "UITableView+FDTemplateLayoutCell.h"
 @interface YXSettingController ()
 
@@ -65,6 +67,9 @@
         }
     }
     [cell configWithData:item];
+    
+    
+    
     return cell;
 }
 
@@ -80,7 +85,6 @@
 
     YXSettingGroup *group = _allGroups[indexPath.section];
     YXSettingItem *item = group.items[indexPath.row];
-    
     // 1.取出这行对应模型中的block代码
     !item.cellBlock?:item.cellBlock(group,item,indexPath);
 }
@@ -146,6 +150,43 @@
 }
 
 
+- (void)doneFooterView:(dispatch_block_t)block{
+    UIView *footer = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 120)];
+//    footer.backgroundColor = [UIColor whiteColor];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(14, 20, KW-14*2, 44);
+    btn.layer.cornerRadius = 22;
+    btn.backgroundColor = [UIColor colorWithHexString:@"#00ABFF"];
+    [[[btn rac_signalForControlEvents:UIControlEventTouchUpInside] throttle:1.25]subscribeNext:^(__kindof UIControl * _Nullable x) {
+        !block?:block();
+    }];
+    [btn setTitle:@"保存" forState:UIControlStateNormal];
+    
+    [footer addSubview:btn];
+    self.tableView.tableFooterView = footer;
+}
 
+- (void)updateDoneFooterViewTitle:(NSString *)title{
+    [(UIButton *)self.tableView.tableFooterView.subviews.firstObject setTitle:title forState:UIControlStateNormal];
+}
+
+- (UIButton *)doneButton{
+    return self.tableView.tableFooterView.subviews.firstObject;
+}
+
+
+- (UIButton *)accessoryview:(NSString *)icon selected:(ClickedAccessroyBtnBlcok)block{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 44, 44);
+    if (icon.length) {
+        [btn setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
+    }
+    [btn setTitleColor:[UIColor colorWithHexString:@"#FFA726"] forState:UIControlStateNormal];
+    [[btn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIButton * _Nullable x) {
+        !block?:block(x);
+    }];
+   
+    return btn;
+}
 
 @end

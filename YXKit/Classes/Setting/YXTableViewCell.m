@@ -20,8 +20,11 @@
 }
 
 - (instancetype)initWithItem:(YXSettingItem *)item{
-    
-    if (self = [super initWithStyle:item.style reuseIdentifier:item.reuseIdentifier]) {
+    UITableViewCellStyle style = 0;
+    if (item.style>3) {
+        style = 0;
+    }
+    if (self = [super initWithStyle:style reuseIdentifier:item.reuseIdentifier]) {
         [self addSubview:self.line];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -125,6 +128,7 @@
     self.accessoryType = item.accessoryType;
     self.accessoryView = item.accessoryview;
     self.line.hidden = item.hideSeparatorLine;
+    
     
     if (item.style == YXTableViewCellStyleDefault) {
         self.textLabel.attributedText = item.title;
