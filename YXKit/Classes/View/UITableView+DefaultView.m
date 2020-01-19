@@ -15,9 +15,9 @@
 + (void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Method originalSel = class_getInstanceMethod(self, @selector(reloadData));
-        Method currentSel = class_getInstanceMethod(self, @selector(yx_reloadData));
-        method_exchangeImplementations(originalSel, currentSel);
+//        Method originalSel = class_getInstanceMethod(self, @selector(reloadData));
+//        Method currentSel = class_getInstanceMethod(self, @selector(yx_reloadData));
+//        method_exchangeImplementations(originalSel, currentSel);
     });
 }
 
