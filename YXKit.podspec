@@ -18,6 +18,8 @@ Pod::Spec.new do |s|
   s.dependency  'Masonry'
   s.dependency  'FCUUID'
   s.dependency 'YTKNetwork'
+  s.dependency 'LLDebugTool'
+
 #  s.dependency 'SocketRocket'
   
   #s.subspec 'im_ios' do |ss|

@@ -80,10 +80,6 @@ singleton(YXStorageManager, manager)
      }];
 }
 
-- (NSArray *)queryALL:(Class)cls{
-    [self query:cls storageId:@""];
-}
-
 - (NSArray *)query:(__unsafe_unretained Class)cls storageId:(NSString *)storageIdentity{
         __block NSMutableArray *modelArray = [[NSMutableArray alloc] init];
         [_dbQueue inDatabase:^(FMDatabase * db) {
