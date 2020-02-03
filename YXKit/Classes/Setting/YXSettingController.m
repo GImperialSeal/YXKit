@@ -156,6 +156,7 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(14, 20, KW-14*2, 44);
     btn.layer.cornerRadius = 22;
+    btn.tag = 100;
     btn.backgroundColor = [UIColor colorWithHexString:@"#00ABFF"];
     [[[btn rac_signalForControlEvents:UIControlEventTouchUpInside] throttle:1.25]subscribeNext:^(__kindof UIControl * _Nullable x) {
         !block?:block();
@@ -171,7 +172,7 @@
 }
 
 - (UIButton *)doneButton{
-    return self.tableView.tableFooterView.subviews.firstObject;
+    return [self.tableView.tableFooterView viewWithTag:100];
 }
 
 

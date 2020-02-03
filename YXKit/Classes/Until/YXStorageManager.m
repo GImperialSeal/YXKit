@@ -8,9 +8,12 @@
 #import "YXStorageManager.h"
 #import "FMDB.h"
 #import "YXMacro.h"
+#import "YXStorageModel.h"
 // Column Name
 static NSString *const kObjectDataColumn = @"ObjectData";
 static NSString *const kIdentityColumn = @"Identity";
+static NSString *const KIdSecondLevelColumn = @"IdSecondLevel";
+static NSString *const KIdThreeLevelColumn = @"IdThreeLevel";
 static NSString *const kLaunchDateColumn = @"LaunchDate";
 static NSString *const kDescriptionColumn = @"Desc";
 static NSString *const kDatabaseVersion = @"1";
@@ -26,20 +29,23 @@ static NSString *const kDatabaseVersion = @"1";
 
 singleton(YXStorageManager, manager)
 
-- (void)operation:(NSArray<LLStorageModel *> *)datas option:(int)option{
+- (void)operation:(NSArray<YXStorageModel *> *)datas option:(int)option{
     __block BOOL flag;
        [_dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
            @try {
-               for (LLStorageModel *model in datas) {
+               for (YXStorageModel *model in datas) {
                    NSString *launchDate = [self.format stringFromDate:[NSDate date]];
                    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:model];
-                   NSString *identity = model.storageIdentity;
-                   NSArray *arguments = @[data,launchDate,identity,model.description?:@"None description"];
+                   NSString *identity = model.storageIdentity?:@"";
+                   NSString *second = model.storageSecondIdentity?:@"";
+                   NSString *three = model.storageThreeIdentity?:@"";
+                   NSArray *arguments = @[data,launchDate,identity,second,three,model.description?:@"None description"];
                    if (option==0) {
-                       flag = [db executeUpdate:[NSString stringWithFormat:@"INSERT INTO %@(%@,%@,%@,%@) VALUES (?,?,?,?);",[self tableNameFromClass:model.class],kObjectDataColumn,kLaunchDateColumn,kIdentityColumn,kDescriptionColumn] withArgumentsInArray:arguments];
+                       flag = [db executeUpdate:[NSString stringWithFormat:@"INSERT INTO %@(%@,%@,%@,%@,%@,%@) VALUES (?,?,?,?,?,?);",[self tableNameFromClass:model.class],kObjectDataColumn,kLaunchDateColumn,kIdentityColumn,KIdSecondLevelColumn,KIdThreeLevelColumn,kDescriptionColumn] withArgumentsInArray:arguments];
                    }
                    if (option == 1) {
-                       flag = [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET %@ = ? ,%@ = ?,%@ = ?,%@ = ? WHERE %@ = \"%@\";",[self tableNameFromClass:model.class],kObjectDataColumn,kLaunchDateColumn,kIdentityColumn,kDescriptionColumn,kIdentityColumn,model.storageIdentity] withArgumentsInArray:arguments];
+                       flag = [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET %@ = ? ,%@ = ?,%@ = ?,%@ = ?,%@ = ?,%@ = ? WHERE %@ = \"%@\";",[self tableNameFromClass:model.class],kObjectDataColumn,kLaunchDateColumn,kIdentityColumn,KIdSecondLevelColumn,KIdThreeLevelColumn,kDescriptionColumn,kIdentityColumn,model.storageIdentity] withArgumentsInArray:arguments];
+    
                    }
                }
            } @catch (NSException *exception) {
@@ -81,13 +87,23 @@ singleton(YXStorageManager, manager)
 }
 
 - (NSArray *)query:(__unsafe_unretained Class)cls storageId:(NSString *)storageIdentity{
+    return [self query:cls primaryKey:kIdentityColumn primaryValue:storageIdentity];
+}
+- (NSArray *)query:(__unsafe_unretained Class)cls storageSecondId:(NSString *)storageIdentity{
+    return [self query:cls primaryKey:KIdSecondLevelColumn primaryValue:storageIdentity];
+}
+- (NSArray *)query:(__unsafe_unretained Class)cls storageThirdId:(NSString *)storageIdentity{
+    return [self query:cls primaryKey:KIdThreeLevelColumn primaryValue:storageIdentity];
+}
+
+- (NSArray *)query:(__unsafe_unretained Class)cls primaryKey:(NSString *)primaryKey primaryValue:(NSString *)primaryValue{
         __block NSMutableArray *modelArray = [[NSMutableArray alloc] init];
         [_dbQueue inDatabase:^(FMDatabase * db) {
             NSString *SQL = [NSString stringWithFormat:@"SELECT * FROM %@",[self tableNameFromClass:cls]];
             NSArray *values = @[];
-            if (storageIdentity.length) {
-                SQL = [SQL stringByAppendingFormat:@" WHERE %@ = ?",kIdentityColumn];
-                values = @[storageIdentity];
+            if (primaryValue.length) {
+                SQL = [SQL stringByAppendingFormat:@" WHERE %@ = ?",primaryKey];
+                values = @[primaryValue];
             }
             FMResultSet *set = [db executeQuery:SQL withArgumentsInArray:values];
             while ([set next]) {
@@ -113,6 +129,7 @@ singleton(YXStorageManager, manager)
         }];
     return modelArray;
 }
+
 
 
 
@@ -175,7 +192,7 @@ singleton(YXStorageManager, manager)
 }
 - (NSString *)createTableSQLFromClass:(Class)cls {
     NSString *tableName = [NSString stringWithFormat:@"%@Table_%@",NSStringFromClass(cls),kDatabaseVersion];
-    return [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@(%@ BLOB NOT NULL,%@ TEXT NOT NULL,%@ TEXT NOT NULL,%@ TEXT NOT NULL);",tableName,kObjectDataColumn,kIdentityColumn,kLaunchDateColumn,kDescriptionColumn];
+    return [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@(%@ BLOB NOT NULL,%@ TEXT NOT NULL,%@ TEXT,%@ TEXT,%@ TEXT NOT NULL,%@ TEXT NOT NULL);",tableName,kObjectDataColumn,kIdentityColumn,KIdSecondLevelColumn,KIdThreeLevelColumn,kLaunchDateColumn,kDescriptionColumn];
 }
 
 - (NSString *)convertArrayToSQL:(NSArray *)array {
