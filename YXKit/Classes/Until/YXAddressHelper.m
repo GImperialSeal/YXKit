@@ -197,6 +197,8 @@
         YXAddressModel *model = [[YXAddressModel alloc]init];
         model.addressName = [NSString stringWithFormat:@"%@%@",firstName,lastName];
         model.addressMoblie = phoneValue;
+        
+        [array addObject:model];
     }];
     
     return array;
