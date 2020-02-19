@@ -34,6 +34,8 @@
         [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [self.titleLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         
+        self.tf.text = item.text;
+        
         @weakify(self)
         [[self.tf.rac_textSignal  filter:^BOOL(NSString * _Nullable value) {
             NSLog(@"x: %@",value);
@@ -84,7 +86,7 @@
         //获取高亮部分
         UITextPosition *position = [self.tf positionFromPosition:selectedRange.start offset:0];
         if (!position) {// 没有高亮选择的字，则对已输入的文字进行字数统计和限制
-            if (toBeString.length > kMaxLength) {
+            if (toBeString.length >= kMaxLength) {
                 self.tf.text = [toBeString substringToIndex:kMaxLength];
                 if (item.editBlock) item.editBlock(self.tf.text);
             }

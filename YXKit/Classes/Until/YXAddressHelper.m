@@ -7,6 +7,7 @@
 //
 
 #import "YXAddressHelper.h"
+#import "NSString+Help.h"
 @import AddressBook;
 @import Contacts;
 @import UIKit;
@@ -176,6 +177,8 @@
        } else if (status == CNAuthorizationStatusAuthorized) {
            //有权限
            success([self openContact]);
+       }else{
+           success(nil);
        }
 }
 
@@ -192,20 +195,23 @@
         //电话
         NSArray * phoneNums = contact.phoneNumbers;
         CNLabeledValue *labelValue = phoneNums.firstObject;
-        NSString *phoneValue = [labelValue.value stringValue];
+        NSString *phoneValue = [[labelValue.value stringValue] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if ([phoneValue isPhoneNum]) {
+            YXAddressModel *model = [[YXAddressModel alloc]init];
+                  model.addressName = [NSString stringWithFormat:@"%@%@",firstName,lastName];
+                  model.addressMoblie = phoneValue;
+                  
+                  [array addObject:model];
+        }
         
-        YXAddressModel *model = [[YXAddressModel alloc]init];
-        model.addressName = [NSString stringWithFormat:@"%@%@",firstName,lastName];
-        model.addressMoblie = phoneValue;
-        
-        [array addObject:model];
+      
     }];
     
     return array;
 }
 
 + (void)showAlertViewAboutNotAuthorAccessContact{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请授权通讯录权限" message:@"请在iPhone的\"设置-隐私-通讯录\"选项中,允许花解解访问你的通讯录" preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请授权通讯录权限" message:@"请在iPhone的\"设置-隐私-通讯录\"选项中,允许访问您的通讯录" preferredStyle: UIAlertControllerStyleAlert];
     UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:OKAction];
     [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];

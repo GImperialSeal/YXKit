@@ -155,8 +155,9 @@ singleton(YXStorageManager, manager)
  */
 - (void)initDatabase {
 //    self.queue = dispatch_queue_create("LLDebugTool.LLStorageManager", DISPATCH_QUEUE_CONCURRENT);
+    NSString *user = [NSUserDefaults.standardUserDefaults valueForKey:@"ai_UserId"];
     self.registerClass = [[NSMutableArray alloc] init];
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingString:@"/YXStorageData"];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingString:[NSString stringWithFormat:@"/%@",user]];
     self.folderPath = path;
     [self createDirectoryAtPath:self.folderPath];
     NSString *filePath = [self.folderPath stringByAppendingPathComponent:@"YXData.db"];

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)manager;
 
+- (void)initDatabase;
+
 - (BOOL)registerClass:(Class)cls;
 
 - (void)transactionForInsert:(NSArray *)datas;
