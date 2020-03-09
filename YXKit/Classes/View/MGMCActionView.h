@@ -34,6 +34,7 @@ typedef NS_OPTIONS(NSInteger, ActionViewDirection){
 // 默认1.0
 @property (nonatomic) NSTimeInterval delay;
 
++ (MGMCActionView *)actionView;
 
 + (void)showActionView:(UIView *)contentView
               dirction:(ActionViewDirection)dirction
@@ -41,4 +42,8 @@ typedef NS_OPTIONS(NSInteger, ActionViewDirection){
 
 
 + (void)dismissActionView:(BOOL)animated delay:(NSTimeInterval)delay completion:(dispatch_block_t)complete;
+
++ (instancetype)actionView:(UIView *)contentView dirction:(ActionViewDirection)dirction;
+- (void)show:(BOOL)animated;
+- (void)addView:(UIView *)view animated:(BOOL)animated;
 @end

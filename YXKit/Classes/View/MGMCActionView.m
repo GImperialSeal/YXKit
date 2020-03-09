@@ -29,6 +29,24 @@
     }
 }
 
++ (instancetype)actionView:(UIView *)contentView dirction:(ActionViewDirection)dirction{
+    if (![self actionView]) {
+        MGMCActionView *v = [[MGMCActionView alloc]initWithFrame:contentView.bounds contentView:contentView direction:dirction];
+        v.tag = 10000;
+        return v;
+    }
+    return [self actionView];
+}
+
+- (void)show:(BOOL)animated{
+    UIWindow *windows = [UIApplication sharedApplication].keyWindow;
+    [windows addSubview:self];
+    [self animated:animated delay:0 show:YES completion:nil];
+}
+- (void)addView:(UIView *)view animated:(BOOL)animated{
+    [view addSubview:self];
+    [self animated:animated delay:0 show:YES completion:nil];
+}
 
 + (MGMCActionView *)actionView{
     UIWindow *windows = [UIApplication sharedApplication].keyWindow;

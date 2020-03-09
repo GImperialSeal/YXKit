@@ -11,6 +11,7 @@ target 'YXKit_Example' do
 #pod 'ReactiveObjC'
 #pod 'YTKNetwork'
 pod 'MBProgressHUD'
+pod 'YWTableExcel'
   target 'YXKit_Tests' do
     inherit! :search_paths
 

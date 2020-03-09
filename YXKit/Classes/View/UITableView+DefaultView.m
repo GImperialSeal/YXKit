@@ -15,9 +15,9 @@
 + (void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-//        Method originalSel = class_getInstanceMethod(self, @selector(reloadData));
-//        Method currentSel = class_getInstanceMethod(self, @selector(yx_reloadData));
-//        method_exchangeImplementations(originalSel, currentSel);
+        Method originalSel = class_getInstanceMethod(self, @selector(reloadData));
+        Method currentSel = class_getInstanceMethod(self, @selector(yx_reloadData));
+        method_exchangeImplementations(originalSel, currentSel);
     });
 }
 
@@ -38,6 +38,7 @@
     }
     // 多个分区暂时不处理
     if (!r) {
+        
         [self insertSubview:self.defaltView atIndex:0];
     }else{
         [self.defaltView removeFromSuperview];
@@ -51,54 +52,11 @@
     UIView *v = objc_getAssociatedObject(self, _cmd);
     if (!v) {
         v = [[UIView alloc]initWithFrame:self.bounds];
-        
-        UIImageView *imageV = [[UIImageView alloc]init];
-        imageV.image = [YXResources imageNamed:@"空页面"];
-        [v addSubview:imageV];
-        
-        UILabel *label = [[UILabel alloc]init];
-        label.text = @"空空如也～";
-        label.font = [UIFont systemFontOfSize:14];
-        label.textColor = [UIColor colorWithHexString:@"#AAAAAA"];
-        label.tag = 100;
-        [v addSubview:label];
-        
-        [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.offset(0);
-            make.centerY.offset(-80);
-        }];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.offset(0);
-            make.top.equalTo(imageV.mas_bottom).offset(8);
-        }];
-        
+        v.hidden = YES;
         [self setDefaltView:v];
-//        v.backgroundColor = [UIColor orangeColor];
     }
     return v;
 }
 
-- (void)setShowDefaultView:(BOOL)showDefaultView{
-    objc_setAssociatedObject(self, @selector(showDefaultView), @(showDefaultView), OBJC_ASSOCIATION_RETAIN);
-}
 
-- (BOOL)showDefaultView{
-    return [objc_getAssociatedObject(self, _cmd) boolValue];
-
-}
-
-- (void)setShow:(BOOL)show{
-    self.defaltView.hidden = !show;
-}
-
-- (void)remove{
-    UIView *v = objc_getAssociatedObject(self, _cmd);
-    if (v) {
-        [v removeFromSuperview];
-    }
-}
-
-- (void)setTitle:(NSString *)title{
-    [(UILabel *)[self.defaltView viewWithTag:100] setText:title];
-}
 @end
