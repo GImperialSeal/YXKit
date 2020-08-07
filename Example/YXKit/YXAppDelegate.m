@@ -9,8 +9,6 @@
 #import "YXAppDelegate.h"
 #import <malloc/malloc.h>
 #import "Test.h"
-#import "YXAlgorithm.h"
-#import "NSArray+Helper.h"
 #import "YXDownLoad.h"
 @implementation YXAppDelegate
 

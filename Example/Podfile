@@ -4,14 +4,15 @@ target 'YXKit_Example' do
   pod 'YXKit', :path => '../'
 #pod 'YXKit',:git => 'https://github.com/GImperialSeal/YXKit.git'
 
-#pod 'AFNetworking'
+pod 'AFNetworking'
 #pod 'YYKit'
 #pod 'BFKit'
 #pod 'Masonry'
 #pod 'ReactiveObjC'
 #pod 'YTKNetwork'
 pod 'MBProgressHUD'
-pod 'YWTableExcel'
+#pod 'YWTableExcel'
+pod 'MJRefresh'
   target 'YXKit_Tests' do
     inherit! :search_paths
 

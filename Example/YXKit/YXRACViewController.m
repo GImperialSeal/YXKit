@@ -29,8 +29,20 @@
     NSLog(@"did string: %@", self.weakString);
 }
 
+- (void)dealloc{
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    btn.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:btn];
+    
+    [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"self: %@",self);
+    }];
   
     // 场景1
 //    NSString *str = [NSString stringWithFormat:@"1212312"];
@@ -44,12 +56,12 @@
 //    }
 //    NSLog(@"场景2 string: %@", self.weakString);
 
-    NSLog(@"执行开始");
-
-    for (int i = 0; i<50000000; i++) {
-        id obj = [[NSObject alloc] init];
-    }
-    NSLog(@"执行结束");
+//    NSLog(@"执行开始");
+//
+//    for (int i = 0; i<50000000; i++) {
+//        id obj = [[NSObject alloc] init];
+//    }
+//    NSLog(@"执行结束");
     // 场景 3
 //        NSString *string = nil;
 //        @autoreleasepool {
@@ -113,11 +125,11 @@
     
 //    RAC(self.tf, text) = RACObserve(model, name);
     
-    [[self.tf.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
-        return value.length<9;
-    }] subscribeNext:^(NSString * _Nullable x) {
-        NSLog(@"x: %@", x);
-    }];
+//    [[self.tf.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+//        return value.length<9;
+//    }] subscribeNext:^(NSString * _Nullable x) {
+//        NSLog(@"x: %@", x);
+//    }];
     
   
 
@@ -139,9 +151,6 @@
 
 
 
-- (void)dealloc{
-    
-}
 
 - (void)aaaaaaaa:(NSString *)format, ...{
     va_list args;
