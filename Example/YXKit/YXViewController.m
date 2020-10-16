@@ -14,8 +14,6 @@
 
 #import "YYKit.h"
 
-#import "NetworkManager.h"
-
 #import "YXMacro.h"
 
 #import "NSObject+runtime.h"

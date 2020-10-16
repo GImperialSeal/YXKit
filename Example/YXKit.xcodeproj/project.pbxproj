@@ -23,13 +23,10 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		EE0F5D3521A65382000F979F /* YXGIFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0F5D3421A65382000F979F /* YXGIFViewController.m */; };
 		EE1B87EB21B765BF00638B93 /* YXQueueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */; };
-		EE211F1E224F236A0017A53E /* NetworkManager+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F1D224F236A0017A53E /* NetworkManager+Download.m */; };
 		EE211F21224F25AE0017A53E /* YXDownLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = EE211F20224F25AE0017A53E /* YXDownLoad.m */; };
 		EE4098EB24AEA75500F3B0B4 /* ZWMultipleSelectedHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4098E824AEA75400F3B0B4 /* ZWMultipleSelectedHeaderView.m */; };
 		EE4098EC24AEA75500F3B0B4 /* ZWMultipleSelectedBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4098EA24AEA75500F3B0B4 /* ZWMultipleSelectedBaseView.m */; };
-		EE4098EF24AEA85300F3B0B4 /* ZWPutTextBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4098ED24AEA85200F3B0B4 /* ZWPutTextBaseController.m */; };
 		EE434C1021F5BC9200744FB1 /* YXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE434C0F21F5BC9200744FB1 /* YXTableViewController.m */; };
 		EE434C1621F5C3C200744FB1 /* ProgramTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE434C1521F5C3C200744FB1 /* ProgramTestCell.m */; };
 		EE434C1821F5C6BC00744FB1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE434C1721F5C6BC00744FB1 /* Images.xcassets */; };
@@ -88,19 +85,13 @@
 		9F1E86B91F40D1C1F12215E6 /* libPods-YXKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YXKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA62B7CD12735403A792DAA0 /* Pods-YXKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXKit_Tests/Pods-YXKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC73A375BE7B3FF43CFB0DBE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		EE0F5D3321A65382000F979F /* YXGIFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXGIFViewController.h; sourceTree = "<group>"; };
-		EE0F5D3421A65382000F979F /* YXGIFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXGIFViewController.m; sourceTree = "<group>"; };
 		EE1B87EA21B765BF00638B93 /* YXQueueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXQueueViewController.m; sourceTree = "<group>"; };
-		EE211F1C224F236A0017A53E /* NetworkManager+Download.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetworkManager+Download.h"; sourceTree = "<group>"; };
-		EE211F1D224F236A0017A53E /* NetworkManager+Download.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetworkManager+Download.m"; sourceTree = "<group>"; };
 		EE211F1F224F25AE0017A53E /* YXDownLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXDownLoad.h; sourceTree = "<group>"; };
 		EE211F20224F25AE0017A53E /* YXDownLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXDownLoad.m; sourceTree = "<group>"; };
 		EE4098E724AEA75400F3B0B4 /* ZWMultipleSelectedBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWMultipleSelectedBaseView.h; sourceTree = "<group>"; };
 		EE4098E824AEA75400F3B0B4 /* ZWMultipleSelectedHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWMultipleSelectedHeaderView.m; sourceTree = "<group>"; };
 		EE4098E924AEA75400F3B0B4 /* ZWMultipleSelectedHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWMultipleSelectedHeaderView.h; sourceTree = "<group>"; };
 		EE4098EA24AEA75500F3B0B4 /* ZWMultipleSelectedBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWMultipleSelectedBaseView.m; sourceTree = "<group>"; };
-		EE4098ED24AEA85200F3B0B4 /* ZWPutTextBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPutTextBaseController.m; sourceTree = "<group>"; };
-		EE4098EE24AEA85200F3B0B4 /* ZWPutTextBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPutTextBaseController.h; sourceTree = "<group>"; };
 		EE434C0E21F5BC9200744FB1 /* YXTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXTableViewController.h; sourceTree = "<group>"; };
 		EE434C0F21F5BC9200744FB1 /* YXTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXTableViewController.m; sourceTree = "<group>"; };
 		EE434C1321F5C0CC00744FB1 /* YXQueueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXQueueViewController.h; sourceTree = "<group>"; };
@@ -210,22 +201,16 @@
 				6003F59D195388D20070C39A /* YXAppDelegate.m */,
 				EE4098E724AEA75400F3B0B4 /* ZWMultipleSelectedBaseView.h */,
 				EE4098EA24AEA75500F3B0B4 /* ZWMultipleSelectedBaseView.m */,
-				EE4098EE24AEA85200F3B0B4 /* ZWPutTextBaseController.h */,
-				EE4098ED24AEA85200F3B0B4 /* ZWPutTextBaseController.m */,
 				EE4098E924AEA75400F3B0B4 /* ZWMultipleSelectedHeaderView.h */,
 				EE4098E824AEA75400F3B0B4 /* ZWMultipleSelectedHeaderView.m */,
 				EE9BBA2521DC936A00B9ACFC /* NSObject+YXKVO.h */,
 				EE9BBA2621DC936A00B9ACFC /* NSObject+YXKVO.m */,
-				EE0F5D3321A65382000F979F /* YXGIFViewController.h */,
-				EE0F5D3421A65382000F979F /* YXGIFViewController.m */,
 				EE648FCF21ECC2DE00A1D983 /* YXTestLeak.h */,
 				EE648FD021ECC2DE00A1D983 /* YXTestLeak.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* YXViewController.h */,
 				6003F5A6195388D20070C39A /* YXViewController.m */,
 				EE434C0D21F5BC6F00744FB1 /* tableView性能优化 */,
-				EE211F1C224F236A0017A53E /* NetworkManager+Download.h */,
-				EE211F1D224F236A0017A53E /* NetworkManager+Download.m */,
 				EE211F1F224F25AE0017A53E /* YXDownLoad.h */,
 				EE211F20224F25AE0017A53E /* YXDownLoad.m */,
 				EE61742E21E6DF4600296CBF /* 音视频开发.h */,
@@ -492,8 +477,6 @@
 				EE211F21224F25AE0017A53E /* YXDownLoad.m in Sources */,
 				EE4098EC24AEA75500F3B0B4 /* ZWMultipleSelectedBaseView.m in Sources */,
 				EE61743021E6DF4600296CBF /* 音视频开发.m in Sources */,
-				EE4098EF24AEA85300F3B0B4 /* ZWPutTextBaseController.m in Sources */,
-				EE211F1E224F236A0017A53E /* NetworkManager+Download.m in Sources */,
 				EE9BBA2721DC936A00B9ACFC /* NSObject+YXKVO.m in Sources */,
 				EEB8538C21C0EF51007A0B90 /* YXRACViewController.m in Sources */,
 				EED2D088219BF23C00EFE020 /* YXViewController+review.m in Sources */,
@@ -502,7 +485,6 @@
 				6003F59E195388D20070C39A /* YXAppDelegate.m in Sources */,
 				EE648FD121ECC2DE00A1D983 /* YXTestLeak.m in Sources */,
 				6003F5A7195388D20070C39A /* YXViewController.m in Sources */,
-				EE0F5D3521A65382000F979F /* YXGIFViewController.m in Sources */,
 				EE1B87EB21B765BF00638B93 /* YXQueueViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				EE434C1621F5C3C200744FB1 /* ProgramTestCell.m in Sources */,

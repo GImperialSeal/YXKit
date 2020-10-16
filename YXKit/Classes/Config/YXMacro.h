@@ -27,7 +27,14 @@ static inline UIFont* KMainFont_Regular(CGFloat size){
 static inline UIFont* KMainFont_Medium(CGFloat size){
     return [UIFont fontWithName:@"PingFangSC-Medium" size:floorf(size)];
 }
-
+static inline NSError * errorBuild(NSInteger errorCode, NSString *domain, NSString *errorMsg){
+    NSMutableDictionary *useinfo = [NSMutableDictionary dictionary];
+    if (errorMsg) {
+        [useinfo setObject:errorMsg forKey:NSLocalizedDescriptionKey];
+    }
+    NSError *error = [[NSError alloc] initWithDomain:domain code:errorCode userInfo:useinfo];
+    return error;
+}
 
 
 #define singleton(className,methodName) \

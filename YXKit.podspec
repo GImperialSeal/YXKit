@@ -19,6 +19,8 @@ Pod::Spec.new do |s|
   s.dependency  'FCUUID'
   s.dependency 'YTKNetwork'
   s.dependency 'LLDebugTool'
+  s.dependency 'DZNEmptyDataSet'
+    
 
 #  s.dependency 'SocketRocket'
   

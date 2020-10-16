@@ -8,6 +8,8 @@
 
 #import "ZWMultipleSelectedHeaderView.h"
 #import <Masonry.h>
+#import <YXMacro.h>
+#import <YXKit.h>
 @implementation ZWMultipleSelectedHeaderView
 
 
